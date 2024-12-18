@@ -3,7 +3,11 @@
 </script>
 
 <template>
-   <MainLayout>index</MainLayout>
+   <MainLayout>
+      <section class="layout">
+         <h1>home page</h1>
+      </section>
+   </MainLayout>
 </template>
 
 <style lang="scss" scoped>
