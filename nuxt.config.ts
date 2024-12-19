@@ -1,7 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   compatibilityDate: '2024-11-01',
-  devtools: { enabled: true },
+  devtools: { enabled: false },
    modules: [
       // '@nuxtjs/supabase',
       '@nuxt/image',
@@ -14,7 +14,7 @@ export default defineNuxtConfig({
    image: {
       inject: true,
       quality: 85,
-      format: ['avif', 'webp'],
+      format: ['avif','webp'],
       screens: {
          'xs': 320,
          'sm': 480,
@@ -28,7 +28,7 @@ export default defineNuxtConfig({
     },
    fontawesome: {
       icons: {
-         solid: ['coffee', 'child'],
+         solid: ['dollar-sign', 'phone', 'user', 'circle', 'check'],
          regular: ['comment'],
          brands: ['twitter']
       }

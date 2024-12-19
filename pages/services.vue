@@ -13,7 +13,8 @@ useSeoMeta({
 
 <template>
       <section class="layout">
-         <h1>services page</h1>
+         <h1><font-awesome class="icon" icon="phone" /> services page
+         </h1>
          <NuxtPicture 
          src="/image/848_381.png"
          sizes="2xl:355px xl:324 md:299 sm:244 xs:202px"
@@ -21,3 +22,12 @@ useSeoMeta({
          />
       </section>
 </template>
+
+<style lang="scss" scoped>
+section {
+   .icon {
+   color: var(--active-link);
+}
+}
+
+</style>
