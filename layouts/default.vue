@@ -1,10 +1,15 @@
+<script lang="ts" setup>
+</script>
+
 <template>
    <header>
-      <NuxtLink  to="/about"></NuxtLink>
-      <NuxtLink  to="/contacts"></NuxtLink>
+<UNavigation />
    </header>
    <main>
       <slot />
    </main>
    <footer></footer>
 </template>
+
+<style lang="scss" scoped>
+</style>

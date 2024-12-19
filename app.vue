@@ -9,7 +9,7 @@
 <style lang="scss">
 .app {
    &__container {
-      padding-block-start: toRem(22);
+      padding-block: toRem(22);
    }
 }
 </style>
