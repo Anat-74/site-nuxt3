@@ -28,6 +28,6 @@ const links = [
       }
    }
    .router-link-active {
-      color: var(--light-coral);
+      color: var(--active-link);
 }
 </style>

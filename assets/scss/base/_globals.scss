@@ -5,17 +5,17 @@
 }
 
 :root {
-   // --transition-duration: .2s ease;
+   --transition-duration: .2s ease;
    --background-color: #ffffff;
    --text-color: #333333;
 
    --font-family2: "RubikBurned";
    --transparent-color: transparernt;
    --main: #000000;
+   --active-link:  #f08080;
    --whitesmoke: whitesmoke;
    --white: #ffffff;
    --light-green: #90ee90;
-   --light-coral: #f08080;
  }
 
 
@@ -36,13 +36,13 @@ h3 {
    @include adaptiveValue("font-size", 20, 16);
 }
 
-// a,
-// button,
-// input,
-// textarea,
-// svg * {
-//    transition-duration: var(--transition-duration);
-// }
+a,
+button,
+input,
+textarea,
+svg * {
+   transition-duration: var(--transition-duration);
+}
 
  a {
 	color: inherit;
