@@ -15,23 +15,26 @@ const isAccount = ref(false)
    <nav class="nav">
       <ul class="nav__list">
          <li class="nav__item">
-            <NuxtLink :to="localePath('/')">Главная</NuxtLink>
+            <NuxtLink :to="localePath('/')">{{ $t('nav.home') }}</NuxtLink>
       </li>
       <li class="nav__item">
-            <NuxtLink :to="localePath('/about')">{{ $t('about') }}</NuxtLink>
+            <NuxtLink :to="localePath('/about')">{{ $t('nav.about_us') }}</NuxtLink>
       </li>
       <li class="nav__item">
-            <NuxtLink :to="localePath('/services')">Наши услуги</NuxtLink>
+            <NuxtLink :to="localePath('/services')">{{ $t('nav.services') }}</NuxtLink>
       </li>
       <li class="nav__item">
-            <NuxtLink :to="localePath('/contacts')""><FontAwesome icon="phone" /> Контакты</NuxtLink>
+            <NuxtLink :to="localePath('/info')">{{ $t('nav.info') }}</NuxtLink>
+      </li>
+      <li class="nav__item">
+            <NuxtLink :to="localePath('/contacts')"><FontAwesome icon="phone" />{{ $t('nav.contacts') }}</NuxtLink>
       </li>
       <li 
       :class="['nav__item', {nav__item_isopen: isAccount}]"
       @mouseenter="isAccount = true"
       @mouseleave="isAccount = false"
       >
-      <NuxtLink :to="localePath('/profile')"><FontAwesome icon="user" /> Профиль</NuxtLink>
+      <NuxtLink :to="localePath('/profile')"><FontAwesome icon="user" />{{ $t('nav.account') }}</NuxtLink>
       <FontAwesome icon="chevron-down" />
       <div
       class="nav__account"
