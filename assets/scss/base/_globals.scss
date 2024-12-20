@@ -5,7 +5,7 @@
 // }
 
 :root {
-   --transition-duration: .2s ease;
+   // --transition-duration: .4s ease;
    --background-color: #ffffff;
    --text-color: #333333;
 
@@ -13,13 +13,14 @@
    --transparent-color: transparernt;
    --main: #000000;
    --active-link:  #f08080;
-   --whitesmoke: whitesmoke;
-   --white: #ffffff;
+   --whitesmoke-color: whitesmoke;
+   --white-color: #ffffff;
    --light-green: #90ee90;
  }
 
 
 body {
+   background-color: var(--whitesmoke-color);
    @include adaptiveValue("font-size", 18, 14);
 }
 
@@ -36,13 +37,13 @@ h3 {
    @include adaptiveValue("font-size", 20, 16);
 }
 
-a,
-button,
-input,
-textarea,
-svg * {
-   transition-duration: var(--transition-duration);
-}
+// a,
+// button,
+// input,
+// textarea,
+// svg *{
+//       transition-duration: var(--transition-duration);
+// }
 
  a {
 	color: inherit;

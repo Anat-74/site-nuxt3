@@ -2,15 +2,13 @@
 export default defineNuxtConfig({
   compatibilityDate: '2024-11-01',
   devtools: { enabled: false },
-   modules: [
-      // '@nuxtjs/supabase',
+   modules: [// '@nuxtjs/supabase',
       '@nuxt/image',
       '@vesp/nuxt-fontawesome',
-      'nuxt-lodash',
-      '@pinia/nuxt',
+      'nuxt-lodash', '@pinia/nuxt',
       'pinia-plugin-persistedstate/nuxt',
-      '@nuxtjs/fontaine'
-   ],
+      '@nuxtjs/fontaine',
+      '@nuxtjs/i18n'],
    image: {
       inject: true,
       quality: 85,
@@ -28,7 +26,7 @@ export default defineNuxtConfig({
     },
    fontawesome: {
       icons: {
-         solid: ['dollar-sign', 'phone', 'user', 'circle', 'check'],
+         solid: ['phone', 'user','chevron-down' ],
          regular: ['comment'],
          brands: ['twitter']
       }
