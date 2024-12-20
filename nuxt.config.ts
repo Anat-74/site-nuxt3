@@ -9,6 +9,30 @@ export default defineNuxtConfig({
       'pinia-plugin-persistedstate/nuxt',
       '@nuxtjs/fontaine',
       '@nuxtjs/i18n'],
+
+      i18n: {
+         lazy: true,
+         strategy: 'prefix_except_default',
+         locales: [
+            {
+               code: 'ru-Ru',
+               iso: 'ru-Ru',
+               name: 'Russian(RU)',
+               file: 'ru-RU.json'
+            },
+            {
+               code: 'be-BY',
+               iso: 'be-BY',
+               name: 'Belarusian(BY)',
+               file: 'be-BY.json'
+             }
+         ],
+         defaultLocale: 'ru-RU',
+         vueI18n: {
+            fallbackLocale: 'ru-RU'
+         }
+   },
+
    image: {
       inject: true,
       quality: 85,
@@ -23,14 +47,16 @@ export default defineNuxtConfig({
          '2xl': 1550
       },
       densities: [1, 2, 3]
-    },
+   },
+
    fontawesome: {
       icons: {
          solid: ['phone', 'user','chevron-down' ],
          regular: ['comment'],
          brands: ['twitter']
       }
-    },
+   },
+
    vite: {
       css: {
         preprocessorOptions: {
@@ -41,11 +67,13 @@ export default defineNuxtConfig({
          preprocessorMaxWorkers: true 
       }
    },
+
    runtimeConfig: {
       public: {
         stripePk: process.env.STRIPE_PK_KEY
       }
    },
+
    app: {
       head: {
          htmlAttrs: {
