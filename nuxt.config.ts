@@ -15,22 +15,17 @@ export default defineNuxtConfig({
          strategy: 'prefix_except_default',
          locales: [
             {
-               code: 'ru-Ru',
-               iso: 'ru-Ru',
+               code: 'ru',
                name: 'Russian(RU)',
                file: 'ru-RU.json'
             },
             {
-               code: 'be-BY',
-               iso: 'be-BY',
+               code: 'be',
                name: 'Belarusian(BY)',
                file: 'be-BY.json'
              }
          ],
-         defaultLocale: 'ru-RU',
-         vueI18n: {
-            fallbackLocale: 'ru-RU'
-         }
+         defaultLocale: 'ru'
    },
 
    image: {
