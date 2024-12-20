@@ -1,9 +1,9 @@
 <script lang="ts" setup>
-
 useSeoMeta({
    title: 'Главная',
    description: 'эта главная страница сайта',
 })
+
 </script>
 
 <template>

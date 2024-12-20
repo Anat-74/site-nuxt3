@@ -16,12 +16,12 @@ export default defineNuxtConfig({
          locales: [
             {
                code: 'ru',
-               name: 'Russian(RU)',
+               name: 'RU',
                file: 'ru-RU.json'
             },
             {
                code: 'be',
-               name: 'Belarusian(BY)',
+               name: 'BY',
                file: 'be-BY.json'
              }
          ],

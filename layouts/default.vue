@@ -4,6 +4,7 @@
 <template>
    <header>
 <UNavigation />
+<ULangSwitcher />
    </header>
    <main>
       <slot />

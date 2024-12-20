@@ -6,6 +6,8 @@
 //    { name: 'Контакты', path: '/contacts' },
 //    {name: 'Профиль', path: '/profile'}
 // ]
+const localePath = useLocalePath()
+
 const isAccount = ref(false)
 </script>
 
@@ -13,23 +15,23 @@ const isAccount = ref(false)
    <nav class="nav">
       <ul class="nav__list">
          <li class="nav__item">
-            <NuxtLink to="/">Главная</NuxtLink>
+            <NuxtLink :to="localePath('/')">Главная</NuxtLink>
       </li>
       <li class="nav__item">
-            <NuxtLink to="/about">О нас</NuxtLink>
+            <NuxtLink :to="localePath('/about')">{{ $t('about') }}</NuxtLink>
       </li>
       <li class="nav__item">
-            <NuxtLink to="/services">Наши услуги</NuxtLink>
+            <NuxtLink :to="localePath('/services')">Наши услуги</NuxtLink>
       </li>
       <li class="nav__item">
-            <NuxtLink to="/contacts"><FontAwesome icon="phone" /> Контакты</NuxtLink>
+            <NuxtLink :to="localePath('/contacts')""><FontAwesome icon="phone" /> Контакты</NuxtLink>
       </li>
       <li 
       :class="['nav__item', {nav__item_isopen: isAccount}]"
       @mouseenter="isAccount = true"
       @mouseleave="isAccount = false"
       >
-      <NuxtLink to="/profile"><FontAwesome icon="user" /> Профиль</NuxtLink>
+      <NuxtLink :to="localePath('/profile')"><FontAwesome icon="user" /> Профиль</NuxtLink>
       <FontAwesome icon="chevron-down" />
       <div
       class="nav__account"
