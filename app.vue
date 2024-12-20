@@ -7,9 +7,4 @@
 </template>
 
 <style lang="scss">
-.app {
-   &__container {
-      padding-block: toRem(22);
-   }
-}
 </style>

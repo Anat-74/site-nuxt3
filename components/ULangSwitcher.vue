@@ -10,13 +10,13 @@ const language = computed({
 </script>
 
 <template>
-   <div class="locale">
+   <div class="locale select-wrapper">
    <select 
-   class="locale__select"
+   class="locale__select select"
    v-model="language"
    >
       <option 
-      class="locale__option"
+      class="locale__option option"
       v-for="item in locales"
       :key="item"
       :value="item.code">
@@ -28,48 +28,8 @@ const language = computed({
 
 <style lang="scss" scoped>
 .locale {
-  position: relative;
-  display: flex;
-  justify-self: start;
-
-&::before,
-  &::after{
-     content: '';
-     pointer-events: none;
-     position: absolute;
-     top: toRem(11);
-     width: toRem(6);
-     height: toRem(2);
-     background-color: var(--active-link);
-  }
-  &::before {
-     right: toRem(9);
-     transform: rotate(-125deg);
-  }
-  &::after {
-     right: toRem(6);
-     transform: rotate(125deg);
-  }
   &__select {
      width: toRem(54);
-     padding-inline: toRem(4);
-     padding-block: toRem(3);
-     border: 2px solid var(--active-link);
-     border-radius: toEm(8, 18);
-     outline: none;
-     appearance: none;
-     cursor: pointer;
-     color: var(--active-link);
-  }
-  &__option {
-   border-radius: toRem(8);
-   font-size: toRem(14);
-   // @media (any-hover: hover) {
-   //    &:hover {
-   //       background-color: var(--light-green);
-   //    }
-   // }
-
   }
 }
 

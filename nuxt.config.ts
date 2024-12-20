@@ -7,8 +7,8 @@ export default defineNuxtConfig({
       '@vesp/nuxt-fontawesome',
       'nuxt-lodash', '@pinia/nuxt',
       'pinia-plugin-persistedstate/nuxt',
-      '@nuxtjs/fontaine',
-      '@nuxtjs/i18n'],
+      '@nuxtjs/fontaine', '@nuxtjs/i18n',
+      '@nuxtjs/color-mode'],
 
       i18n: {
          lazy: true,
