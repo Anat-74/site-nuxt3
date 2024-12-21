@@ -59,7 +59,7 @@ const isAccount = ref(false)
       &__item {
          position: relative;
          &_isopen {
-            background-color: var(--white-color);
+            background-color: var(--bg);
          }
       }
 
@@ -70,7 +70,7 @@ const isAccount = ref(false)
       height: toRem(52);
       top: toRem(30);
       left: toRem(-99);
-      background-color: var(--white-color);
+      background-color: var(--bg);
       color: var(--main-color);
    }
 }

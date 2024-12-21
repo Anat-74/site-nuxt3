@@ -43,7 +43,7 @@ export default defineNuxtConfig({
          'xxl': 1280,
          '2xl': 1550
       },
-      densities: [1, 2, 3]
+      densities: [1, 2]
    },
 
    fontawesome: {
