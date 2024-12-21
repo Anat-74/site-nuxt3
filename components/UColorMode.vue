@@ -1,19 +1,27 @@
 <script lang="ts" setup>
-const colorMode = useColorMode()
+function iconName(theme) {
+  if (theme === 'system') return 'tv'
+  if (theme === 'light') return 'sun'
+  if (theme === 'dark') return 'moon'
+  return 'mug-hot'
+}
 </script>
 
 <template>
-   <div class="color-mode select-wrapper">
-     <select 
-     class="color-mode__select select"
-     v-model="$colorMode.preference"
-     >
-       <option class="option" value="system">System</option>
-       <option class="option" value="light">Light</option>
-       <option class="option" value="dark">Dark</option>
-       <option class="option" value="sepia">Sepia</option>
-     </select>
-   </div>
+   <ul class="color-mode">
+      <li
+      v-for="theme of ['system', 'light', 'dark', 'sepia']"
+      :key="theme"
+      >
+         <button 
+         @click="$colorMode.preference = theme"
+         class="color-mode__btn-tv"
+         type="button"
+         >
+         <font-awesome :icon="iconName(theme)" />
+         </button>
+      </li>
+   </ul>
  </template>
  
  <style lang="scss">
@@ -29,10 +37,4 @@ const colorMode = useColorMode()
    background-color: #f1e7d0;
    color: #433422;
  }
-
- .color-mode {
-  &__select {
-     width: toRem(88);
-  }
-}
  </style>

@@ -1,8 +1,10 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   compatibilityDate: '2024-11-01',
-  devtools: { enabled: false },
-   modules: [// '@nuxtjs/supabase',
+   devtools: { enabled: false },
+   // ssr: true,
+   modules: [
+   // '@nuxtjs/supabase',
       '@nuxt/image',
       '@vesp/nuxt-fontawesome',
       'nuxt-lodash', '@pinia/nuxt',
@@ -46,7 +48,7 @@ export default defineNuxtConfig({
 
    fontawesome: {
       icons: {
-         solid: ['phone', 'user','chevron-down' ],
+         solid: ['phone', 'user', 'chevron-down', 'tv', 'mug-hot', 'sun', 'moon'],
          regular: ['comment'],
          brands: ['twitter']
       }
