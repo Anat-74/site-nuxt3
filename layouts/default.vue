@@ -5,7 +5,9 @@
    <header>
 <ULangSwitcher />
 <UNavigation />
+<ClientOnly>
 <UColorMode />
+</ClientOnly>
    </header>
    <main>
       <slot />

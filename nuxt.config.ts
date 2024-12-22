@@ -3,14 +3,18 @@ export default defineNuxtConfig({
   compatibilityDate: '2024-11-01',
    devtools: { enabled: false },
    // ssr: true,
-   modules: [
-   // '@nuxtjs/supabase',
+   modules: [// '@nuxtjs/supabase',
+   // '@vesp/nuxt-fontawesome',
       '@nuxt/image',
-      '@vesp/nuxt-fontawesome',
-      'nuxt-lodash', '@pinia/nuxt',
+      'nuxt-lodash',
+      '@pinia/nuxt',
       'pinia-plugin-persistedstate/nuxt',
-      '@nuxtjs/fontaine', '@nuxtjs/i18n',
-      '@nuxtjs/color-mode'],
+      '@nuxtjs/fontaine',
+      '@nuxtjs/i18n',
+      '@nuxtjs/color-mode',
+      '@nuxt/icon',
+      '@nuxtjs/html-validator'
+   ],
 
       i18n: {
          lazy: true,
@@ -46,13 +50,10 @@ export default defineNuxtConfig({
       densities: [1, 2]
    },
 
-   fontawesome: {
-      icons: {
-         solid: ['phone', 'user', 'chevron-down', 'tv', 'mug-hot', 'sun', 'moon'],
-         regular: ['comment'],
-         brands: ['twitter']
-      }
-   },
+   colorMode: {
+      preference: 'system', // default value of $colorMode.preference
+      fallback: 'light', // fallback value if not system preference found
+    },
 
    vite: {
       css: {
@@ -80,5 +81,13 @@ export default defineNuxtConfig({
           { src: 'https://js.stripe.com/v3/', defer: true }
         ]
       }
-    }
+   }
+   
+      // fontawesome: {
+   //    icons: {
+   //       solid: ['phone', 'user', 'chevron-down', 'tv', 'mug-hot', 'sun', 'moon'],
+   //       regular: ['comment'],
+   //       brands: ['twitter']
+   //    }
+   // },
 })

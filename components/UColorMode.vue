@@ -1,22 +1,13 @@
-<script lang="ts" setup>
+<script setup>
+const colorMode = useColorMode()
 
-const iconName =  function (theme) {
-  if (theme === 'system') return 'tv'
-  if (theme === 'light') return 'sun'
-  if (theme === 'dark') return 'moon'
-  return 'mug-hot'
+function iconName(theme) {
+  if (theme === 'system') return 'i-ph-laptop'
+  if (theme === 'light') return 'i-ph-sun'
+  if (theme === 'dark') return 'i-ph-moon'
+  return 'i-ph-coffee'
 }
 
-const iconN = [
-   { name: 'system', label: 'tv' },
-   { name: 'light', label: 'sun' },
-   { name: 'dark', label: 'moon' },
-   {name: 'sepia', label: 'mug-hot'}
-]
-const selectedIcon = ref('name')
-const changeIcon = (them) => {
-   selectedIcon.value = them
-}
 </script>
 
 <template>
@@ -25,12 +16,18 @@ const changeIcon = (them) => {
       v-for="theme of ['system', 'light', 'dark', 'sepia']"
       :key="theme"
       >
-         <button 
-         @click="$colorMode.preference = theme"
+         <button
+         :class="{
+            preferred: !colorMode.unknown && theme === colorMode.preference,
+            selected: !colorMode.unknown && theme === colorMode.value,
+        }"
+         @click="colorMode.preference = theme"
          type="button"
          >
-         <font-awesome 
-         :icon="iconName(theme)" />
+         <Icon
+          :name="iconName(theme)"
+          @click="colorMode.preference = theme"
+        />
          </button>
       </li>
    </ul>
@@ -40,10 +37,12 @@ const changeIcon = (them) => {
  .color-mode {
    li {
       button {
-         &.active {
-         color: red;
-         background-color: green;
-      }
+         &.preferred {
+            background-color: green;
+         }
+         &.selected {
+            color: red;
+         }
       }
    }
  }

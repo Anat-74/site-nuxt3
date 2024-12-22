@@ -24,8 +24,8 @@ const isAccount = ref(false)
                {{ $t('nav.info') }}</NuxtLink>
       </li>
       <li class="nav__item">
+         <Icon name="et:phone" />
             <NuxtLink :to="localePath('/contacts')">
-               <FontAwesome icon="phone" />
                {{ $t('nav.contacts') }}</NuxtLink>
       </li>
       <li 
@@ -33,10 +33,9 @@ const isAccount = ref(false)
       @mouseenter="isAccount = true"
       @mouseleave="isAccount = false"
       >
+      <Icon name="mdi:account-tie-outline" />
       <NuxtLink :to="localePath('/profile')">
-         <FontAwesome icon="user" />
          {{ $t('nav.account') }}
-         <FontAwesome icon="chevron-down" />
       </NuxtLink>
       <div
       v-if="isAccount"
@@ -50,16 +49,22 @@ const isAccount = ref(false)
 
 <style lang="scss" scoped>
    .nav {
-      // margin-block: toRem(44);
       &__list {
          display: flex;
          column-gap: toRem(12);
+         align-items: center;
       }
 
       &__item {
          position: relative;
+         display: flex;
+         align-items: center;
+         column-gap: toRem(4);
          &_isopen {
             background-color: var(--bg);
+         }
+         svg {
+            font-size: toRem(25);
          }
       }
 
@@ -74,6 +79,15 @@ const isAccount = ref(false)
       color: var(--main-color);
    }
 }
+
+.iconify--et {
+      color: orange;
+   }
+   .iconify--mdi {
+      color: red;
+   }
+
+
    .router-link-active {
       color: var(--active-link);
 }

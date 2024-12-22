@@ -27,5 +27,4 @@ body {
   --bg-secondary: #eae0c9;
   --border-color: #ded0bf;
  }
-
 </style>
