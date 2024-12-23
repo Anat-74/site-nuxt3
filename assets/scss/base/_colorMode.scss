@@ -1,0 +1,38 @@
+:root {
+   --transition-duration: .2s ease;
+   --transparent-color: transparernt;
+   --main: #000000;
+   --active-link:  #f08080;
+   --whitesmoke-color: whitesmoke;
+   --white-color: #ffffff;
+   --light-green: #90ee90;
+
+   --color: #243746;
+   --color-primary: #158876;
+   --color-secondary: #0e2233;
+   --bg: #f3f5f4;
+   --bg-secondary: #fff;
+   --border-color: #ddd;
+ }
+
+
+ body {
+  background-color: var(--bg);
+  color: var(--color);
+  transition: background-color .3s;
+ }
+ .dark-mode {
+  --color: #ebf4f1;
+  --color-primary: #41b38a;
+  --color-secondary: #fdf9f3;
+  --bg: #091a28;
+  --bg-secondary: #071521;
+  --border-color: #0d2538;
+ }
+ .sepia-mode {
+  --color: #433422;
+  --color-secondary: #504231;
+  --bg: #f1e7d0;
+  --bg-secondary: #eae0c9;
+  --border-color: #ded0bf;
+ }

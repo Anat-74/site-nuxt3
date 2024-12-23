@@ -1,4 +1,4 @@
-<script lang="ts" setup>
+<!-- <script lang="ts" setup>
 const colorMode = useColorMode()
 </script>
 
@@ -6,7 +6,7 @@ const colorMode = useColorMode()
    <div class="color-mode select-wrapper">
      <select 
      class="color-mode__select select"
-     v-model="$colorMode.preference"
+     v-model="colorMode.preference"
      >
        <option class="option" value="system">System</option>
        <option class="option" value="light">Light</option>
@@ -22,4 +22,4 @@ const colorMode = useColorMode()
      width: toRem(88);
   }
 }
-</style>
+</style> -->

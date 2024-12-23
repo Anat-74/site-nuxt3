@@ -12,15 +12,15 @@ function iconName(theme) {
 
 <template>
    <ul class="color-mode">
-      <li
+      <li class="color-mode__item"
       v-for="theme of ['system', 'light', 'dark', 'sepia']"
       :key="theme"
       >
          <button
-         :class="{
+         :class="['color-mode__btn', {
             preferred: !colorMode.unknown && theme === colorMode.preference,
             selected: !colorMode.unknown && theme === colorMode.value,
-        }"
+        }]"
          @click="colorMode.preference = theme"
          type="button"
          >
@@ -35,15 +35,33 @@ function iconName(theme) {
  
  <style lang="scss" scoped>
  .color-mode {
-   li {
-      button {
-         &.preferred {
-            background-color: green;
+   &__item {
+      border: 2px solid grey;
+      border-radius: toRem(8);
+      padding: toRem(2);
+      margin-block-end: toRem(2);
+   }
+   &__btn {
+      display: grid;
+         @media (any-hover: hover) {
+         &:hover {
+            transform: scale(1.2);
          }
-         &.selected {
-            color: red;
+      }
+      &.preferred {
+         .iconify  {
+            color: green;
+         }
+      }
+      &.selected {
+         .iconify  {
+         color: orange;
          }
       }
    }
  }
+
+ .iconify {
+   color: yellowgreen;
+}
  </style>

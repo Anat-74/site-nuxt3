@@ -63,9 +63,6 @@ const isAccount = ref(false)
          &_isopen {
             background-color: var(--bg);
          }
-         svg {
-            font-size: toRem(25);
-         }
       }
 
    &__account {
@@ -80,15 +77,19 @@ const isAccount = ref(false)
    }
 }
 
+.iconify {
+   font-size: toRem(25);
+}
+
 .iconify--et {
       color: orange;
-   }
-   .iconify--mdi {
+}
+.iconify--mdi {
       color: red;
-   }
+}
 
 
-   .router-link-active {
-      color: var(--active-link);
+.router-link-active {
+    color: var(--active-link);
 }
 </style>

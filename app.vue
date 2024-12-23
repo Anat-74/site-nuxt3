@@ -7,24 +7,5 @@
 </template>
 
 <style lang="scss">
-body {
-   background-color: var(--bg);
-  color: var(--color);
-  transition: background-color .3s;
- }
- .dark-mode {
-   --color: #ebf4f1;
-  --color-primary: #41b38a;
-  --color-secondary: #fdf9f3;
-  --bg: #091a28;
-  --bg-secondary: #071521;
-  --border-color: #0d2538;
- }
- .sepia-mode {
-   --color: #433422;
-  --color-secondary: #504231;
-  --bg: #f1e7d0;
-  --bg-secondary: #eae0c9;
-  --border-color: #ded0bf;
- }
+@use "~/assets/scss/styles.scss";
 </style>

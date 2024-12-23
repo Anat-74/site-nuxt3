@@ -29,7 +29,7 @@ const language = computed({
 <style lang="scss" scoped>
 .locale {
   &__select {
-     width: toRem(54);
+     width: toRem(45);
   }
 }
 
