@@ -58,12 +58,12 @@
    border: none;
  }
 
- :where(button[class]) {
-   cursor: pointer;
-   padding: 0;
-   border: none;
-   background-color: transparent;
- }
+//  :where(button[class]) {
+//    cursor: pointer;
+//    padding: 0;
+//    border: none;
+//    background-color: transparent;
+//  }
 
  a {
 	color: inherit;

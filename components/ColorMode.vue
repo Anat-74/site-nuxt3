@@ -31,21 +31,24 @@ function iconName(theme) {
          </button>
       </li>
    </ul>
+   <UButton
+   icon="i-ph-coffee"
+   />
  </template>
  
  <style lang="scss" scoped>
  .color-mode {
    &__item {
       border: 2px solid grey;
-      border-radius: toRem(8);
-      padding: toRem(2);
+      border-radius: toRem(6);
       margin-block-end: toRem(2);
    }
    &__btn {
-      display: grid;
+      display: flex;
+      padding: toRem(2);
          @media (any-hover: hover) {
          &:hover {
-            transform: scale(1.2);
+            transform: scale(1.2) rotate(-16deg);
          }
       }
       &.preferred {
