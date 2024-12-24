@@ -1,5 +1,10 @@
-<script setup>
-   const props = defineProps({
+<script setup lang="ts">
+const colorMode = useColorMode()
+const props = defineProps({
+      theme: {
+      type: String,
+      required: true
+      },
       label: {
          type: String,
          default: 'Button'
@@ -33,17 +38,20 @@
    const emit = defineEmits(['click'])
    const clickOnButton = () => {
       emit('click')
-   }
+}
 </script>
 
 <template>
    <button 
+      type="button"
       :disabled="disabled"
       @click="clickOnButton"
       :class="[
       'btn', `btn_${color}`,
       { 'btn_rounded': rounded }, { 'btn_outlined': outlined },
-      { 'btn_icon': icon }, { 'btn_large': size === 'large' }
+      { 'btn_icon': icon }, { 'btn_large': size === 'large' },
+      { 'btn_preferred': !colorMode.unknown && theme === colorMode.preference,
+        'btn_selected': !colorMode.unknown && theme === colorMode.value,}
    ]"
       >
    <span v-if="icon">
@@ -58,54 +66,45 @@
 .btn {
    cursor: pointer;
    padding-inline: toRem(12);
-   height: toRem(38);
+   // height: toRem(38);
    color: #000;
    border-radius: toRem(5);
    border: none;
    font-size: toRem(18);
+   background-color: transparent;
+   
+   &:enabled:hover {
+      // background-color: var(--danger-hover);
+    }
+    span {
+      display: grid;
+//       .iconify {
+//    color: yellowgreen;
+// }
+    }
+   &_preferred {
+         .iconify  {
+            color: green;
+         }
+      }
+      &_selected {
+         .iconify  {
+         color: orange;
+         }
+      }
 
-  &_primary {
-    background: var(--primary);
-    border: 1px solid var(--primary);
-    &:enabled:hover {
-      background: var(--primary-hover);
-    }
-  }
-  &_second {
-    background: var(--second);
-    border: 1px solid var(--second);
-    &:enabled:hover {
-      background: var(--second-hover);
-    }
-  }
-  &_success {
-    background: var(--success);
-    border: 1px solid var(--success);
-    &:enabled:hover {
-      background: var(--success-hover);
-    }
-  }
-  &_info {
-    background: var(--info);
-    border: 1px solid var(--info);
-    &:enabled:hover {
-      background: var(--info-hover);
-    }
-  }
-  &_warning {
-    background: var(--warning);
-    border: 1px solid var(--warning);
-    &:enabled:hover {
-      background: var(--warning-hover);
-    }
-  }
-  &_danger {
-    background: var(--danger);
-    border: 1px solid var(--danger-hover);
-    &:enabled:hover {
-      background: var(--danger-hover);
-    }
-  }
+   &_primary {
+      padding: toRem(2);
+      color: greenyellow;
+         @media (any-hover: hover) {
+            &:hover {
+            transform: scale(1.2) rotate(-16deg);
+         }
+            &:enabled:hover {
+               color: greenyellow;
+         }
+      }
+   }
   &:disabled {
     opacity: .6;
     cursor: default;
@@ -121,10 +120,10 @@
     }
   }
   &_icon {
-    padding: 0;
-    width: toRem(40);
-    height: toRem(40);
-    border-radius: 50%;
+   //  padding: 0;
+   //  width: toRem(40);
+   //  height: toRem(40);
+   //  border-radius: 50%;
   }
   &_large {
     height: toRem(48);

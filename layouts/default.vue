@@ -6,8 +6,8 @@
 <Icon name="fluent-mdl2:s-v-n-logo" />
 <UNavigation class="header__navigation" />
 <LangSwitcher class="header__langs" />
-<ClientOnly>
-<ColorMode class="header__color-mode" />
+<ClientOnly class="header__color-mode" >
+<ColorMode/>
 </ClientOnly>
    </header>
    <main>
