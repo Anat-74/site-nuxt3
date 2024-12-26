@@ -1,17 +1,17 @@
 <script setup lang="ts">
 const colorMode = useColorMode()
-const props = defineProps({
+defineProps({
       theme: {
       type: String,
       required: true
       },
       label: {
          type: String,
-         default: 'Button'
+         required: false
       },
       color: {
          type: String,
-         default: 'primary'
+         required: false
       },
       rounded: {
          type: Boolean,
@@ -51,7 +51,7 @@ const props = defineProps({
       { 'btn_rounded': rounded }, { 'btn_outlined': outlined },
       { 'btn_icon': icon }, { 'btn_large': size === 'large' },
       { 'btn_preferred': !colorMode.unknown && theme === colorMode.preference,
-        'btn_selected': !colorMode.unknown && theme === colorMode.value,}
+        'btn_selected': !colorMode.unknown && theme === colorMode.value}
    ]"
       >
    <span v-if="icon">
@@ -64,47 +64,43 @@ const props = defineProps({
 
 <style lang="scss" scoped>
 .btn {
-   cursor: pointer;
+   height: toRem(38);
    padding-inline: toRem(12);
-   // height: toRem(38);
-   color: #000;
-   border-radius: toRem(5);
-   border: none;
-   font-size: toRem(18);
+   border-radius: toRem(4);
+   color: var(--primary-color);
    background-color: transparent;
-   
-   &:enabled:hover {
-      // background-color: var(--danger-hover);
-    }
+   cursor: pointer;
+   border: none;
+
     span {
       display: grid;
-//       .iconify {
-//    color: yellowgreen;
-// }
     }
+
    &_preferred {
          .iconify  {
-            color: green;
+            color: var(--primary-color);
          }
       }
       &_selected {
          .iconify  {
-         color: orange;
+         color: var(--warning-color);
          }
       }
 
    &_primary {
+      height: auto;
       padding: toRem(2);
-      color: greenyellow;
+      color: var(--secondary-color);
          @media (any-hover: hover) {
             &:hover {
             transform: scale(1.2) rotate(-16deg);
          }
-            &:enabled:hover {
-               color: greenyellow;
-         }
       }
    }
+
+   &_succes {
+   }
+
   &:disabled {
     opacity: .6;
     cursor: default;
@@ -114,9 +110,9 @@ const props = defineProps({
   }
   &_outlined {
     background: transparent;
-    color: #000;
+    color: var(--primary-color);
     &:hover {
-      color: #fff;
+      color: var(--primary-hover);
     }
   }
   &_icon {

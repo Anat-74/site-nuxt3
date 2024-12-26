@@ -1,6 +1,8 @@
 
+
+
 body {
-   @include adaptiveValue("font-size", 18, 14);
+   @include adaptiveValue("font-size", 16, 14);
 }
 
 h1 {
@@ -13,7 +15,7 @@ h2 {
 }
 
 h3 {
-   @include adaptiveValue("font-size", 20, 16);
+   @include adaptiveValue("font-size", 18, 16);
 }
 
 a,
@@ -63,7 +65,6 @@ svg * {
    outline: none;
    appearance: none;
    cursor: pointer;
-   color: var( --color-primary);
 }
 .option {
    border-radius: toRem(8);

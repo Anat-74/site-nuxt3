@@ -16,8 +16,8 @@ function iconName(theme) {
       :key="theme"
       >
       <UButton
-      color="primary"
       @click="colorMode.preference = theme"
+      color="primary"
       :icon="iconName(theme)"
       :theme="theme"
       />
@@ -28,7 +28,7 @@ function iconName(theme) {
  <style lang="scss" scoped>
  .color-mode {
    &__item {
-      border: 2px solid grey;
+      border: 2px solid var(--border-color);
       border-radius: toRem(6);
       margin-block-end: toRem(2);
    }
