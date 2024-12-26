@@ -92,10 +92,6 @@ const isAccount = ref(false)
       border-radius: toRem(8);
       background-color: var(--bg-secondary);
 
-      @media (width <=($tablet)){
-         
-      }
-
       &__title {
          margin-block-end: toRem(7);
          font-weight: 400;
@@ -123,11 +119,8 @@ const isAccount = ref(false)
          &:not(:last-child) {
             margin-block-end: toRem(2);
          }
-
-         @media (any-hover: hover) {
-            &:hover {
-               background-color: var(--border-color);
-         }
+      @include hover {
+         background-color: var(--border-color);
       }
    }
 }

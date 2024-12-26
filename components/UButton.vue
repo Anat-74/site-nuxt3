@@ -69,7 +69,6 @@ defineProps({
    border-radius: toRem(4);
    color: var(--primary-color);
    background-color: transparent;
-   cursor: pointer;
    border: none;
 
     span {
@@ -91,14 +90,11 @@ defineProps({
       height: auto;
       padding: toRem(2);
       color: var(--secondary-color);
-         @media (any-hover: hover) {
-            &:hover {
-            transform: scale(1.2) rotate(-16deg);
-         }
-      }
-   }
 
-   &_succes {
+      @include hover {
+         transform: scale(1.2) rotate(-16deg);
+      }
+      transition: transform var(--transition-duration);
    }
 
   &:disabled {

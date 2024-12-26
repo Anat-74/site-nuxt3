@@ -1,4 +1,17 @@
-
+@mixin hover($hasActiveEffectOnMobile: true) {
+   @media(any-hover: hover) {
+      &:hover {
+         @content;
+      }
+   }
+   @if($hasActiveEffectOnMobile) {
+      @media(any-hover: none) {
+         &:active {
+            @content;
+         }
+      }
+   }
+}
 
 
 body {
@@ -23,7 +36,34 @@ button,
 input,
 textarea,
 svg * {
-   transition: var(--transition-duration);
+   transition-duration: var(--transition-duration);
+}
+
+a {
+   color: inherit;
+   &[class] {
+      text-decoration: none;
+   }
+
+   @include hover {
+      color: var(--warning-hover);
+   }
+
+   &:focus-visible {
+      outline: toRem(2) dashed var(--warning-color);
+      outline-offset: toRem(4);
+      transition-duration: 0s !important;
+   }
+}
+
+button, 
+label,
+select {
+   &:focus-visible {
+      outline: toRem(2) solid var(--warning-color);
+      outline-offset: toRem(4);
+      transition-duration: 0s !important;
+   }
 }
 
 .iconify {
