@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 const searchItem = ref('')
-const isSearching = ref(true)
+const isSearching = ref(false)
 </script>
 
 <template>
@@ -33,7 +33,7 @@ id="MainHeader"
 
    &__input {
       width: 100%;
-      height: 44px;
+      height: toRem(40);
       padding-inline: toRem(16);
       border-radius: toRem(4);
       border: toRem(2) solid var(--danger-color);

@@ -42,7 +42,7 @@ const localePath = useLocalePath()
       <h3 class="profile__title">{{ $t('nav.profile_title') }}</h3>
          <NuxtLink
          class="profile__link"
-         to="/auth"
+         :to="localePath('/auth')"
          >{{ $t('nav.profile_login') }}
       </NuxtLink>
          <ul class="profile__list">
@@ -89,7 +89,7 @@ const localePath = useLocalePath()
       width: toRem(242);
       height: toRem(138);
       top: toRem(38);
-      left: toRem(-90);
+      left: toRem(-92);
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -105,7 +105,7 @@ const localePath = useLocalePath()
       }
 
       &__title {
-         font-weight: 400;
+         font-weight: 500;
       }
 
       &__link {
@@ -153,7 +153,7 @@ const localePath = useLocalePath()
    color: var(--primary-color);
 }
 .iconify--oui {
-   font-size: toRem(22);
+   font-size: toRem(18);
 }
 
 

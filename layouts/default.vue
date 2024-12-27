@@ -14,11 +14,7 @@ name="fluent-mdl2:s-v-n-logo" />
 <ClientOnly >
 <ColorMode class="header__color-mode"/>
 </ClientOnly>
-<Search 
-   :isAccount="isAccount"
-   :class="['header__search', {header__search_hidden: isAccount}]"
-
- />
+<Search :class="['header__search', {header__search_hidden: isAccount}]" />
    </header>
    <main class="main">
       <slot />
@@ -62,7 +58,7 @@ name="fluent-mdl2:s-v-n-logo" />
 
    &__search {
    grid-column: 2/3;
-   width: 100%;
+   width: 50%;
    transition: visibility 0s, opacity .4s;
    &_hidden {
       visibility: hidden;
