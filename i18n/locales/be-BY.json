@@ -7,6 +7,10 @@
          "services": "Нашы паслугі",
          "info": "Інфармацыя",
          "contacts": "Кантакты",
-         "account": "Профіль"
+         "profile": "Профіль",
+         "profile_title": "Сардэчна запрашаем",
+         "profile_login": "Уваход / Рэгістрацыя",
+         "profile_orders": "Мае замовы",
+         "profile_exit": "Вынахад"
       }
 }

@@ -101,6 +101,9 @@
  }
  button,
  label {
+   // &[class] {
+   //    padding: 0;
+   // }
    cursor: pointer;
  }
  

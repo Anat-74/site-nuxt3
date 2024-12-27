@@ -7,6 +7,10 @@
       "services": "Наши услуги",
       "info": "Информация",
       "contacts": "Контакты",
-      "account": "Профиль"
+      "profile": "Профиль",
+      "profile_title": "Добро пожаловать",
+      "profile_login": "Вход / Регистрация",
+      "profile_orders": "Мои заказы",
+      "profile_exit": "Выход"
    }
 }

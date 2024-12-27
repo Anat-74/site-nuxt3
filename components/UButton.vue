@@ -3,13 +3,13 @@ const colorMode = useColorMode()
 defineProps({
       theme: {
       type: String,
-      required: true
+      required: false
       },
       label: {
          type: String,
          required: false
       },
-      color: {
+      name: {
          type: String,
          required: false
       },
@@ -47,7 +47,7 @@ defineProps({
       :disabled="disabled"
       @click="clickOnButton"
       :class="[
-      'btn', `btn_${color}`,
+      'btn', `btn_${name}`,
       { 'btn_rounded': rounded }, { 'btn_outlined': outlined },
       { 'btn_icon': icon }, { 'btn_large': size === 'large' },
       { 'btn_preferred': !colorMode.unknown && theme === colorMode.preference,
@@ -64,8 +64,8 @@ defineProps({
 
 <style lang="scss" scoped>
 .btn {
-   height: toRem(38);
-   padding-inline: toRem(12);
+   // height: toRem(38);
+   // padding-inline: toRem(12);
    border-radius: toRem(4);
    color: var(--primary-color);
    background-color: transparent;
@@ -86,7 +86,7 @@ defineProps({
          }
       }
 
-   &_primary {
+   &_color-theme {
       height: auto;
       padding: toRem(2);
       color: var(--secondary-color);
@@ -95,6 +95,16 @@ defineProps({
          transform: scale(1.2) rotate(-16deg);
       }
       transition: transform var(--transition-duration);
+   }
+
+   &_search {
+      height: 100%;
+      padding-inline: toRem(16);
+      background-color: var(--danger-color);
+
+   .iconify--ph {
+      color: var(--white-color);
+}
    }
 
   &:disabled {

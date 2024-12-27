@@ -17,7 +17,7 @@ function iconName(theme) {
       >
       <UButton
       @click="colorMode.preference = theme"
-      color="primary"
+      name="color-theme"
       :icon="iconName(theme)"
       :theme="theme"
       />

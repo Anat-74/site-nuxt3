@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 const localePath = useLocalePath()
 
-const isAccount = ref(false)
+ const isAccount = inject('account')
 </script>
 
 <template>
@@ -34,27 +34,27 @@ const isAccount = ref(false)
       @mouseleave="isAccount = false"
       >
       <Icon name="mdi:account-tie-outline" />
-         {{ $t('nav.account') }}
-
+         {{ $t('nav.profile') }}
+      <Icon name="oui:arrow-down" />
       <div
       v-if="isAccount"
-      class="nav__account account">
-      <h3 class="account__title">Welcome to Magazine</h3>
+      class="nav__profile profile">
+      <h3 class="profile__title">{{ $t('nav.profile_title') }}</h3>
          <NuxtLink
-         class="account__link"
+         class="profile__link"
          to="/auth"
-         >Login / Register</NuxtLink>
-         <ul class="account__list">
+         >{{ $t('nav.profile_login') }}
+      </NuxtLink>
+         <ul class="profile__list">
             <li 
             @click="navigateTo('/orders')"
-            class="account__item">My Orders
+            class="profile__item">{{ $t('nav.profile_orders') }}
          </li>
-            <li class="account__item">Sign out
+            <li class="profile__item">{{ $t('nav.profile_exit') }}
             </li>
-         </ul>
-   </div>
-
-      </li>
+            </ul>
+         </div>
+       </li>
       </ul>
    </nav>
 </template>
@@ -72,59 +72,74 @@ const isAccount = ref(false)
          display: flex;
          align-items: center;
          column-gap: toRem(4);
+         padding-block: toRem(7);
 
          &_isopen {
             position: relative;
+            border-radius: toRem(6) toRem(6) 0 0;
             background-color: var(--bg-secondary);
       }
    }
 }
 
-.account {
+.profile {
       @include adaptiveValue("font-size", 16, 14);
       text-align: center;
       position: absolute;
-      width: toRem(222);
+      width: toRem(242);
       height: toRem(138);
-      top: toRem(25);
-      left: toRem(-99);
+      top: toRem(38);
+      left: toRem(-90);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      row-gap: toRem(9);
       padding-block: toRem(4);
-      border-radius: toRem(8);
+      border-radius: toRem(6) 0 toRem(6) toRem(6);
       background-color: var(--bg-secondary);
 
+      @include hover {
+         .iconify--oui {
+            transform: rotate(45deg);
+         }
+      }
+
       &__title {
-         margin-block-end: toRem(7);
          font-weight: 400;
       }
 
       &__link {
-         display: inline-block;
          padding-block: toRem(2);
-         padding-inline: toRem(16);
-         margin-block-end: toRem(7);
          border: 2px solid var(--border-color);
          font-weight: 600;
          color: var(--white-color);
          background-color: var(--danger-color);
+         transition: background-color var(--transition-duration);
+
+         @include hover {
+            border-color: var(--danger-color);
+            color: var(--danger-color);
+            background-color: transparent;
+         }
       }
 
       &__list {
          text-align: left;
-         padding-inline-start: toRem(6);
       }
 
       &__item {
-         padding-block: toRem(4);
+         padding-block: toRem(2);
+         padding-inline-start: toRem(5);
          font-weight: 500;
          &:not(:last-child) {
             margin-block-end: toRem(2);
          }
       @include hover {
+         color: var(--white-color);
          background-color: var(--border-color);
       }
    }
 }
-
 
 
 .iconify {
@@ -132,10 +147,13 @@ const isAccount = ref(false)
 }
 
 .iconify--et {
-      color: var(--primary-color);
+   color: var(--primary-color);
 }
 .iconify--mdi {
    color: var(--primary-color);
+}
+.iconify--oui {
+   font-size: toRem(22);
 }
 
 
