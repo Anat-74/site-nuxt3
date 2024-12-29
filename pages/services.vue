@@ -11,6 +11,9 @@ useSeoMeta({
 //    })
 </script>
 
+<style lang="scss" scoped>
+
+</style>
 <template>
       <section class="services">
          <h1 class="services__title"> services page</h1>
