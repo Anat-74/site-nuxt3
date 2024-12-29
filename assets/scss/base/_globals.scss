@@ -56,6 +56,10 @@ a {
    }
 }
 
+.router-link-active {
+   color: var(--active-link);
+}
+
 button, 
 label,
 select {

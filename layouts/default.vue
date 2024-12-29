@@ -8,7 +8,8 @@ provide('account', isAccount)
 <header class="header">
 <Icon 
 class="header__logo"
-name="fluent-mdl2:s-v-n-logo" />
+name="fluent-mdl2:s-v-n-logo"
+/>
 <UNavigation class="header__navigation" />
 <LangSwitcher class="header__langs" />
 <ClientOnly >
@@ -25,7 +26,7 @@ name="fluent-mdl2:s-v-n-logo" />
 <style lang="scss" scoped>
 .header {
    display: grid;
-   grid-template: auto / auto 1fr repeat(2,auto);
+   grid-template: auto / toRem(92) 1fr repeat(2,auto);
    grid-auto-rows: auto;
    align-items: center;
    justify-items: center;
@@ -33,10 +34,10 @@ name="fluent-mdl2:s-v-n-logo" />
    padding-block-start: toRem(22);
 
    &__logo {
-   width: toRem(92);
    }
 
 &__navigation {
+   padding-inline: toRem(20);
    @media (max-width:$tablet){
    display: none;
    }

@@ -63,8 +63,8 @@ const localePath = useLocalePath()
    .nav {
       &__list {
          @include adaptiveValue("font-size", 20, 16);
+         @include adaptiveValue("column-gap", 48, 16, 0, $containerWidth, 991.98);
          display: flex;
-         column-gap: toRem(12);
          align-items: center;
       }
 
@@ -89,7 +89,7 @@ const localePath = useLocalePath()
       width: toRem(242);
       height: toRem(138);
       top: toRem(38);
-      left: toRem(-92);
+      left: toRem(-94);
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -141,11 +141,6 @@ const localePath = useLocalePath()
    }
 }
 
-
-.iconify {
-   font-size: toRem(25);
-}
-
 .iconify--et {
    color: var(--primary-color);
 }
@@ -154,10 +149,5 @@ const localePath = useLocalePath()
 }
 .iconify--oui {
    font-size: toRem(18);
-}
-
-
-.router-link-active {
-    color: var(--active-link);
 }
 </style>

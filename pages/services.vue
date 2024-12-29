@@ -12,21 +12,28 @@ useSeoMeta({
 </script>
 
 <template>
-      <section class="layout">
-         <h1 class="layout__title"> services page
-         </h1>
-         <NuxtPicture 
+      <section class="services">
+         <h1 class="services__title"> services page</h1>
+         <NuxtImg 
+         class="services__image"
          src="/image/removebg-preview.png"
-         sizes="2xl:355px xl:324 md:299 sm:244 xs:202px"
+         alt="image"
+         format="webp"
+         width="266"
          loading="lazy"
          />
       </section>
 </template>
 
 <style lang="scss" scoped>
-section {
-   .icon {
-   color: var(--active-link);
+.services {
+&__title {
+}
+
+&__image {
+   @media (max-width:$tablet){
+      width: toRem(122);
+   }
 }
 }
 

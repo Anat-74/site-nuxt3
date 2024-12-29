@@ -35,18 +35,7 @@ export default defineNuxtConfig({
    },
 
    image: {
-      inject: true,
       quality: 85,
-      format: ['avif','webp'],
-      screens: {
-         'xs': 320,
-         'sm': 479.98,
-         'md': 767.98,
-         'lg': 991.98,
-         'xl': 1024.98,
-         'xxl': 1280.98,
-         '2xl': 1550.98
-      },
       densities: [1, 2]
    },
 
