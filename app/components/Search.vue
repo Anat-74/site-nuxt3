@@ -8,11 +8,15 @@ const isSearching = ref(false)
 class="search"
 id="MainHeader"
 >
+<label 
+class="visually-hidden"
+for="my-search">Поиск товаров</label>
    <input 
    class="search__input"
    v-model="searchItem"
    placeholder="Kitchen accessories"
    type="text"
+   id="my-search"
    >
    <div class="search__icons">
    <Icon
@@ -22,6 +26,7 @@ id="MainHeader"
    <UButton
    icon="ph:magnifying-glass"
    name="search"
+   aria-label="magnifying glass"
    />
 </div>
 </div>

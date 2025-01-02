@@ -2,8 +2,8 @@
 useSeoMeta({
    title: 'Наши услуги',
    ogTitle: 'Наши услуги',
-   description: 'Эта страница о наших услугах',
-   ogDescription: 'Эта страница о наших услугах'
+   description: 'Страница о наших услугах',
+   ogDescription: 'Страница о наших услугах'
 })
 
 // definePageMeta({

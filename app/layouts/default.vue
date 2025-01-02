@@ -1,4 +1,4 @@
-<script lang="ts" setup>
+<script setup lang="ts">
 const isAccount = ref(false)
 
 provide('account', isAccount)
@@ -10,23 +10,25 @@ provide('account', isAccount)
 class="header__logo"
 name="fluent-mdl2:s-v-n-logo"
 />
-<UNavigation class="header__navigation" />
+<BaseNavigation class="header__navigation" />
 <LangSwitcher class="header__langs" />
 <ClientOnly >
 <ColorMode class="header__color-mode"/>
 </ClientOnly>
 <Search :class="['header__search', {header__search_hidden: isAccount}]" />
    </header>
+
    <main class="main">
       <slot />
    </main>
+
    <footer></footer>
 </template>
 
 <style lang="scss" scoped>
 .header {
    display: grid;
-   grid-template: auto / toRem(92) 1fr repeat(2,auto);
+   grid-template: auto / minmax(toRem(52), toRem(92)) 1fr repeat(2,auto);
    grid-auto-rows: auto;
    align-items: center;
    justify-items: center;

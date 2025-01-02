@@ -20,6 +20,7 @@ function iconName(theme) {
       name="color-theme"
       :icon="iconName(theme)"
       :theme="theme"
+      :aria-label="theme"
       />
       </li>
    </ul>

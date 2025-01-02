@@ -11,9 +11,13 @@ const language = computed({
 
 <template>
    <div class="locale select-wrapper">
+      <label
+      class="visually-hidden"
+      for="my-language">Выбор языка</label>
    <select 
    class="locale__select select"
    v-model="language"
+   id="my-language"
    >
       <option 
       class="locale__option option"

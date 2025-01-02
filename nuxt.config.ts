@@ -29,8 +29,8 @@ export default defineNuxtConfig({
       }
     },
    // ssr: true,
-   modules: [// '@nuxtjs/supabase',
-   // '@vesp/nuxt-fontawesome',
+   modules: [
+   // '@nuxtjs/supabase',
       '@nuxt/image',
       'nuxt-lodash',
       '@pinia/nuxt',
@@ -96,13 +96,5 @@ export default defineNuxtConfig({
           { src: 'https://js.stripe.com/v3/', defer: true }
         ]
       }
-   },
-   
-      // fontawesome: {
-   //    icons: {
-   //       solid: ['phone', 'user', 'chevron-down', 'tv', 'mug-hot', 'sun', 'moon'],
-   //       regular: ['comment'],
-   //       brands: ['twitter']
-   //    }
-   // },
+   }
 })
