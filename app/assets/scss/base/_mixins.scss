@@ -1,3 +1,21 @@
+@use "sass:math";
+@use './container' as s;
+
+@mixin hover($hasActiveEffectOnMobile: true) {
+   @media(any-hover: hover) {
+      &:hover {
+         @content;
+      }
+   }
+   @if($hasActiveEffectOnMobile) {
+      @media(any-hover: none) {
+         &:active {
+            @content;
+         }
+      }
+   }
+}
+
 //Percent
 @function percent($px, $from) {
 	$result: math.div($px, $from) * 100%;
@@ -29,7 +47,7 @@
 }
 
 // Адаптивное свойство(clamp)
-@mixin adaptiveValue($property, $startSize, $minSize, $keepSize: 0, $widthFrom: $containerWidth, $widthTo: $minWidth) {
+@mixin adaptiveValue($property, $startSize, $minSize, $keepSize: 0, $widthFrom: s.$containerWidth, $widthTo: s.$minWidth) {
 	@if ($startSize==0) {
 		$startSize: 0.000001;
 	}
@@ -40,7 +58,7 @@
 	// Для calc();
 	$addSize: math.div($startSize - $minSize, 16);
 
-	@if ($widthFrom == $containerWidth and $maxWidthContainer == 0) {
+	@if ($widthFrom == s.$containerWidth and s.$maxWidthContainer == 0) {
 		$widthFrom: $maxWidth;
 	}
 

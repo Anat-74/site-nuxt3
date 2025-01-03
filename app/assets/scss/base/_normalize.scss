@@ -1,3 +1,6 @@
+@use './font';
+@use './container';
+
 /**
   Нормализация блочной модели
  */
@@ -141,8 +144,8 @@
  }
  
  body {
-   min-width: $minWidth + px;
-   font-family: $font-family;
+   min-width: container.$minWidth + px;
+   font-family: font.$font-family;
    line-height: 1.2;
    /**
      Пригодится в большинстве ситуаций

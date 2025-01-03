@@ -69,17 +69,7 @@ export default defineNuxtConfig({
       preference: 'system', // default value of $colorMode.preference
       fallback: 'light', // fallback value if not system preference found
     },
-
-   vite: {
-      css: {
-        preprocessorOptions: {
-          scss: {
-            additionalData: '@use "~/assets/scss/styles.scss" as *;'
-          }
-         },
-         preprocessorMaxWorkers: true 
-      }
-   },
+    css: ['~/assets/scss/styles.scss'],
 
    runtimeConfig: {
       public: {

@@ -34,9 +34,9 @@ useSeoMeta({
 }
 
 &__image {
-   @media (max-width:$tablet){
-      width: toRem(122);
-   }
+   // @media (max-width:$tablet){
+   //    width: toRem(122);
+   // }
 }
 }
 

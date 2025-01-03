@@ -63,6 +63,7 @@ defineProps({
 </template>
 
 <style lang="scss" scoped>
+@use '../assets/scss/base/mixins' as *;
 .btn {
    // height: toRem(38);
    // padding-inline: toRem(12);
@@ -90,11 +91,10 @@ defineProps({
       height: auto;
       padding: toRem(2);
       color: var(--secondary-color);
-
+      transition: transform var(--transition-duration);
       @include hover {
          transform: scale(1.2) rotate(-16deg);
       }
-      transition: transform var(--transition-duration);
    }
 
    &_search {
