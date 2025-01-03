@@ -31,10 +31,11 @@ const language = computed({
 </template>
 
 <style lang="scss" scoped>
+@use '@/assets/scss/base/functions' as *;
 .locale {
-//   &__select {
-//      width: toRem(45);
-//   }
+  &__select {
+     width: toRem(45);
+  }
 }
 
 </style>

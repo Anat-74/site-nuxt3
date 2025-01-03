@@ -60,16 +60,13 @@ const localePath = useLocalePath()
 </template>
 
 <style lang="scss" scoped>
-// @use '../assets/scss/base' as *;
-@use '../assets/scss/base/mixins' as m;
-@use '../assets/scss/base/container' as c;
-@use '../assets/scss/base/functions' as *;
+@use '@/assets/scss/base' as *;
    .nav {
       &__list {
          display: flex;
          align-items: center;
-         @include m.adaptiveValue("column-gap", 48, 16, 0, c.$containerWidth, 991.98);
-         @include m.adaptiveValue("font-size", 20, 16);
+         @include adaptiveValue("column-gap", 48, 16, 0, $containerWidth, 991.98);
+         @include adaptiveValue("font-size", 20, 16);
       }
 
       &__item {
@@ -92,7 +89,7 @@ const localePath = useLocalePath()
       width: toRem(242);
       height: toRem(138);
       top: toRem(38);
-      left: toRem(-100);
+      left: toRem(-99);
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -100,9 +97,9 @@ const localePath = useLocalePath()
       padding-block: toRem(4);
       border-radius: toRem(6) 0 toRem(6) toRem(6);
       background-color: var(--bg-secondary);
-      @include m.adaptiveValue("font-size", 16, 14);
+      @include adaptiveValue("font-size", 16, 14);
 
-      @include m.hover {
+      @include hover {
          .iconify--oui {
             transform: rotate(45deg);
          }
@@ -120,7 +117,7 @@ const localePath = useLocalePath()
          background-color: var(--danger-color);
          transition: background-color var(--transition-duration);
 
-         @include m.hover {
+         @include hover {
             border-color: var(--danger-color);
             color: var(--danger-color);
             background-color: transparent;
@@ -138,7 +135,7 @@ const localePath = useLocalePath()
          &:not(:last-child) {
             margin-block-end: toRem(2);
          }
-      @include m.hover {
+      @include hover {
          color: var(--white-color);
          background-color: var(--border-color);
       }

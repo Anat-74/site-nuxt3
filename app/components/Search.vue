@@ -33,6 +33,7 @@ for="my-search">Поиск товаров</label>
 </template>
 
 <style lang="scss" scoped>
+@use '@/assets/scss/base/functions' as *;
 .search {
    position: relative;
 

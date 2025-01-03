@@ -63,7 +63,7 @@ defineProps({
 </template>
 
 <style lang="scss" scoped>
-@use '../assets/scss/base/mixins' as *;
+@use '@/assets/scss/base' as *;
 .btn {
    // height: toRem(38);
    // padding-inline: toRem(12);
