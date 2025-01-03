@@ -1,4 +1,4 @@
-@use './font';
+@use './fonts';
 @use './container';
 
 /**
@@ -145,7 +145,7 @@
  
  body {
    min-width: container.$minWidth + px;
-   font-family: font.$font-family;
+   font-family: fonts.$font-family;
    line-height: 1.2;
    /**
      Пригодится в большинстве ситуаций

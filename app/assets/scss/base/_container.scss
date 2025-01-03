@@ -1,4 +1,5 @@
-@use "sass:math";
+@use 'sass:math';
+@use './functions' as f;
 
 //! НАСТРОЙКИ ===============================================================================================================================================================================================================================================================================================
 //? Минимальная ширина страницы
@@ -15,10 +16,10 @@ $containerPadding: 24;
 $containerWidth: $maxWidthContainer + $containerPadding;
 
 //* Брейк-поинты
-$pc: toEm($containerWidth); // ПК, ноутбуки
-$tablet: toEm(991.98); // Планшеты
-$mobile: toEm(767.98); // Телефоны L
-$mobileSmall: toEm(479.98); // Телефоны S
+$pc: f.toEm($containerWidth); // ПК, ноутбуки
+$tablet: f.toEm(991.98); // Планшеты
+$mobile: f.toEm(767.98); // Телефоны L
+$mobileSmall: f.toEm(479.98); // Телефоны S
 
 //! Ограничивающий контейнер ======================================================================================================================================================================================================================
 /*
@@ -33,12 +34,12 @@ $responsiveType: 1;
 	// Отзывчивая
 	[class*="__container"] {
 		@if ($maxWidthContainer>0) {
-			max-width: toRem($maxWidthContainer);
+			max-width: f.toRem($maxWidthContainer);
 			box-sizing: content-box;
 			margin-inline: auto;
 		}
 		@if ($containerPadding>0) {
-			padding: 0 toRem(math.div($containerPadding, 2));
+			padding: 0 f.toRem(math.div($containerPadding, 2));
 		}
 	}
 } @else {
@@ -46,23 +47,23 @@ $responsiveType: 1;
 	[class*="__container"] {
 		margin-inline: auto;
 		@if ($maxWidthContainer>0) {
-			max-width: toRem($maxWidthContainer);
+			max-width: f.toRem($maxWidthContainer);
 			box-sizing: content-box;
 		} @else {
 			@if ($containerPadding>0) {
-				padding: 0 toRem(math.div($containerPadding, 2));
+				padding: 0 f.toRem(math.div($containerPadding, 2));
 			}
 		}
 		@media (max-width: $pc) {
-			max-width: toRem(970);
+			max-width: f.toRem(970);
 		}
 		@media (max-width: $tablet) {
-			max-width: toRem(750);
+			max-width: f.toRem(750);
 		}
 		@media (max-width: $mobile) {
 			max-width: none;
 			@if ($containerPadding>0 and $maxWidthContainer>0) {
-				padding: 0 toRem(math.div($containerPadding, 2));
+				padding: 0 f.toRem(math.div($containerPadding, 2));
 			}
 		}
 	}

@@ -27,8 +27,7 @@ name="fluent-mdl2:s-v-n-logo"
 </template>
 
 <style lang="scss" scoped>
-// @use '../assets/scss/styles.scss' as *;
-@use '../assets/scss/base/mixins' as *;
+@use '../assets/scss/base/functions' as *;
 .header {
    display: grid;
    grid-template: auto / minmax(toRem(52), toRem(92)) 1fr repeat(2,auto);

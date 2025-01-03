@@ -60,8 +60,10 @@ const localePath = useLocalePath()
 </template>
 
 <style lang="scss" scoped>
+// @use '../assets/scss/base' as *;
 @use '../assets/scss/base/mixins' as m;
 @use '../assets/scss/base/container' as c;
+@use '../assets/scss/base/functions' as *;
    .nav {
       &__list {
          display: flex;
@@ -90,7 +92,7 @@ const localePath = useLocalePath()
       width: toRem(242);
       height: toRem(138);
       top: toRem(38);
-      left: toRem(-94);
+      left: toRem(-100);
       display: flex;
       flex-direction: column;
       justify-content: center;
