@@ -1,7 +1,7 @@
 @use "sass:math";
-@import "base/_mixins";
+@import "base/mixins";
 
-@import "base/_font";
+@import "base/font";
 
 $font-family: "Montserrat";
 $font-family2: "RubikBurned";
@@ -77,9 +77,9 @@ $responsiveType: 1;
 }
 
 //*Глобальные стили проекта
-@import "base/_normalize";
-@import "base/_globals";
-@import "base/_colorMode";
+@import "base/normalize";
+@import "base/globals";
+@import "base/colorMode";
 
 .visually-hidden {
    position: absolute !important;
