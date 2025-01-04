@@ -8,24 +8,34 @@ const localePath = useLocalePath()
    <nav class="nav">
       <ul class="nav__list">
          <li class="nav__item">
-            <NuxtLink :to="localePath('/')">
+            <NuxtLink
+            class="nav__link" 
+            :to="localePath('/')">
                {{ $t('nav.home') }}</NuxtLink>
       </li>
       <li class="nav__item">
-            <NuxtLink :to="localePath('/about')">
+            <NuxtLink
+            class="nav__link"  
+            :to="localePath('/about')">
                {{ $t('nav.about_us') }}</NuxtLink>
       </li>
       <li class="nav__item">
-            <NuxtLink :to="localePath('/services')">
+            <NuxtLink 
+            class="nav__link" 
+            :to="localePath('/services')">
                {{ $t('nav.services') }}</NuxtLink>
       </li>
       <li class="nav__item">
-            <NuxtLink :to="localePath('/info')">
+            <NuxtLink 
+            class="nav__link" 
+            :to="localePath('/info')">
                {{ $t('nav.info') }}</NuxtLink>
       </li>
       <li class="nav__item">
          <Icon name="et:phone" />
-            <NuxtLink :to="localePath('/contacts')">
+            <NuxtLink 
+            class="nav__link" 
+            :to="localePath('/contacts')">
                {{ $t('nav.contacts') }}</NuxtLink>
       </li>
       <li 
@@ -79,6 +89,33 @@ const localePath = useLocalePath()
             position: relative;
             border-radius: toRem(6) toRem(6) 0 0;
             background-color: var(--bg-secondary);
+      }
+   }
+
+   &__link {
+      position: relative;
+      height: toRem(42);
+      display: inline-flex;
+      align-items: center;
+
+      &:not(.router-link-active) {
+         @include hover {
+         &::after {
+            width: 100%;
+         }
+      }
+      }
+
+      &::after {
+         content: '';
+         position: absolute;
+         top: 100%;
+         left: 50%;
+         translate: -50%;
+         width: 0;
+         height: toRem(2);
+         background-color: currentColor;
+         transition: width var(--transition-duration);
       }
    }
 }
@@ -139,6 +176,15 @@ const localePath = useLocalePath()
          color: var(--white-color);
          background-color: var(--border-color);
       }
+   }
+}
+
+.router-link-active {
+   color: var(--active-link) !important;
+   pointer-events: none !important;
+
+   @include hover {
+   color: var(--active-link);
    }
 }
 

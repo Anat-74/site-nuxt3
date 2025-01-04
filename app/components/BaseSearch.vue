@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 const searchItem = ref('')
-const isSearching = ref(false)
+const isSearching = ref(true)
 </script>
 
 <template>
@@ -8,6 +8,8 @@ const isSearching = ref(false)
 class="search"
 id="MainHeader"
 >
+<search>
+<form class="search__form">
 <label 
 class="visually-hidden"
 for="my-search">Поиск товаров</label>
@@ -15,7 +17,7 @@ for="my-search">Поиск товаров</label>
    class="search__input"
    v-model="searchItem"
    placeholder="Kitchen accessories"
-   type="text"
+   type="search"
    id="my-search"
    >
    <div class="search__icons">
@@ -26,16 +28,46 @@ for="my-search">Поиск товаров</label>
    <UButton
    icon="ph:magnifying-glass"
    name="search"
-   aria-label="magnifying glass"
+   aria-label="Поиск"
    />
+</div>
+</form>
+</search>
+   <div 
+   v-if="true" 
+   class="search__products"
+   >
+   <NuxtLink
+   class="search__link"
+   to="`/item/1`"
+   >
+   <NuxtImg 
+   class="search__image"
+   src="/image/removebg-preview.png"
+   alt="image"
+   format="webp"
+   width="30"
+   loading="lazy"
+   />
+   <span class="search__text">Testing</span>
+   <span class="search__price">
+      98.99 
+      <small>б.р.</small>
+   </span>
+   </NuxtLink>
 </div>
 </div>
 </template>
 
 <style lang="scss" scoped>
 @use '@/assets/scss/base/functions' as *;
+//id: MainHeader div
 .search {
    position: relative;
+
+   &__form {
+
+   }
 
    &__input {
       width: 100%;
@@ -55,10 +87,31 @@ for="my-search">Поиск товаров</label>
    right: 0;
    transform: translateY(-50%)
    }
+
+   &__products {
+   position: absolute;
+   width: 100%;
+   height: auto;
+   border: toRem(4) solid var(--white-color);
+   }
+
+   &__link {
+   display: flex;
+   align-items: center;
+   column-gap: toRem(2);
 }
 
+&__image {
+}
+
+&__text {
+   flex: 1 1 auto;
+}
+
+&__price {
+   }
+}
 
 .iconify--eos-icons {
 }
-
 </style>

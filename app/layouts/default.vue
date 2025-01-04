@@ -11,12 +11,12 @@ provide('account', isAccount)
 class="header__logo"
 name="fluent-mdl2:s-v-n-logo"
 />
-<BaseNavigation class="header__navigation" />
-<LangSwitcher class="header__langs" />
+<BaseNavigation class="header__navigation hidden-tablet" />
+<LangSwitcher class="header__langs hidden-tablet" />
 <ClientOnly >
-<ColorMode class="header__color-mode"/>
+<ColorMode class="header__color-mode hidden-tablet"/>
 </ClientOnly>
-<Search :class="['header__search', {header__search_hidden: isAccount}]" />
+<BaseSearch :class="['header__search', {header__search_hidden: isAccount}]" />
    </header>
 
    <main class="main">
@@ -42,23 +42,14 @@ name="fluent-mdl2:s-v-n-logo"
 
 &__navigation {
    padding-inline: toRem(20);
-   @media (max-width:$tablet){
-   display: none;
-   }
 }
 
 &__langs {
    align-self: start;
-   @media (max-width:$tablet){
-      display: none;
-   }
 }
 
 &__color-mode {
    grid-row: 2 span;
-   @media (max-width:$tablet){
-      display: none;
-   }
    }
 
    &__search {

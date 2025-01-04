@@ -1,29 +1,25 @@
-@use './mixins' as *;
 @use './functions' as *;
+@use './mixins' as m;
+@use './container' as c;
 
 body {
-   @include adaptiveValue("font-size", 16, 14);
+   background-color: var(--bg);
+   color: var(--color);
+   transition: background-color .3s;
+   @include m.adaptiveValue("font-size", 16, 14);
 }
 
 h1 {
    color: var(--light-green);
-   @include adaptiveValue("font-size", 26, 20);
+   @include m.adaptiveValue("font-size", 26, 20);
 }
 
 h2 {
-   @include adaptiveValue("font-size", 22, 18);
+   @include m.adaptiveValue("font-size", 22, 18);
 }
 
 h3 {
-   @include adaptiveValue("font-size", 18, 16);
-}
-
-a,
-button,
-input,
-textarea,
-svg * {
-   transition-duration: var(--transition-duration);
+   @include m.adaptiveValue("font-size", 18, 16);
 }
 
 a {
@@ -32,19 +28,15 @@ a {
       text-decoration: none;
    }
 
-   @include hover {
-      color: var(--warning-hover);
-   }
+   // @include m.hover {
+   //    color: var(--warning-hover);
+   // }
 
    &:focus-visible {
       outline: toRem(2) dashed var(--warning-color);
       outline-offset: toRem(4);
       transition-duration: 0s !important;
    }
-}
-
-.router-link-active {
-   color: var(--active-link);
 }
 
 button, 
@@ -61,7 +53,7 @@ select {
    font-size: toRem(25);
 }
 
-//*select======================================================================================================================
+//*select start======================================================================================================================
 .select-wrapper {
    position: relative;
    display: flex;
@@ -101,8 +93,32 @@ select {
    border-radius: toRem(8);
    font-size: toRem(14);
   }
+//*select end======================================================================================================================
 
-  
+.hidden-tablet {
+   @media (max-width:c.$tablet){
+      display: none;
+   }
+}
+
+.hidden-mobile {
+   @media (max-width:c.$mobile){
+      display: none;
+   }
+}
+
+.visible-tablet {
+   @media (min-width:c.$tablet){
+       display: none; 
+   }
+}
+
+.visible-mobile {
+   @media (min-width:c.$mobile){
+       display: none; 
+   }
+}
+
 .visually-hidden {
    position: absolute !important;
    width: 1px !important;
