@@ -12,7 +12,9 @@ id="MainHeader"
 <form class="search__form">
 <label 
 class="visually-hidden"
-for="my-search">Поиск товаров</label>
+for="my-search"
+>Поиск товаров
+</label>
    <input 
    class="search__input"
    v-model="searchItem"
@@ -20,7 +22,6 @@ for="my-search">Поиск товаров</label>
    type="search"
    id="my-search"
    >
-   <div class="search__icons">
    <Icon
    v-if="isSearching"
    name="eos-icons:loading"
@@ -30,11 +31,10 @@ for="my-search">Поиск товаров</label>
    name="search"
    aria-label="Поиск"
    />
-</div>
 </form>
 </search>
    <div 
-   v-if="true" 
+   v-if="false" 
    class="search__products"
    >
    <NuxtLink
@@ -60,39 +60,37 @@ for="my-search">Поиск товаров</label>
 </template>
 
 <style lang="scss" scoped>
-@use '@/assets/scss/base/functions' as *;
+@use '@/assets/scss/base' as *;
 //id: MainHeader div
 .search {
    position: relative;
 
    &__form {
+      position: relative;
+      height: toRem(40);
+      display: flex;
+      align-items: center;
 
+      svg {
+      position: absolute;
+      right: toRem(55);
+      }
    }
 
    &__input {
       width: 100%;
-      height: toRem(40);
+      height: 100%;
       padding-inline: toRem(16);
-      border-radius: toRem(4);
+      border-radius: toRem(4) toRem(0) toRem(0) toRem(4);
       border: toRem(2) solid var(--danger-color);
-   }
-
-   &__icons {
-   height: 100%;
-   display: flex;
-   align-items: center;
-   column-gap: toRem(4);
-   position: absolute;
-   top: 50%;
-   right: 0;
-   transform: translateY(-50%)
+      border-right: none;
    }
 
    &__products {
    position: absolute;
    width: 100%;
    height: auto;
-   border: toRem(4) solid var(--white-color);
+   border: toRem(4) solid var(--light-color);
    }
 
    &__link {
@@ -112,6 +110,4 @@ for="my-search">Поиск товаров</label>
    }
 }
 
-.iconify--eos-icons {
-}
 </style>

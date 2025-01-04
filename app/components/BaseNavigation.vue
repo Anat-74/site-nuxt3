@@ -85,6 +85,13 @@ const localePath = useLocalePath()
          column-gap: toRem(4);
          padding-block: toRem(7);
 
+         @include hover {
+         .iconify--oui {
+            color: var(--active-link);
+            transition: color var(--transition-duration);
+         }
+      }
+
          &_isopen {
             position: relative;
             border-radius: toRem(6) toRem(6) 0 0;
@@ -126,7 +133,7 @@ const localePath = useLocalePath()
       width: toRem(242);
       height: toRem(138);
       top: toRem(38);
-      left: toRem(-99);
+      left: toRem(-96);
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -136,12 +143,6 @@ const localePath = useLocalePath()
       background-color: var(--bg-secondary);
       @include adaptiveValue("font-size", 16, 14);
 
-      @include hover {
-         .iconify--oui {
-            transform: rotate(45deg);
-         }
-      }
-
       &__title {
          font-weight: 500;
       }
@@ -150,7 +151,7 @@ const localePath = useLocalePath()
          padding-block: toRem(2);
          border: 2px solid var(--border-color);
          font-weight: 600;
-         color: var(--white-color);
+         color: var(--light-color);
          background-color: var(--danger-color);
          transition: background-color var(--transition-duration);
 
@@ -173,7 +174,7 @@ const localePath = useLocalePath()
             margin-block-end: toRem(2);
          }
       @include hover {
-         color: var(--white-color);
+         color: var(--light-color);
          background-color: var(--border-color);
       }
    }

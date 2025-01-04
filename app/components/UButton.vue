@@ -77,12 +77,12 @@ defineProps({
     }
 
    &_preferred {
-         .iconify  {
+         svg  {
             color: var(--primary-color);
          }
       }
       &_selected {
-         .iconify  {
+         svg  {
          color: var(--warning-color);
          }
       }
@@ -99,13 +99,14 @@ defineProps({
 
    &_search {
       height: 100%;
-      padding-inline: toRem(16);
+      padding-inline: toRem(12);
+      border-radius: toRem(0) toRem(4) toRem(4) toRem(0);
       background-color: var(--danger-color);
 
-   .iconify--ph {
-      color: var(--white-color);
-}
+      svg {
+      color: var(--light-color);
    }
+}
 
   &:disabled {
     opacity: .6;
