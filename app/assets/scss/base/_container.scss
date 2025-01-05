@@ -7,13 +7,13 @@ $minWidth: 320;
 //? Ширина полотна (макета)
 $maxWidth: 1920;
 //? Ширина ограничивающего контейнера (0 = нет ограничения)
-$maxWidthContainer: 1280;
+$maxWidthContainer: 1600;
 //? Общий отступ у контейнера
 // (24 = по 12px слева и справа, 0 = нет отступа)
-$containerPadding: 24;
+$containerPaddingX: 30;
 
 //? Ширина срабатывания первого брейкпоинта
-$containerWidth: $maxWidthContainer + $containerPadding;
+$containerWidth: $maxWidthContainer + $containerPaddingX;
 
 //* Брейк-поинты
 $pc: f.toEm($containerWidth); // ПК, ноутбуки
@@ -27,45 +27,17 @@ $mobileSmall: f.toEm(479.98); // Телефоны S
 всем классам содержащим *__container
 Снипет (HTML): cnt
 */
-
-$responsiveType: 1;
-
-@if ($responsiveType==1) {
-	// Отзывчивая
 	[class*="__container"] {
 		@if ($maxWidthContainer>0) {
 			max-width: f.toRem($maxWidthContainer);
 			box-sizing: content-box;
 			margin-inline: auto;
 		}
-		@if ($containerPadding>0) {
-			padding: 0 f.toRem(math.div($containerPadding, 2));
-		}
-	}
-} @else {
-	// По брейк-поинтам
-	[class*="__container"] {
-		margin-inline: auto;
-		@if ($maxWidthContainer>0) {
-			max-width: f.toRem($maxWidthContainer);
-			box-sizing: content-box;
-		} @else {
-			@if ($containerPadding>0) {
-				padding: 0 f.toRem(math.div($containerPadding, 2));
-			}
-		}
-		@media (max-width: $pc) {
-			max-width: f.toRem(970);
-		}
-		@media (max-width: $tablet) {
-			max-width: f.toRem(750);
-		}
-		@media (max-width: $mobile) {
-			max-width: none;
-			@if ($containerPadding>0 and $maxWidthContainer>0) {
-				padding: 0 f.toRem(math.div($containerPadding, 2));
-			}
-		}
-	}
-}
+		@if ($containerPaddingX>0) {
+			padding-inline: f.toRem(math.div($containerPaddingX, 2));
 
+         @media (max-width:$mobile){
+            padding-inline: f.toRem(math.div($containerPaddingX, 2.5));
+         }
+		}
+	}

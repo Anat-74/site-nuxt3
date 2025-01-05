@@ -71,6 +71,7 @@ const localePath = useLocalePath()
 
 <style lang="scss" scoped>
 @use '@/assets/scss/base' as *;
+//contacts - absolute
    .nav {
       &__list {
          display: flex;

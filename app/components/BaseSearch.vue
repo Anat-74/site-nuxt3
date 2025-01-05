@@ -64,7 +64,6 @@ for="my-search"
 //id: MainHeader div
 .search {
    position: relative;
-
    &__form {
       position: relative;
       height: toRem(40);

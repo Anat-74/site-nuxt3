@@ -37,7 +37,7 @@
 	$addSize: math.div($startSize - $minSize, 16);
 
 	@if ($widthFrom == c.$containerWidth and c.$maxWidthContainer == 0) {
-		$widthFrom: $maxWidth;
+		$widthFrom: c.$maxWidth;
 	}
 
 	// Брейк-поинты в EM
