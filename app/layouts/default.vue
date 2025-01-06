@@ -1,8 +1,12 @@
 <script setup lang="ts">
 
 const isAccount = ref(false)
+const isContacts = ref(false)
 
-provide('account', isAccount)
+provide('visible', {
+   isAccount,
+   isContacts
+})
 </script>
 
 <template>
@@ -13,10 +17,8 @@ class="header__logo"
 name="fluent-mdl2:s-v-n-logo"
 />
 <BaseNavigation class="header__navigation hidden-tablet" />
-<LangSwitcher class="header__langs hidden-tablet" />
-<div class="header__bg">
-<BaseSearch :class="['header__search', {header__search_hidden: isAccount}]" />
-</div>
+<LangSwitcher class="header__lang hidden-tablet" />
+<BaseSearch :class="['header__search', {header__search_hidden: isAccount || isContacts}]" />
 <CartShopping class="header__cart" />
 </div>
 </header>
@@ -40,50 +42,59 @@ name="fluent-mdl2:s-v-n-logo"
 @use '@/assets/scss/base' as *;
 
 .header {
-   background-color:grey;
+   margin-block-start: toRem(22);
+   padding-block-end: toRem(22);
+   background-color:var(--bg-secondary);
+
    &__container {
    display: grid;
-   grid-template: auto minmax(toRem(47), toRem(75))
-    / minmax(toRem(44), toRem(48)) auto minmax(toRem(44), toRem(48));
+   grid-template: auto
+    / minmax(toRem(46), toRem(56)) 1fr minmax(toRem(46), toRem(56));
    grid-auto-rows: auto;
    align-items: center;
    justify-items: center;
    column-gap: toRem(12);
-   padding-block-start: toRem(22);
    }
 
 
    &__logo {
-      justify-self: start;
+      width: toRem(42);
+      height: toRem(42);
+      background-color: var(--bg);
+      border-radius: 50%;
+
+      @media (max-width:$tablet){
+         grid-row: 2/3;
+      }
    }
 
 &__navigation {
    padding-inline: toRem(20);
+   padding-block: toRem(22);
 }
 
 &__cart {
-      grid-row: 2/3;
-      grid-column: 3/4;
-      justify-self: end;
-   }
-
-&__langs {
-   align-self: start;
+   grid-row: 2/3;
+   grid-column: 3/4;
+   align-self: end;
 }
 
-&__bg {
-   grid-row: 2/3;
-   grid-column: 2/3;
-   width: 100%;
-   background-color: var(--light-color);
-   height: 100%;
+&__lang {
+   align-self: start;
+   justify-self: center;
 }
 
    &__search {
-   // grid-row: 2/3;
-   // grid-column: 2/3;
+   grid-row: 2/3;
+   grid-column: 2/3;
+   justify-self: end;
    width: 50%;
    transition: visibility 0s, opacity .4s;
+
+   @media (max-width:$tablet){
+      width: 100%;
+   }
+
       &_hidden {
          visibility: hidden;
          opacity: 0;

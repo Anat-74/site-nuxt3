@@ -64,9 +64,10 @@ for="my-search"
 //id: MainHeader div
 .search {
    position: relative;
+
    &__form {
       position: relative;
-      height: toRem(40);
+      height: toRem(44);
       display: flex;
       align-items: center;
 
@@ -89,7 +90,7 @@ for="my-search"
    position: absolute;
    width: 100%;
    height: auto;
-   border: toRem(4) solid var(--light-color);
+   border: toRem(4) solid var(--bg-secondary);
    }
 
    &__link {

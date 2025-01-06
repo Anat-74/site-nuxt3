@@ -1,7 +1,9 @@
 <script lang="ts" setup>
 const localePath = useLocalePath()
 
- const isAccount = inject('account')
+const { isAccount, isContacts } = inject('visible')
+
+
 </script>
 
 <template>
@@ -31,15 +33,37 @@ const localePath = useLocalePath()
             :to="localePath('/info')">
                {{ $t('nav.info') }}</NuxtLink>
       </li>
-      <li class="nav__item">
-         <Icon name="et:phone" />
+
+      <li :class="['nav__item', {nav__item_contacts: isContacts}]"
+      @mouseenter="isContacts = true"
+      @mouseleave="isContacts = false"
+      >
             <NuxtLink 
             class="nav__link" 
-            :to="localePath('/contacts')">
-               {{ $t('nav.contacts') }}</NuxtLink>
+            :to="localePath('/contacts')"
+            ><Icon name="et:phone" />
+               {{ $t('nav.contacts') }}
+            </NuxtLink>
+            <div
+            v-if="isContacts"
+            class="nav__contacts contacts">
+            <span 
+            class="contacts__phone"
+            href="#">
+            <Icon name="mdi:telephone-outline" 
+            />+37529 343-33-33
+         </span>
+            <span 
+            class="contacts__phone"
+            href="#">
+            <Icon name="mdi:telephone-outline"
+             />+37529 343-33-33
+      </span>
+         </div>
       </li>
+
       <li 
-      :class="['nav__item', {nav__item_isopen: isAccount}]"
+      :class="['nav__item', {nav__item_account: isAccount}]"
       @mouseenter="isAccount = true"
       @mouseleave="isAccount = false"
       >
@@ -71,40 +95,58 @@ const localePath = useLocalePath()
 
 <style lang="scss" scoped>
 @use '@/assets/scss/base' as *;
-//contacts - absolute
    .nav {
       &__list {
          display: flex;
          align-items: center;
-         @include adaptiveValue("column-gap", 48, 16, 0, $containerWidth, 991.98);
-         @include adaptiveValue("font-size", 20, 16);
+         column-gap: toRem(38);
+         // padding-block: toRem(22);
+         @include adaptiveValue("font-size", 18, 16);
       }
 
       &__item {
          display: flex;
          align-items: center;
          column-gap: toRem(4);
-         padding-block: toRem(7);
 
-         @include hover {
+         .iconify--et {
+            font-size: toRem(21);
+         }
+
          .iconify--oui {
-            color: var(--active-link);
+            margin-inline-start: toRem(9);
+            font-size: toRem(18);
+         }
+
+         &_account {
+            position: relative;
+            border-radius: toRem(6) toRem(6) 0 0;
+            background-color: var(--bg-secondary);
+
+            svg {
+            color: var(--active-color);
             transition: color var(--transition-duration);
          }
       }
 
-         &_isopen {
-            position: relative;
-            border-radius: toRem(6) toRem(6) 0 0;
-            background-color: var(--bg-secondary);
+      &_contacts {
+         position: relative;
+         border-radius: toRem(6) toRem(6) 0 0;
+         background-color: var(--bg-secondary);
+
+         .iconify--et {
+            color: var(--active-color);
+            transition: color var(--transition-duration);
+         }
       }
    }
 
    &__link {
       position: relative;
-      height: toRem(42);
-      display: inline-flex;
+      display: flex;
       align-items: center;
+      column-gap: toRem(5);
+      padding-block: toRem(3);
 
       &:not(.router-link-active) {
          @include hover {
@@ -112,6 +154,15 @@ const localePath = useLocalePath()
             width: 100%;
          }
       }
+   }
+         &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: toRem(-20);
+            width: toRem(2);
+            height: 100%;
+            background-color: var(--slate-gray);
       }
 
       &::after {
@@ -122,8 +173,49 @@ const localePath = useLocalePath()
          translate: -50%;
          width: 0;
          height: toRem(2);
-         background-color: currentColor;
+         background-color: var(--danger-hover);
          transition: width var(--transition-duration);
+      }
+   }
+}
+
+   .contacts {
+      display: grid;
+      align-items: center;
+      justify-items: center;
+      text-align: center;
+      position: absolute;
+      width: toRem(245);
+      height: toRem(102);
+      top: toRem(57);
+      left: toRem(-124);
+      padding: toRem(12);
+      border-radius: 0 0 toRem(6) toRem(6);
+      background-color: var(--bg-secondary);
+
+   //    @media (max-width:$tablet){
+   //    display: none;
+   // }
+
+      svg {
+         font-size: toRem(19);
+      }
+
+   &__phone {
+      display: flex;
+      align-items: center;
+      column-gap: toRem(8);
+      padding-inline: toRem(6);
+      padding-block: toRem(4);
+      border: 1px solid var(--border-color);
+      border-radius: toRem(4);
+      font-size: toRem(19);
+      font-weight: 500;
+
+      @include hover {
+         color: var(--light-color);
+         background-color: var(--danger-color);
+         transition: background-color var(--transition-duration);
       }
    }
 }
@@ -133,14 +225,14 @@ const localePath = useLocalePath()
       position: absolute;
       width: toRem(242);
       height: toRem(138);
-      top: toRem(38);
-      left: toRem(-96);
+      top: toRem(57);
+      left: toRem(-81);
       display: flex;
       flex-direction: column;
       justify-content: center;
       row-gap: toRem(9);
       padding-block: toRem(4);
-      border-radius: toRem(6) 0 toRem(6) toRem(6);
+      border-radius: 0 0 toRem(6) toRem(6);
       background-color: var(--bg-secondary);
       @include adaptiveValue("font-size", 16, 14);
 
@@ -152,7 +244,7 @@ const localePath = useLocalePath()
          padding-block: toRem(2);
          border: 2px solid var(--border-color);
          font-weight: 600;
-         color: var(--light-color);
+         color: var(--whitesmoke-color);
          background-color: var(--danger-color);
          transition: background-color var(--transition-duration);
 
@@ -171,9 +263,11 @@ const localePath = useLocalePath()
          padding-block: toRem(2);
          padding-inline-start: toRem(5);
          font-weight: 500;
+
          &:not(:last-child) {
             margin-block-end: toRem(2);
          }
+
       @include hover {
          color: var(--light-color);
          background-color: var(--border-color);
@@ -182,21 +276,11 @@ const localePath = useLocalePath()
 }
 
 .router-link-active {
-   color: var(--active-link) !important;
+   color: var(--active-color) !important;
    pointer-events: none !important;
 
    @include hover {
-   color: var(--active-link);
+   color: var(--active-color);
    }
-}
-
-.iconify--et {
-   color: var(--primary-color);
-}
-.iconify--mdi {
-   color: var(--primary-color);
-}
-.iconify--oui {
-   font-size: toRem(18);
 }
 </style>

@@ -27,13 +27,13 @@ class="cart-link"
          display: flex;
          justify-content: center;
          align-items: center;
-         top: toRem(-10);
+         top: toRem(-25);
          right: toRem(-7);
          width: toRem(18);
          height: toRem(19);
          font-weight: 500;
          border-radius: 50%;
-         color: var(--light-color);
+         color: var(--bg-secondary);
          background-color: var(--danger-color);
       }
 

@@ -3,7 +3,7 @@
 :root {
    --transition-duration: .2s ease;
    --transparent-color: transparernt;
-   --active-link:  #f08080;
+   --active-color:  #f08080;
    --whitesmoke-color: whitesmoke;
    --light-color: #ffffff;
    --light-green: #90ee90;
@@ -24,15 +24,19 @@
    --color: #243746;
    --bg: #f3f5f4;
    --bg-secondary: #ffffff;
-   --border-color: #ddd;
+   --border-color: #a9A9a9;
+ }
+
+ .light-color {
  }
 
  .dark-mode {
   --color: #f5f5f5;
   --secondary-color: #fdf9f3;
   --bg: #091A28;
-  --bg-secondary: #696969;
-  --border-color: #a9A9a9;
+  --bg-secondary:#2f4f4f;
+  --light-color: #fdf9f3;
+  --border-color: #c0c0c0;
   --info-color: #ffe4b5;
  }
  .sepia-mode {

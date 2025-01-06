@@ -104,7 +104,7 @@ defineProps({
       background-color: var(--danger-color);
 
       svg {
-      color: var(--light-color);
+      color: var(--bg-secondary);
    }
 }
 
