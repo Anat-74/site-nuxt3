@@ -35,6 +35,7 @@ const language = computed({
 .locale {
   &__select {
      width: toRem(45);
+     height: toRem(24);
   }
 }
 

@@ -11,15 +11,19 @@ provide('visible', {
 
 <template>
 <header class="header">
-<div class="header__container">
-<Icon 
+   <div class="header__container-top">
+<BaseNavigation class="header__navigation hidden-tablet" />
+<LangSwitcher class="header__lang hidden-tablet" />
+</div>
+<div class="header__bg">
+   <div class="header__container-bottom">
+   <Icon 
 class="header__logo"
 name="fluent-mdl2:s-v-n-logo"
 />
-<BaseNavigation class="header__navigation hidden-tablet" />
-<LangSwitcher class="header__lang hidden-tablet" />
 <BaseSearch :class="['header__search', {header__search_hidden: isAccount || isContacts}]" />
 <CartShopping class="header__cart" />
+</div>
 </div>
 </header>
 
@@ -42,54 +46,43 @@ name="fluent-mdl2:s-v-n-logo"
 @use '@/assets/scss/base' as *;
 
 .header {
-   margin-block-start: toRem(22);
-   padding-block-end: toRem(22);
-   background-color:var(--bg-secondary);
+   &__container-top {
+      display: flex;
+      justify-content: end;
+      column-gap: toRem(32);
 
-   &__container {
-   display: grid;
-   grid-template: auto
-    / minmax(toRem(46), toRem(56)) 1fr minmax(toRem(46), toRem(56));
-   grid-auto-rows: auto;
-   align-items: center;
-   justify-items: center;
-   column-gap: toRem(12);
-   }
-
-
-   &__logo {
-      width: toRem(42);
-      height: toRem(42);
-      background-color: var(--bg);
-      border-radius: 50%;
-
-      @media (max-width:$tablet){
-         grid-row: 2/3;
+      @media (min-width:$tablet){
+         padding-block: toRem(22);
       }
    }
 
-&__navigation {
-   padding-inline: toRem(20);
-   padding-block: toRem(22);
-}
+   &__logo {
+      font-size: toRem(50);
+      border-radius: 50%;
+   }
 
-&__cart {
-   grid-row: 2/3;
-   grid-column: 3/4;
-   align-self: end;
+&__navigation {
+   justify-self: end;
 }
 
 &__lang {
-   align-self: start;
-   justify-self: center;
+   translate: 0 toRem(-14);
+}
+
+&__bg {
+   padding-block: toRem(24);
+   background-color: var(--bg-secondary);
+}
+
+&__container-bottom {
+   display: grid;
+   grid-template-columns: auto 1fr auto;
+   align-items: center;
+   column-gap: toRem(44);
 }
 
    &__search {
-   grid-row: 2/3;
-   grid-column: 2/3;
-   justify-self: end;
-   width: 50%;
-   transition: visibility 0s, opacity .4s;
+   transition: visibility 0s, opacity .6s;
 
    @media (max-width:$tablet){
       width: 100%;
@@ -99,6 +92,11 @@ name="fluent-mdl2:s-v-n-logo"
          visibility: hidden;
          opacity: 0;
       }
+   }
+
+   &__cart {
+      align-self: end;
+      margin-inline-end: toRem(9);
    }
 }
 

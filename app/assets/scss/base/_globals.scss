@@ -64,7 +64,7 @@ select {
       content: '';
       pointer-events: none;
       position: absolute;
-      top: toRem(9);
+      top: toRem(10);
       width: toRem(6);
       height: toRem(2);
       background-color: var(--danger-color);
@@ -81,7 +81,7 @@ select {
  .select {
    width: toRem(54);
    padding-inline: toRem(4);
-   padding-block: toRem(2);
+   padding-block: toRem(1);
    border: 2px solid var(--danger-color);
    border-radius: toEm(8, 18);
    font-size: toRem(14);
@@ -91,7 +91,6 @@ select {
 }
 .option {
    border-radius: toRem(8);
-   font-size: toRem(14);
   }
 //*select end======================================================================================================================
 

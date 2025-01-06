@@ -59,6 +59,7 @@ const { isAccount, isContacts } = inject('visible')
             <Icon name="mdi:telephone-outline"
              />+37529 343-33-33
       </span>
+      <a href="#">mail@gmail.by</a>
          </div>
       </li>
 
@@ -99,8 +100,7 @@ const { isAccount, isContacts } = inject('visible')
       &__list {
          display: flex;
          align-items: center;
-         column-gap: toRem(38);
-         // padding-block: toRem(22);
+         column-gap: toRem(22);
          @include adaptiveValue("font-size", 18, 16);
       }
 
@@ -108,6 +108,8 @@ const { isAccount, isContacts } = inject('visible')
          display: flex;
          align-items: center;
          column-gap: toRem(4);
+         padding-inline: toRem(16);
+         font-weight: 500;
 
          .iconify--et {
             font-size: toRem(21);
@@ -118,23 +120,31 @@ const { isAccount, isContacts } = inject('visible')
             font-size: toRem(18);
          }
 
-         &_account {
-            position: relative;
-            border-radius: toRem(6) toRem(6) 0 0;
-            background-color: var(--bg-secondary);
+         &_contacts {
+         position: relative;
+         padding-block-start: toRem(7);
+         margin-block-start: toRem(-7);
+         padding-block-end: toRem(24);
+         margin-block-end: toRem(-24);
+         border-radius: toRem(6) toRem(6) 0 0;
+         background-color: var(--bg-secondary);
 
-            svg {
+         .iconify--et {
             color: var(--active-color);
             transition: color var(--transition-duration);
          }
       }
 
-      &_contacts {
-         position: relative;
-         border-radius: toRem(6) toRem(6) 0 0;
-         background-color: var(--bg-secondary);
+         &_account {
+            position: relative;
+            padding-block-start: toRem(7);
+            margin-block-start: toRem(-7);
+            padding-block-end: toRem(24);
+            margin-block-end: toRem(-24);
+            border-radius: toRem(6) toRem(6) 0 0;
+            background-color: var(--bg-secondary);
 
-         .iconify--et {
+            svg {
             color: var(--active-color);
             transition: color var(--transition-duration);
          }
@@ -159,10 +169,11 @@ const { isAccount, isContacts } = inject('visible')
             content: '';
             position: absolute;
             top: 0;
-            right: toRem(-20);
-            width: toRem(2);
+            right: toRem(-29);
+            width: toRem(4);
             height: 100%;
-            background-color: var(--slate-gray);
+            border-radius: toRem(25);
+            background-color: var( --slate-gray);
       }
 
       &::after {
@@ -185,12 +196,12 @@ const { isAccount, isContacts } = inject('visible')
       justify-items: center;
       text-align: center;
       position: absolute;
-      width: toRem(245);
+      width: toRem(230);
       height: toRem(102);
-      top: toRem(57);
-      left: toRem(-124);
-      padding: toRem(12);
-      border-radius: 0 0 toRem(6) toRem(6);
+      top: toRem(56);
+      left: toRem(-94);
+      padding-block: toRem(9);
+      border-radius: toRem(6);
       background-color: var(--bg-secondary);
 
    //    @media (max-width:$tablet){
@@ -211,6 +222,7 @@ const { isAccount, isContacts } = inject('visible')
       border-radius: toRem(4);
       font-size: toRem(19);
       font-weight: 500;
+      color: var(--color);
 
       @include hover {
          color: var(--light-color);
@@ -225,8 +237,8 @@ const { isAccount, isContacts } = inject('visible')
       position: absolute;
       width: toRem(242);
       height: toRem(138);
-      top: toRem(57);
-      left: toRem(-81);
+      top: toRem(56);
+      left: toRem(-66);
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -242,7 +254,7 @@ const { isAccount, isContacts } = inject('visible')
 
       &__link {
          padding-block: toRem(2);
-         border: 2px solid var(--border-color);
+         border: 2px solid var(--danger-color);
          font-weight: 600;
          color: var(--whitesmoke-color);
          background-color: var(--danger-color);
