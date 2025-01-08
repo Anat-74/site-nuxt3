@@ -17,7 +17,7 @@ $containerWidth: $maxWidthContainer + $containerPaddingX;
 
 //* Брейк-поинты
 $pc: f.toEm($containerWidth); // ПК, ноутбуки
-$tablet: f.toEm(991.98); // Планшеты
+$tablet: f.toEm(1023.98); // Планшеты
 $mobile: f.toEm(767.98); // Телефоны L
 $mobileSmall: f.toEm(479.98); // Телефоны S
 

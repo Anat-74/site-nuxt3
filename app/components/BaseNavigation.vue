@@ -47,18 +47,18 @@ const { isAccount, isContacts } = inject('visible')
             <div
             v-if="isContacts"
             class="nav__contacts contacts">
-            <span 
-            class="contacts__phone"
+            <a
+            class="contacts__phone-link"
             href="#">
-            <Icon name="mdi:telephone-outline" 
-            />+37529 343-33-33
-         </span>
-            <span 
-            class="contacts__phone"
+            <Icon  name="mdi:telephone-outline" />
+            +37529 343-33-33
+         </a>
+         <a
+            class="contacts__phone-link"
             href="#">
-            <Icon name="mdi:telephone-outline"
-             />+37529 343-33-33
-      </span>
+            <Icon  name="mdi:telephone-outline" />
+            +37529 343-33-33
+         </a>
       <a href="#">mail@gmail.by</a>
          </div>
       </li>
@@ -70,7 +70,8 @@ const { isAccount, isContacts } = inject('visible')
       >
       <Icon name="mdi:account-tie-outline" />
          {{ $t('nav.profile') }}
-      <Icon name="oui:arrow-down" />
+      <Icon 
+      name="oui:arrow-down" />
       <div
       v-if="isAccount"
       class="nav__profile profile">
@@ -101,7 +102,6 @@ const { isAccount, isContacts } = inject('visible')
          display: flex;
          align-items: center;
          column-gap: toRem(22);
-         @include adaptiveValue("font-size", 18, 16);
       }
 
       &__item {
@@ -112,9 +112,12 @@ const { isAccount, isContacts } = inject('visible')
          font-weight: 500;
 
          .iconify--et {
-            font-size: toRem(21);
+            font-size: toRem(20);
          }
-
+         .iconify--mdi {
+            margin-block: toRem(1);
+            font-size: toRem(24);
+         }
          .iconify--oui {
             margin-inline-start: toRem(9);
             font-size: toRem(18);
@@ -199,20 +202,12 @@ const { isAccount, isContacts } = inject('visible')
       width: toRem(230);
       height: toRem(102);
       top: toRem(56);
-      left: toRem(-94);
+      left: toRem(-101);
       padding-block: toRem(9);
-      border-radius: toRem(6);
+      border-radius: toRem(6) 0 toRem(6) toRem(6);
       background-color: var(--bg-secondary);
 
-   //    @media (max-width:$tablet){
-   //    display: none;
-   // }
-
-      svg {
-         font-size: toRem(19);
-      }
-
-   &__phone {
+   &__phone-link {
       display: flex;
       align-items: center;
       column-gap: toRem(8);
@@ -220,9 +215,13 @@ const { isAccount, isContacts } = inject('visible')
       padding-block: toRem(4);
       border: 1px solid var(--border-color);
       border-radius: toRem(4);
-      font-size: toRem(19);
+      font-size: toRem(18);
       font-weight: 500;
       color: var(--color);
+
+      svg {
+         font-size: toRem(18);
+      }
 
       @include hover {
          color: var(--light-color);
@@ -238,13 +237,13 @@ const { isAccount, isContacts } = inject('visible')
       width: toRem(242);
       height: toRem(138);
       top: toRem(56);
-      left: toRem(-66);
+      left: toRem(-73);
       display: flex;
       flex-direction: column;
       justify-content: center;
       row-gap: toRem(9);
       padding-block: toRem(4);
-      border-radius: 0 0 toRem(6) toRem(6);
+      border-radius: toRem(6) 0 toRem(6) toRem(6);
       background-color: var(--bg-secondary);
       @include adaptiveValue("font-size", 16, 14);
 

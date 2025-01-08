@@ -12,15 +12,20 @@ provide('visible', {
 <template>
 <header class="header">
    <div class="header__container-top">
+<ClientOnly >
+   <ColorMode class="footer__color-mode"/>
+</ClientOnly>
 <BaseNavigation class="header__navigation hidden-tablet" />
 <LangSwitcher class="header__lang hidden-tablet" />
 </div>
 <div class="header__bg">
    <div class="header__container-bottom">
+   <NuxtLink to="/">
    <Icon 
-class="header__logo"
-name="fluent-mdl2:s-v-n-logo"
-/>
+   class="header__logo"
+   name="fluent-mdl2:s-v-n-logo"
+   />
+</NuxtLink>
 <BaseSearch :class="['header__search', {header__search_hidden: isAccount || isContacts}]" />
 <CartShopping class="header__cart" />
 </div>
@@ -35,20 +40,18 @@ name="fluent-mdl2:s-v-n-logo"
 
    <footer class="footer">
       <div class="footer__container">
-      <ClientOnly >
-         <ColorMode class="footer__color-mode"/>
-      </ClientOnly>
    </div>
    </footer>
 </template>
 
 <style lang="scss" scoped>
 @use '@/assets/scss/base' as *;
-
+//ColorMode in Header
 .header {
    &__container-top {
-      display: flex;
-      justify-content: end;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
       column-gap: toRem(32);
 
       @media (min-width:$tablet){
@@ -56,9 +59,7 @@ name="fluent-mdl2:s-v-n-logo"
       }
    }
 
-   &__logo {
-      font-size: toRem(50);
-      border-radius: 50%;
+   &__color-mode {
    }
 
 &__navigation {
@@ -81,6 +82,11 @@ name="fluent-mdl2:s-v-n-logo"
    column-gap: toRem(44);
 }
 
+&__logo {
+      font-size: toRem(50);
+      border-radius: 50%;
+   }
+
    &__search {
    transition: visibility 0s, opacity .6s;
 
@@ -102,11 +108,5 @@ name="fluent-mdl2:s-v-n-logo"
 
 
 .footer {
-   &__container {
-      display: grid;
-   }
-   &__color-mode {
-      justify-self: end;
-   }
 }
 </style>

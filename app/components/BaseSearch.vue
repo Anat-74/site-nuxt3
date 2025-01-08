@@ -24,8 +24,7 @@ for="my-search"
    >
    <Icon
    v-if="isSearching"
-   name="eos-icons:loading"
-   />
+   name="eos-icons:loading" />
    <UButton
    icon="ph:magnifying-glass"
    name="search"
@@ -74,6 +73,7 @@ for="my-search"
       svg {
       position: absolute;
       right: toRem(55);
+      font-size: toRem(25);
       }
    }
 

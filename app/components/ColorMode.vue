@@ -27,7 +27,10 @@ function iconName(theme) {
  </template>
  
  <style lang="scss" scoped>
+ @use '@/assets/scss/base' as *;
  .color-mode {
+   display: flex;
+   column-gap: toRem(4);
    &__item {
       border: 2px solid var(--border-color);
       border-radius: toRem(6);

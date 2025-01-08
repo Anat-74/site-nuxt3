@@ -28,7 +28,7 @@ defineProps({
       icon: {
          type: String,
          required: false
-      },
+   },
       size: {
          type: String,
          default: 'normal'
@@ -55,7 +55,7 @@ defineProps({
    ]"
       >
    <span v-if="icon">
-      <Icon :name="icon"
+      <Icon :name="icon" width="22" height="22"
       />
    </span>
    <span v-else>{{ label }}</span>
@@ -83,7 +83,7 @@ defineProps({
       }
       &_selected {
          svg  {
-         color: var(--warning-color);
+         color: var(--active-color);
          }
       }
 
@@ -93,7 +93,7 @@ defineProps({
       color: var(--secondary-color);
       transition: transform var(--transition-duration);
       @include hover {
-         transform: scale(1.2) rotate(-16deg);
+         transform: scale(1.2) rotate(-25deg);
       }
    }
 

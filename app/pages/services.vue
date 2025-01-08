@@ -17,26 +17,26 @@ useSeoMeta({
 <template>
       <section class="services">
          <h1 class="services__title"> services page</h1>
-         <NuxtImg 
+         <NuxtPicture 
          class="services__image"
          src="/image/removebg-preview.png"
          alt="image"
-         format="webp"
-         width="266"
          loading="lazy"
+         sizes="xs:144px sm:166px md:199px xxl:222px"
          />
       </section>
 </template>
 
 <style lang="scss" scoped>
 .services {
+display: flex;
 &__title {
 }
 
+&__body {
+   max-width: 324px;
+}
 &__image {
-   // @media (max-width:$tablet){
-   //    width: toRem(122);
-   // }
 }
 }
 

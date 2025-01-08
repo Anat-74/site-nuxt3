@@ -11,6 +11,8 @@ class="cart-link"
    <span class="cart-link__price">0</span>
    <Icon
    name="ph:shopping-cart-thin"
+   width="30"
+   height="30"
    />
 </NuxtLink>
 </div>
@@ -35,10 +37,6 @@ class="cart-link"
          border-radius: 50%;
          color: var(--bg-secondary);
          background-color: var(--danger-color);
-      }
-
-      svg {
-         font-size: toRem(30);
       }
    }
 

@@ -61,8 +61,18 @@ export default defineNuxtConfig({
    },
 
    image: {
+      screens: {
+         'xs': 320,
+         'sm': 479.98,
+         'md': 767.98,
+         'lg': 1023.98,
+         'xl': 1279.98,
+         'xxl': 1550,
+         '2xl': 1550
+      },
       quality: 85,
-      densities: [1, 2]
+      densities: [1, 2],
+      format: ['avif', 'webp'],
    },
 
    colorMode: {
