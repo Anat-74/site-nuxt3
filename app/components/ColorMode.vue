@@ -17,7 +17,7 @@ function iconName(theme) {
       >
       <UButton
       @click="colorMode.preference = theme"
-      name="color-theme"
+       name-class="color-theme"
       :icon="iconName(theme)"
       :theme="theme"
       :aria-label="theme"
@@ -32,9 +32,9 @@ function iconName(theme) {
    display: flex;
    column-gap: toRem(4);
    &__item {
+      display: flex;
       border: 2px solid var(--border-color);
       border-radius: toRem(6);
-      margin-block-end: toRem(2);
    }
  }
  </style>

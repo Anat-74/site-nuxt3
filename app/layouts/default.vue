@@ -1,11 +1,18 @@
 <script setup lang="ts">
+import type { InjectionKey } from 'vue'
+const key = Symbol() as InjectionKey<Boolean | Function>
 
 const isAccount = ref(false)
 const isContacts = ref(false)
 
+const visibleIsAccount = () => isAccount.value = true
+const visibleIsContact = () =>  isContacts.value = true
+
 provide('visible', {
    isAccount,
-   isContacts
+   isContacts,
+   visibleIsAccount,
+   visibleIsContact
 })
 </script>
 
@@ -13,7 +20,7 @@ provide('visible', {
 <header class="header">
    <div class="header__container-top">
 <ClientOnly >
-   <ColorMode class="footer__color-mode"/>
+   <ColorMode class="header__color-mode hidden-tablet"/>
 </ClientOnly>
 <BaseNavigation class="header__navigation hidden-tablet" />
 <LangSwitcher class="header__lang hidden-tablet" />
@@ -46,16 +53,15 @@ provide('visible', {
 
 <style lang="scss" scoped>
 @use '@/assets/scss/base' as *;
-//ColorMode in Header
 .header {
    &__container-top {
       display: grid;
       grid-template-columns: auto 1fr auto;
       align-items: center;
-      column-gap: toRem(32);
 
       @media (min-width:$tablet){
          padding-block: toRem(22);
+         @include adaptiveValue("column-gap", 32, 0, 0, $containerWidth, 1023.98);
       }
    }
 

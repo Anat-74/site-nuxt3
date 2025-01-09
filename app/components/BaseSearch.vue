@@ -27,7 +27,7 @@ for="my-search"
    name="eos-icons:loading" />
    <UButton
    icon="ph:magnifying-glass"
-   name="search"
+   name-class="search"
    aria-label="Поиск"
    />
 </form>
@@ -45,7 +45,6 @@ for="my-search"
    src="/image/removebg-preview.png"
    alt="image"
    format="webp"
-   width="30"
    loading="lazy"
    />
    <span class="search__text">Testing</span>

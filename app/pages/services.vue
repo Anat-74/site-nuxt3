@@ -22,7 +22,7 @@ useSeoMeta({
          src="/image/removebg-preview.png"
          alt="image"
          loading="lazy"
-         sizes="xs:144px sm:166px md:199px xxl:222px"
+         sizes="xs:100vw sm:100vw md:100vw lg:100vw"
          />
       </section>
 </template>
@@ -33,9 +33,6 @@ display: flex;
 &__title {
 }
 
-&__body {
-   max-width: 324px;
-}
 &__image {
 }
 }

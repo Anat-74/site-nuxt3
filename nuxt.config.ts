@@ -67,8 +67,8 @@ export default defineNuxtConfig({
          'md': 767.98,
          'lg': 1023.98,
          'xl': 1279.98,
-         'xxl': 1550,
-         '2xl': 1550
+         'xxl': 1536,
+         '2xl': 1536
       },
       quality: 85,
       densities: [1, 2],

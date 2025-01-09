@@ -1,43 +1,19 @@
 <script setup lang="ts">
-const colorMode = useColorMode()
-defineProps({
-      theme: {
-      type: String,
-      required: false
-      },
-      label: {
-         type: String,
-         required: false
-      },
-      name: {
-         type: String,
-         required: false
-      },
-      rounded: {
-         type: Boolean,
-         required: false
-      },
-      disabled: {
-         type: Boolean,
-         required: false
-      },
-      outlined: {
-         type: Boolean,
-         required: false
-      },
-      icon: {
-         type: String,
-         required: false
-   },
-      size: {
-         type: String,
-         default: 'normal'
-      }
-   })
+interface Props{
+   theme?: string
+   label?: string
+   nameClass?: string
+   disabled?: boolean
+   icon?: string
+   size?: string
+}
+const { size = 'normal' } = defineProps<Props>()
 
-   const emit = defineEmits(['click'])
-   const clickOnButton = () => {
-      emit('click')
+const colorMode = useColorMode()
+
+const emit = defineEmits(['click'])
+const clickOnButton = () => {
+   emit('click')
 }
 </script>
 
@@ -47,15 +23,14 @@ defineProps({
       :disabled="disabled"
       @click="clickOnButton"
       :class="[
-      'btn', `btn_${name}`,
-      { 'btn_rounded': rounded }, { 'btn_outlined': outlined },
+      'btn', `btn_${nameClass}`,
       { 'btn_icon': icon }, { 'btn_large': size === 'large' },
       { 'btn_preferred': !colorMode.unknown && theme === colorMode.preference,
         'btn_selected': !colorMode.unknown && theme === colorMode.value}
    ]"
       >
    <span v-if="icon">
-      <Icon :name="icon" width="22" height="22"
+      <Icon :name="icon"
       />
    </span>
    <span v-else>{{ label }}</span>
@@ -65,17 +40,37 @@ defineProps({
 <style lang="scss" scoped>
 @use '@/assets/scss/base' as *;
 .btn {
-   // height: toRem(38);
-   // padding-inline: toRem(12);
+   padding-inline: toRem(12);
+   padding-block: toRem(8);
    border-radius: toRem(4);
    color: var(--primary-color);
    background-color: transparent;
    border: none;
 
+   &:disabled {
+    opacity: .6;
+    cursor: default;
+  }
     span {
-      display: grid;
+      display: flex;
     }
 
+    &_icon {
+      font-size: toRem(24);
+      color: var(--bg-secondary);
+  }
+
+   &_color-theme {
+      padding: toRem(2);
+      transition: transform var(--transition-duration);
+      @include hover {
+         transform: scale(1.4) rotate(-25deg);
+      }
+      svg {
+         font-size: toRem(18);
+         color: var(--secondary-color);
+      }
+   }
    &_preferred {
          svg  {
             color: var(--primary-color);
@@ -87,50 +82,13 @@ defineProps({
          }
       }
 
-   &_color-theme {
-      height: auto;
-      padding: toRem(2);
-      color: var(--secondary-color);
-      transition: transform var(--transition-duration);
-      @include hover {
-         transform: scale(1.2) rotate(-25deg);
-      }
-   }
-
    &_search {
       height: 100%;
-      padding-inline: toRem(12);
       border-radius: toRem(0) toRem(4) toRem(4) toRem(0);
       background-color: var(--danger-color);
-
-      svg {
-      color: var(--bg-secondary);
    }
-}
 
-  &:disabled {
-    opacity: .6;
-    cursor: default;
-  }
-  &_rounded {
-    border-radius: toRem(15);
-  }
-  &_outlined {
-    background: transparent;
-    color: var(--primary-color);
-    &:hover {
-      color: var(--primary-hover);
-    }
-  }
-  &_icon {
-   //  padding: 0;
-   //  width: toRem(40);
-   //  height: toRem(40);
-   //  border-radius: 50%;
-  }
   &_large {
-    height: toRem(48);
-    padding: 0 toRem(30);
   }
 }
 </style>

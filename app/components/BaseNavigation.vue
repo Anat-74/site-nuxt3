@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 const localePath = useLocalePath()
 
-const { isAccount, isContacts } = inject('visible')
+const { isAccount, isContacts, visibleIsAccount, visibleIsContact } = inject('visible')
 
 
 </script>
@@ -35,7 +35,7 @@ const { isAccount, isContacts } = inject('visible')
       </li>
 
       <li :class="['nav__item', {nav__item_contacts: isContacts}]"
-      @mouseenter="isContacts = true"
+      @mouseenter="visibleIsContact"
       @mouseleave="isContacts = false"
       >
             <NuxtLink 
@@ -65,7 +65,7 @@ const { isAccount, isContacts } = inject('visible')
 
       <li 
       :class="['nav__item', {nav__item_account: isAccount}]"
-      @mouseenter="isAccount = true"
+      @mouseenter="visibleIsAccount"
       @mouseleave="isAccount = false"
       >
       <Icon name="mdi:account-tie-outline" />
@@ -101,7 +101,7 @@ const { isAccount, isContacts } = inject('visible')
       &__list {
          display: flex;
          align-items: center;
-         column-gap: toRem(22);
+         column-gap: toRem(18);
       }
 
       &__item {
@@ -172,7 +172,7 @@ const { isAccount, isContacts } = inject('visible')
             content: '';
             position: absolute;
             top: 0;
-            right: toRem(-29);
+            right: toRem(-28);
             width: toRem(4);
             height: 100%;
             border-radius: toRem(25);

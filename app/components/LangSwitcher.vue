@@ -34,8 +34,8 @@ const language = computed({
 @use '@/assets/scss/base/functions' as *;
 .locale {
   &__select {
-     width: toRem(45);
-     height: toRem(24);
+     width: toRem(41);
+     height: toRem(22);
   }
 }
 

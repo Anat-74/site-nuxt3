@@ -41,17 +41,14 @@ a {
 
 button, 
 label,
-select {
+select,
+input {
    &:focus-visible {
       outline: toRem(2) solid var(--warning-color);
       outline-offset: toRem(4);
       transition-duration: 0s !important;
    }
 }
-
-// .iconify {
-//    font-size: toRem(25);
-// }
 
 //*select start======================================================================================================================
 .select-wrapper {
@@ -84,7 +81,7 @@ select {
    padding-block: toRem(1);
    border: 2px solid var(--danger-color);
    border-radius: toEm(8, 18);
-   font-size: toRem(14);
+   font-size: toRem(12);
    outline: none;
    appearance: none;
    cursor: pointer;
