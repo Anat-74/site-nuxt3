@@ -9,6 +9,15 @@ body {
    @include m.adaptiveValue("font-size", 16, 14);
 }
 
+body:has(dialog[open]) {
+   overflow: hidden;
+   background-color: var(--dark-color);
+   filter: brightness(7%);
+   opacity: .9;
+   transition: opacity .4s ease-out, background-color .4s ease-out, filter .4s ease-out;
+ }
+
+
 h1 {
    color: var(--light-green);
    @include m.adaptiveValue("font-size", 26, 20);
@@ -48,6 +57,10 @@ input {
       outline-offset: toRem(4);
       transition-duration: 0s !important;
    }
+
+   // &:active {
+   //    background-color: var(--danger-color);
+   // }
 }
 
 //*select start======================================================================================================================

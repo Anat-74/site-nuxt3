@@ -1,5 +1,4 @@
-<script setup>
-
+<script setup lang="ts">
 </script>
 
 <template>
@@ -23,6 +22,14 @@ class="cart-link"
 
    .cart-link {
       position: relative;
+
+      svg {
+         transition: color var(--transition-duration), transform var(--transition-duration);
+         @include hover {
+            transform: scale(1.2);
+            color: var(--danger-color);
+         }
+      }
 
       &__price {
          position: absolute;

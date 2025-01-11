@@ -1,18 +1,15 @@
 <script setup lang="ts">
-import type { InjectionKey } from 'vue'
-const key = Symbol() as InjectionKey<Boolean | Function>
-
 const isAccount = ref(false)
 const isContacts = ref(false)
 
 const visibleIsAccount = () => isAccount.value = true
-const visibleIsContact = () =>  isContacts.value = true
+const visibleIsContacts = () =>  isContacts.value = true
 
 provide('visible', {
    isAccount,
    isContacts,
    visibleIsAccount,
-   visibleIsContact
+   visibleIsContacts
 })
 </script>
 
@@ -20,10 +17,11 @@ provide('visible', {
 <header class="header">
    <div class="header__container-top">
 <ClientOnly >
-   <ColorMode class="header__color-mode hidden-tablet"/>
+   <ColorMode class="header__color-mode"/>
 </ClientOnly>
 <BaseNavigation class="header__navigation hidden-tablet" />
 <LangSwitcher class="header__lang hidden-tablet" />
+<ShowModal class="header__dialog-header" />
 </div>
 <div class="header__bg">
    <div class="header__container-bottom">
@@ -47,6 +45,7 @@ provide('visible', {
 
    <footer class="footer">
       <div class="footer__container">
+         footer
    </div>
    </footer>
 </template>
@@ -58,9 +57,9 @@ provide('visible', {
       display: grid;
       grid-template-columns: auto 1fr auto;
       align-items: center;
+      @include adaptiveValue("padding-block", 25, 16);
 
       @media (min-width:$tablet){
-         padding-block: toRem(22);
          @include adaptiveValue("column-gap", 32, 0, 0, $containerWidth, 1023.98);
       }
    }
@@ -74,6 +73,10 @@ provide('visible', {
 
 &__lang {
    translate: 0 toRem(-14);
+}
+
+&__dialog-header {
+
 }
 
 &__bg {
@@ -114,5 +117,11 @@ provide('visible', {
 
 
 .footer {
+   &__container {
+      display: grid;
+   }
+   &__show-modal {
+      justify-self: end;
+   }
 }
 </style>

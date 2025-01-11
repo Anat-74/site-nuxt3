@@ -1,7 +1,8 @@
 <script lang="ts" setup>
+import { type Visible } from '../../types/types'
 const localePath = useLocalePath()
 
-const { isAccount, isContacts, visibleIsAccount, visibleIsContact } = inject('visible')
+const { isAccount, isContacts, visibleIsAccount, visibleIsContacts } = inject('visible') as Visible
 
 
 </script>
@@ -35,13 +36,13 @@ const { isAccount, isContacts, visibleIsAccount, visibleIsContact } = inject('vi
       </li>
 
       <li :class="['nav__item', {nav__item_contacts: isContacts}]"
-      @mouseenter="visibleIsContact"
+      @mouseenter="visibleIsContacts"
       @mouseleave="isContacts = false"
       >
             <NuxtLink 
             class="nav__link" 
             :to="localePath('/contacts')"
-            ><Icon name="et:phone" />
+            ><Icon name="material-symbols:install-mobile-outline-rounded" />
                {{ $t('nav.contacts') }}
             </NuxtLink>
             <div
@@ -50,13 +51,13 @@ const { isAccount, isContacts, visibleIsAccount, visibleIsContact } = inject('vi
             <a
             class="contacts__phone-link"
             href="#">
-            <Icon  name="mdi:telephone-outline" />
+            <Icon  name="fa6-solid:mobile-screen-button" />
             +37529 343-33-33
          </a>
          <a
             class="contacts__phone-link"
             href="#">
-            <Icon  name="mdi:telephone-outline" />
+            <Icon  name="fa6-solid:mobile-screen-button" />
             +37529 343-33-33
          </a>
       <a href="#">mail@gmail.by</a>
@@ -86,7 +87,9 @@ const { isAccount, isContacts, visibleIsAccount, visibleIsContact } = inject('vi
             @click="navigateTo('/orders')"
             class="profile__item">{{ $t('nav.profile_orders') }}
          </li>
-            <li class="profile__item">{{ $t('nav.profile_exit') }}
+            <li
+            v-if="true" 
+            class="profile__item">{{ $t('nav.profile_exit') }}
             </li>
             </ul>
          </div>
@@ -111,7 +114,7 @@ const { isAccount, isContacts, visibleIsAccount, visibleIsContact } = inject('vi
          padding-inline: toRem(16);
          font-weight: 500;
 
-         .iconify--et {
+         .iconify--material-symbols {
             font-size: toRem(20);
          }
          .iconify--mdi {
@@ -132,7 +135,7 @@ const { isAccount, isContacts, visibleIsAccount, visibleIsContact } = inject('vi
          border-radius: toRem(6) toRem(6) 0 0;
          background-color: var(--bg-secondary);
 
-         .iconify--et {
+         .iconify--material-symbols {
             color: var(--active-color);
             transition: color var(--transition-duration);
          }

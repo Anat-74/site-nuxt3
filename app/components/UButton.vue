@@ -6,6 +6,7 @@ interface Props{
    disabled?: boolean
    icon?: string
    size?: string
+   hamburger?: string
 }
 const { size = 'normal' } = defineProps<Props>()
 
@@ -25,6 +26,7 @@ const clickOnButton = () => {
       :class="[
       'btn', `btn_${nameClass}`,
       { 'btn_icon': icon }, { 'btn_large': size === 'large' },
+      { 'btn_hamburger': hamburger },
       { 'btn_preferred': !colorMode.unknown && theme === colorMode.preference,
         'btn_selected': !colorMode.unknown && theme === colorMode.value}
    ]"
@@ -87,6 +89,72 @@ const clickOnButton = () => {
       border-radius: toRem(0) toRem(4) toRem(4) toRem(0);
       background-color: var(--danger-color);
    }
+
+   &_hamburger {
+   display: none;
+   @media (max-width:$tablet){
+      display: block;
+      position: absolute;
+      z-index: 100;
+      right: toRem(15);
+      width: toRem(26);
+      height: toRem(18);
+      @include adaptiveValue("top", 29, 18);
+
+         span,
+      &::before,
+      &::after{
+         content: '';
+			right: 0;
+			position: absolute;
+			width: 100%;
+			height: toRem(2);
+			background-color: var(--border-color);
+      }
+      &::before {
+			top: 0;
+		}
+		&::after {
+			bottom: 0;
+		}
+		span {
+         width: 70%;
+			top: calc(50% - toRem(1));
+		   }
+      }
+  }
+
+  &_close {
+   //  position: relative;
+   position: absolute;
+    z-index: 10;
+    top: toRem(15);
+    right: toRem(12);
+    padding-inline: toRem(14);
+    padding-block: toRem(14);
+
+       &::before,
+      &::after{
+         content: '';
+         position: absolute;
+			right: toRem(5);
+			width: toRem(22);
+			height: toRem(2);
+         background-color: red;
+      }
+      &::before {
+         top: calc(50% - toRem(1));
+         transform: rotate(-45deg);
+		}
+		&::after {
+         bottom: calc(50% - toRem(1));
+         transform: rotate(45deg);
+		}
+
+      @include hover {
+         transform: scale(1.1);
+      }
+  }
 
   &_large {
   }

@@ -1,0 +1,73 @@
+<script setup lang="ts">
+// const dialogElement =  useTemplateRef('dialog-contacts')
+// onMounted(() => {
+//   useCloseDialogElement(dialogElement.value)
+// })
+
+const dialogElement = useTemplateRef<HTMLDialogElement | null>('dialog-contacts')
+
+onMounted(() => {
+  if (dialogElement.value) {
+    useCloseDialogElement(dialogElement.value)
+  }
+})
+</script>
+
+<template>
+   <div>
+   <UButton 
+   onclick="window.dialogContacts.showModal()" 
+   hamburger="hamburger"
+   >
+     <span></span>
+     <span class="visually-hidden">Open navigation menu</span>
+   </UButton>
+   <dialog 
+   class="dialog-contacts"
+   ref="dialog-contacts"
+   id="dialogContacts" 
+   aria-label="Контакты" 
+   >
+     <div class="dialog-contacts__items">
+       <form method="dialog">
+         <UButton 
+         nameClass="close"
+         type="submit" 
+          />
+       </form>
+     </div>
+   </dialog>
+</div>
+ </template>
+
+<style lang="scss" scoped>
+@use '@/assets/scss/base' as *;
+.dialog-contacts {
+  @include adaptiveValue('width', 855, 290);
+  min-height: 100dvh;
+  margin-inline-end: 0;
+  background-color: var(--border-color);
+  transition:
+    display .1s allow-discrete,
+    overlay .1s allow-discrete;
+
+  &[open] {
+    opacity: 1;
+    transition: opacity .6s;
+
+    @starting-style {
+      opacity: 0;
+    }
+  }
+
+  &::backdrop {
+   opacity: 0;
+  }
+
+  &__items {
+   min-height: 100dvh;
+   padding-block: toEm(25, 16);
+   @include adaptiveValue('padding-inline', 22, 12);
+  }
+}
+</style>
