@@ -1,16 +1,5 @@
 <script setup lang="ts">
-const isAccount = ref(false)
-const isContacts = ref(false)
-
-const visibleIsAccount = () => isAccount.value = true
-const visibleIsContacts = () =>  isContacts.value = true
-
-provide('visible', {
-   isAccount,
-   isContacts,
-   visibleIsAccount,
-   visibleIsContacts
-})
+const { isAccount, isContacts } = useVisibilityProvider()
 </script>
 
 <template>

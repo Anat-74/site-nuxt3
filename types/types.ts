@@ -1,6 +1,6 @@
-interface Visible {
-   isAccount: boolean
-   isContacts: boolean
-   visibleIsAccount: Function
-   visibleIsContact: Function
-}
+interface VisibilityState {
+   isAccount: Ref<boolean>
+   isContacts: Ref<boolean>
+   visibleIsAccount: () => void
+   visibleIsContacts: () => void
+ }

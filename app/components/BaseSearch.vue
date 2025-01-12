@@ -6,10 +6,8 @@ const isSearching = ref(true)
 <template>
 <div
 class="search"
-id="MainHeader"
 >
-<search>
-<form class="search__form">
+<form class="search__form" role="search">
 <label 
 class="visually-hidden"
 for="my-search"
@@ -31,8 +29,7 @@ for="my-search"
    aria-label="Поиск"
    />
 </form>
-</search>
-   <div 
+<div 
    v-if="false" 
    class="search__products"
    >
@@ -59,7 +56,6 @@ for="my-search"
 
 <style lang="scss" scoped>
 @use '@/assets/scss/base' as *;
-//id: MainHeader div
 .search {
    position: relative;
 

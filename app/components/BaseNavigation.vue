@@ -1,10 +1,6 @@
 <script lang="ts" setup>
-import { type Visible } from '../../types/types'
 const localePath = useLocalePath()
-
-const { isAccount, isContacts, visibleIsAccount, visibleIsContacts } = inject('visible') as Visible
-
-
+const { isAccount, isContacts, visibleIsAccount, visibleIsContacts } = useVisibilityConsumer()
 </script>
 
 <template>
