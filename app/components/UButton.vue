@@ -125,7 +125,6 @@ const clickOnButton = () => {
   }
 
   &_close {
-   //  position: relative;
    position: absolute;
     z-index: 10;
     top: toRem(15);

@@ -21,7 +21,7 @@ provide('visible', {
 </ClientOnly>
 <BaseNavigation class="header__navigation hidden-tablet" />
 <LangSwitcher class="header__lang hidden-tablet" />
-<ShowModal class="header__dialog-header" />
+<ShowModalHamburger class="header__dialog-header" />
 </div>
 <div class="header__bg">
    <div class="header__container-bottom">

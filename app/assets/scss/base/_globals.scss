@@ -11,10 +11,6 @@ body {
 
 body:has(dialog[open]) {
    overflow: hidden;
-   background-color: var(--dark-color);
-   filter: brightness(7%);
-   opacity: .9;
-   transition: opacity .4s ease-out, background-color .4s ease-out, filter .4s ease-out;
  }
 
 

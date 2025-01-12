@@ -1,7 +1,7 @@
-<script setup>
+<script setup lang="ts">
 const colorMode = useColorMode()
 
-function iconName(theme) {
+function iconName(theme: string) {
   if (theme === 'system') return 'i-ph-laptop'
   if (theme === 'light') return 'i-ph-sun'
   if (theme === 'dark') return 'i-ph-moon'

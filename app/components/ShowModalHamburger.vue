@@ -1,9 +1,4 @@
 <script setup lang="ts">
-// const dialogElement =  useTemplateRef('dialog-contacts')
-// onMounted(() => {
-//   useCloseDialogElement(dialogElement.value)
-// })
-
 const dialogElement = useTemplateRef<HTMLDialogElement | null>('dialog-contacts')
 
 onMounted(() => {
@@ -44,24 +39,23 @@ onMounted(() => {
 @use '@/assets/scss/base' as *;
 .dialog-contacts {
   @include adaptiveValue('width', 855, 290);
+  display: block;
   min-height: 100dvh;
+  position: fixed;
+  inset: 0;
   margin-inline-end: 0;
   background-color: var(--border-color);
-  transition:
-    display .1s allow-discrete,
-    overlay .1s allow-discrete;
+  transform: translateX(100%);
+  transition: transform .2s linear;
 
   &[open] {
-    opacity: 1;
-    transition: opacity .6s;
-
-    @starting-style {
-      opacity: 0;
-    }
+   transform: translateX(0);
+    transition: transform .3s linear;
   }
 
   &::backdrop {
-   opacity: 0;
+   opacity: .9;
+   background-color: var(--dark-color);
   }
 
   &__items {
