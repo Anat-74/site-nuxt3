@@ -11,6 +11,11 @@ body {
 
 body:has(dialog[open]) {
    overflow: hidden;
+   filter: blur(12px);
+ }
+
+ body:has(dialog:not([open])) {
+   transition: all .4s;
  }
 
 

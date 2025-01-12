@@ -9,10 +9,6 @@
    --light-green: #90ee90;
    --brown-color:#b22222;
    --dark-golden-rod: #b8860b;
-   --dark-color: #000000;
-
-   --primary-color: #6979f8;
-   --primary-hover: #a5affb;
    --secondary-color: #3cb371;
    --secondary-hover: #008000;
    --info-color: #0084f4;
@@ -22,6 +18,10 @@
    --danger-color: #ff647c;
    --danger-hover: #fdaFbb;
    --slate-gray: #708090;
+   --indigo-color: #4b0082;
+   --gold-color: #ffd700;
+   --dark-golden-road: #b8860b;
+   --dark-color: #000000;
 
    --color: #243746;
    --bg: #f3f5f4;
@@ -33,6 +33,7 @@
  }
 
  .dark-mode {
+   filter: brightness(88%);
   --color: #f5f5f5;
   --secondary-color: #fdf9f3;
   --bg: #091A28;

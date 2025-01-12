@@ -38,24 +38,23 @@ onMounted(() => {
 <style lang="scss" scoped>
 @use '@/assets/scss/base' as *;
 .dialog-contacts {
-  @include adaptiveValue('width', 855, 290);
   display: block;
   min-height: 100dvh;
   position: fixed;
   inset: 0;
   margin-inline-end: 0;
-  background-color: var(--border-color);
+  background-color: var(--slate-gray);
   transform: translateX(100%);
   transition: transform .2s linear;
+  @include adaptiveValue('width', 855, 285);
 
   &[open] {
    transform: translateX(0);
-    transition: transform .3s linear;
+   transition: transform .3s linear;
   }
-
-  &::backdrop {
-   opacity: .9;
+  &[open]::backdrop {
    background-color: var(--dark-color);
+   animation: fade .3s linear forwards;
   }
 
   &__items {
@@ -63,5 +62,14 @@ onMounted(() => {
    padding-block: toEm(25, 16);
    @include adaptiveValue('padding-inline', 22, 12);
   }
+}
+
+@keyframes fade {
+   0% {
+      opacity: 0;
+   }
+   100% {
+      opacity: .4;
+   }
 }
 </style>
