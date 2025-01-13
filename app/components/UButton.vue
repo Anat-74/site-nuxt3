@@ -1,12 +1,11 @@
 <script setup lang="ts">
 interface Props{
-   theme?: string
-   label?: string
    nameClass?: string
    disabled?: boolean
    icon?: string
+   label?: string
    size?: string
-   hamburger?: string
+   theme?: string
 }
 const { size = 'normal' } = defineProps<Props>()
 
@@ -26,7 +25,6 @@ const clickOnButton = () => {
       :class="[
       'btn', `btn_${nameClass}`,
       { 'btn_icon': icon }, { 'btn_large': size === 'large' },
-      { 'btn_hamburger': hamburger },
       { 'btn_preferred': !colorMode.unknown && theme === colorMode.preference,
         'btn_selected': !colorMode.unknown && theme === colorMode.value}
    ]"
@@ -110,6 +108,7 @@ const clickOnButton = () => {
 			width: 100%;
 			height: toRem(2);
 			background-color: var(--border-color);
+         transition: transform .4s .2s;
       }
       &::before {
 			top: 0;
@@ -139,7 +138,7 @@ const clickOnButton = () => {
 			right: toRem(5);
 			width: toRem(22);
 			height: toRem(2);
-         background-color: red;
+         background-color: var(--secondary-color);
       }
       &::before {
          top: calc(50% - toRem(1));

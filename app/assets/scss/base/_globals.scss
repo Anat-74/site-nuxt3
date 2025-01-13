@@ -12,6 +12,20 @@ body {
 body:has(dialog[open]) {
    overflow: hidden;
    filter: blur(12px);
+
+   .btn_hamburger {
+      span {
+         width: 0;
+      }
+      &::before {
+         top: calc(50% - toRem(1));
+         transform: rotate(-45deg);
+      }
+      &::after {
+         bottom: calc(50% - toRem(1));
+         transform: rotate(45deg);
+      }
+   }
  }
 
  body:has(dialog:not([open])) {

@@ -12,7 +12,8 @@ onMounted(() => {
    <div>
    <UButton 
    onclick="window.dialogContacts.showModal()" 
-   hamburger="hamburger"
+   nameClass="hamburger"
+   aria-label="Открыть модальное окно" 
    >
      <span></span>
      <span class="visually-hidden">Open navigation menu</span>
@@ -26,8 +27,9 @@ onMounted(() => {
      <div class="dialog-contacts__items">
        <form method="dialog">
          <UButton 
-         nameClass="close"
+         nameClass="hamburger"
          type="submit" 
+         aria-label="Закрыть модальное окно"
           />
        </form>
      </div>
@@ -43,7 +45,7 @@ onMounted(() => {
   position: fixed;
   inset: 0;
   margin-inline-end: 0;
-  background-color: var(--primary-color);
+  background-color: var(--slate-gray);
   transform: translateX(100%);
   transition: transform .2s linear;
   @include adaptiveValue('width', 855, 285);

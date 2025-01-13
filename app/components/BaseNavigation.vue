@@ -111,16 +111,16 @@ const { isAccount, isContacts, visibleIsAccount, visibleIsContacts } = useVisibi
 @use '@/assets/scss/base' as *;
    .nav {
       &__list {
+         padding-inline-end: toRem(16);
          display: flex;
          align-items: center;
-         column-gap: toRem(18);
+         column-gap: toRem(36);
       }
 
       &__item {
          display: flex;
          align-items: center;
          column-gap: toRem(4);
-         padding-inline: toRem(16);
          font-weight: 500;
          color: var(--primary-color);
 
@@ -132,7 +132,7 @@ const { isAccount, isContacts, visibleIsAccount, visibleIsContacts } = useVisibi
             font-size: toRem(24);
          }
          .iconify--oui {
-            margin-inline-start: toRem(9);
+            margin-inline-start: toRem(16);
             font-size: toRem(18);
          }
 
@@ -155,6 +155,7 @@ const { isAccount, isContacts, visibleIsAccount, visibleIsContacts } = useVisibi
             margin-block-start: toRem(-7);
             padding-block-end: toRem(24);
             margin-block-end: toRem(-24);
+            color: var(--secondary-color);
 
             svg {
             color: var(--active-color);
@@ -181,7 +182,7 @@ const { isAccount, isContacts, visibleIsAccount, visibleIsContacts } = useVisibi
             content: '';
             position: absolute;
             top: 0;
-            right: toRem(-28);
+            right: toRem(-20);
             width: toRem(4);
             height: 100%;
             border-radius: toRem(25);
@@ -251,7 +252,6 @@ const { isAccount, isContacts, visibleIsAccount, visibleIsContacts } = useVisibi
    border-radius: toRem(4);
    font-size: toRem(18);
    font-weight: 500;
-   color: currentColor;
 
       svg {
          font-size: toRem(18);
@@ -278,9 +278,10 @@ const { isAccount, isContacts, visibleIsAccount, visibleIsContacts } = useVisibi
       width: toRem(240);
       height: toRem(152);
       top: toRem(56);
-      left: 0;
+      right: 0;
       padding-block: toRem(4);
       border-radius: toRem(4);
+      color: var(--primary-color);
       background-color: var(--secondary-color);
       @include adaptiveValue("font-size", 16, 14);
 
