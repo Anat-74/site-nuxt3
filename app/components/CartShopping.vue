@@ -42,7 +42,7 @@ class="cart-link"
          height: toRem(19);
          font-weight: 500;
          border-radius: 50%;
-         color: var(--bg-secondary);
+         color: var(--light-color);
          background-color: var(--danger-color);
       }
    }

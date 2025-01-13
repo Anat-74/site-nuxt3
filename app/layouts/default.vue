@@ -12,7 +12,7 @@ const { isAccount, isContacts } = useVisibilityProvider()
 <LangSwitcher class="header__lang hidden-tablet" />
 <ShowModalHamburger class="header__dialog-header" />
 </div>
-<div class="header__bg">
+<div :class="['header__bg', {header__bg_hidden: isAccount || isContacts}]">
    <div class="header__container-bottom">
    <NuxtLink to="/">
    <Icon 
@@ -20,7 +20,7 @@ const { isAccount, isContacts } = useVisibilityProvider()
    name="fluent-mdl2:s-v-n-logo"
    />
 </NuxtLink>
-<BaseSearch :class="['header__search', {header__search_hidden: isAccount || isContacts}]" />
+<BaseSearch class="header__search" />
 <CartShopping class="header__cart" />
 </div>
 </div>
@@ -70,7 +70,13 @@ const { isAccount, isContacts } = useVisibilityProvider()
 
 &__bg {
    padding-block: toRem(24);
-   background-color: var(--bg-secondary);
+   background-color: var(--secondary-color);
+   transition: visibility 0s, opacity .7s;
+
+   &_hidden {
+      visibility: hidden;
+      opacity: 0;
+   }
 }
 
 &__container-bottom {
@@ -91,11 +97,6 @@ const { isAccount, isContacts } = useVisibilityProvider()
    @media (max-width:$tablet){
       width: 100%;
    }
-
-      &_hidden {
-         visibility: hidden;
-         opacity: 0;
-      }
    }
 
    &__cart {

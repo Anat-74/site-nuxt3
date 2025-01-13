@@ -3,29 +3,27 @@
 :root {
    --transition-duration: .2s ease;
    --transparent-color: transparernt;
-   --active-color:  #f08080;
+   --active-color: #f08080;
    --whitesmoke-color: whitesmoke;
    --light-color: #ffffff;
    --light-green: #90ee90;
    --brown-color:#b22222;
    --dark-golden-rod: #b8860b;
-   --secondary-color: #3cb371;
-   --secondary-hover: #008000;
-   --info-color: #0084f4;
-   --info-hover: #66b5f8;
+   --deep-sky-blue: #66b5f8;
    --warning-color: #ffa26b;
    --warning-hover: #ffc7a6;
    --danger-color: #ff647c;
    --danger-hover: #fdaFbb;
-   --slate-gray: #708090;
    --indigo-color: #4b0082;
    --gold-color: #ffd700;
    --dark-golden-road: #b8860b;
    --dark-color: #000000;
+   --forest-green: #228b22;
 
    --color: #243746;
    --bg: #f3f5f4;
-   --bg-secondary: #ffffff;
+   --primary-color: #708090;
+   --secondary-color: #ffffff;
    --border-color: #a9A9a9;
  }
 
@@ -35,9 +33,9 @@
  .dark-mode {
    filter: brightness(88%);
   --color: #f5f5f5;
-  --secondary-color: #fdf9f3;
   --bg: #091A28;
-  --bg-secondary:#2f4f4f;
+  --secondary-color:#2f4f4f;
+  --primary-color: #fdf9f3;
   --light-color: #fdf9f3;
   --border-color: #c0c0c0;
   --info-color: #ffe4b5;
@@ -46,9 +44,7 @@
   --color: #433422;
   --secondary-color: #504231;
   --bg: #f1e7d0;
-  --bg-secondary: #eae0c9;
   --border-color: #dfd0bf;
-  --info-color: #4682b4;
  }
 
 

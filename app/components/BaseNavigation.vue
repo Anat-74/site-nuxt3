@@ -44,6 +44,13 @@ const { isAccount, isContacts, visibleIsAccount, visibleIsContacts } = useVisibi
             <div
             v-if="isContacts"
             class="nav__contacts contacts">
+            <a 
+            class="contacts__viber-link contacts-link"
+            href="#"
+            >
+            <Icon name="fontisto:viber" />
+               viber
+         </a>
             <a
             class="contacts__phone-link contacts-link"
             href="tel:+70001234567"
@@ -58,13 +65,6 @@ const { isAccount, isContacts, visibleIsAccount, visibleIsContacts } = useVisibi
             <Icon  name="fa6-solid:mobile-screen-button" />
             +37529 343-33-33
          </a>
-         <a 
-      class="contacts__viber-link contacts-link"
-      href="#"
-      >
-      <Icon name="fontisto:viber" />
-      viber
-   </a>
       <a 
       class="contacts__mail-link contacts-link"
       href="mailto:mail@gmail.by"
@@ -98,9 +98,7 @@ const { isAccount, isContacts, visibleIsAccount, visibleIsContacts } = useVisibi
             @click="navigateTo('/orders')"
             class="profile__item">{{ $t('nav.profile_orders') }}
          </li>
-            <li
-            v-if="true" 
-            class="profile__item">{{ $t('nav.profile_exit') }}
+            <li class="profile__item">{{ $t('nav.profile_exit') }}
             </li>
             </ul>
          </div>
@@ -124,6 +122,7 @@ const { isAccount, isContacts, visibleIsAccount, visibleIsContacts } = useVisibi
          column-gap: toRem(4);
          padding-inline: toRem(16);
          font-weight: 500;
+         color: var(--primary-color);
 
          .iconify--material-symbols {
             font-size: toRem(20);
@@ -143,10 +142,8 @@ const { isAccount, isContacts, visibleIsAccount, visibleIsContacts } = useVisibi
          margin-block-start: toRem(-7);
          padding-block-end: toRem(24);
          margin-block-end: toRem(-24);
-         border-radius: toRem(6) toRem(6) 0 0;
-         background-color: var(--bg-secondary);
 
-         .iconify--material-symbols {
+         svg {
             color: var(--active-color);
             transition: color var(--transition-duration);
          }
@@ -158,8 +155,6 @@ const { isAccount, isContacts, visibleIsAccount, visibleIsContacts } = useVisibi
             margin-block-start: toRem(-7);
             padding-block-end: toRem(24);
             margin-block-end: toRem(-24);
-            border-radius: toRem(6) toRem(6) 0 0;
-            background-color: var(--bg-secondary);
 
             svg {
             color: var(--active-color);
@@ -190,7 +185,7 @@ const { isAccount, isContacts, visibleIsAccount, visibleIsContacts } = useVisibi
             width: toRem(4);
             height: 100%;
             border-radius: toRem(25);
-            background-color: var( --slate-gray);
+            background-color: currentColor;
       }
 
       &::after {
@@ -201,30 +196,36 @@ const { isAccount, isContacts, visibleIsAccount, visibleIsContacts } = useVisibi
          translate: -50%;
          width: 0;
          height: toRem(2);
-         background-color: var(--danger-hover);
+         background-color: currentColor;
          transition: width var(--transition-duration);
       }
    }
 }
 
    .contacts {
-      display: grid;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
       align-items: center;
-      justify-items: center;
+      row-gap: toRem(5);
+      white-space: nowrap;
       position: absolute;
-      width: toRem(300);
-      height: toRem(180);
+      width: toRem(312);
+      height: toRem(152);
       top: toRem(56);
-      left: toRem(-165);
-      padding-block: toRem(9);
-      border-radius: toRem(6) 0 toRem(6) toRem(6);
-      background-color: var(--bg-secondary);
+      right: 0;
+      border-radius: toRem(4);
+      background-color: var(--secondary-color);
 
       &__phone-link {
          svg {
-            color: var(--info-hover);
+            color: var(--deep-sky-blue);
          }
+      .iconify--fa6-solid {
+         width: toRem(18);
+         color: var(--gold-color);
       }
+   }
 
       &__viber-link {
          svg {
@@ -237,22 +238,20 @@ const { isAccount, isContacts, visibleIsAccount, visibleIsContacts } = useVisibi
          color: var(--danger-color);
       }
    }
-
-   .iconify--fa6-solid {
-      color: var(--gold-color);
-   }
 }
 .contacts-link {
+   width: 90%;
    display: flex;
    align-items: center;
-   column-gap: toRem(8);
+   justify-content: center;
+   column-gap: toRem(6);
    padding-inline: toRem(12);
-   padding-block: toRem(4);
-   border: 1px solid var(--dark-golden-road);
+   padding-block: toRem(1);
+   border: 2px solid currentColor;
    border-radius: toRem(4);
    font-size: toRem(18);
    font-weight: 500;
-   color: var(--warning-color);
+   color: currentColor;
 
       svg {
          font-size: toRem(18);
@@ -260,6 +259,7 @@ const { isAccount, isContacts, visibleIsAccount, visibleIsContacts } = useVisibi
 
       @include hover {
          color: var(--light-color);
+         border-color:var(--gold-color);
          background-color: var(--danger-color);
          transition: background-color var(--transition-duration);
          svg {
@@ -269,19 +269,19 @@ const { isAccount, isContacts, visibleIsAccount, visibleIsContacts } = useVisibi
 }
 
 .profile {
-      text-align: center;
-      position: absolute;
-      width: toRem(242);
-      height: toRem(138);
-      top: toRem(56);
-      left: toRem(-73);
       display: flex;
       flex-direction: column;
       justify-content: center;
       row-gap: toRem(9);
+      text-align: center;
+      position: absolute;
+      width: toRem(240);
+      height: toRem(152);
+      top: toRem(56);
+      left: 0;
       padding-block: toRem(4);
-      border-radius: toRem(6) 0 toRem(6) toRem(6);
-      background-color: var(--bg-secondary);
+      border-radius: toRem(4);
+      background-color: var(--secondary-color);
       @include adaptiveValue("font-size", 16, 14);
 
       &__title {
@@ -292,28 +292,23 @@ const { isAccount, isContacts, visibleIsAccount, visibleIsContacts } = useVisibi
          padding-block: toRem(2);
          border: 2px solid var(--danger-color);
          font-weight: 600;
-         color: var(--whitesmoke-color);
-         background-color: var(--danger-color);
+         border-color: var(--danger-color);
+         color: var(--danger-color);
          transition: background-color var(--transition-duration);
 
          @include hover {
-            border-color: var(--danger-color);
-            color: var(--danger-color);
-            background-color: transparent;
+            color: var(--light-color);
+            background-color: var(--danger-color);
          }
       }
 
-      &__list {
-         text-align: left;
-      }
-
       &__item {
-         padding-block: toRem(2);
-         padding-inline-start: toRem(5);
+         padding-block: toRem(1);
+         border: 2px dotted var(--primary-color);
          font-weight: 500;
 
          &:not(:last-child) {
-            margin-block-end: toRem(2);
+            margin-block-end: toRem(4);
          }
 
       @include hover {
@@ -326,9 +321,5 @@ const { isAccount, isContacts, visibleIsAccount, visibleIsContacts } = useVisibi
 .router-link-active {
    color: var(--active-color) !important;
    pointer-events: none !important;
-
-   @include hover {
-   color: var(--active-color);
-   }
 }
 </style>

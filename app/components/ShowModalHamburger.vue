@@ -43,7 +43,7 @@ onMounted(() => {
   position: fixed;
   inset: 0;
   margin-inline-end: 0;
-  background-color: var(--slate-gray);
+  background-color: var(--primary-color);
   transform: translateX(100%);
   transition: transform .2s linear;
   @include adaptiveValue('width', 855, 285);

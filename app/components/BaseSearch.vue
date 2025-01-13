@@ -69,6 +69,7 @@ for="my-search"
       position: absolute;
       right: toRem(55);
       font-size: toRem(25);
+      color: var(--border-color);
       }
    }
 
@@ -85,7 +86,7 @@ for="my-search"
    position: absolute;
    width: 100%;
    height: auto;
-   border: toRem(4) solid var(--bg-secondary);
+   border: toRem(4) solid var(--light-color);
    }
 
    &__link {

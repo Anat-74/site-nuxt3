@@ -45,7 +45,7 @@ const clickOnButton = () => {
    padding-inline: toRem(12);
    padding-block: toRem(8);
    border-radius: toRem(4);
-   color: var(--primary-color);
+   color: var(--light-color);
    background-color: transparent;
    border: none;
 
@@ -59,7 +59,7 @@ const clickOnButton = () => {
 
     &_icon {
       font-size: toRem(24);
-      color: var(--bg-secondary);
+      color: var(--light-color);
   }
 
    &_color-theme {
@@ -70,12 +70,12 @@ const clickOnButton = () => {
       }
       svg {
          font-size: toRem(18);
-         color: var(--secondary-color);
+         color: var(--forest-green);
       }
    }
    &_preferred {
          svg  {
-            color: var(--primary-color);
+            color: currentColor;
          }
       }
       &_selected {
