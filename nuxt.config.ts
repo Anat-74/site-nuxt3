@@ -28,7 +28,7 @@ export default defineNuxtConfig({
         omitLineBreaks: false
       }
     },
-   // ssr: true,
+   // ssr: false,
    modules: [
    // '@nuxtjs/supabase',
       '@nuxt/image',
@@ -74,6 +74,16 @@ export default defineNuxtConfig({
       densities: [1, 2],
       format: ['avif', 'webp'],
    },
+
+   icon: {
+      customCollections: [
+        {
+          prefix: 'my-icon',
+            dir: './public/my-icons',
+            normalizeIconName: false,
+        },
+      ],
+    },
 
    colorMode: {
       preference: 'system', // default value of $colorMode.preference

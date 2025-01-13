@@ -49,28 +49,21 @@ const { isAccount, isContacts, visibleIsAccount, visibleIsContacts } = useVisibi
             href="#"
             >
             <Icon name="fontisto:viber" />
-               viber
+               Viber
          </a>
             <a
             class="contacts__phone-link contacts-link"
-            href="tel:+70001234567"
+            href="tel:+375293348180"
             >
-            <Icon  name="icomoon-free:mobile" />
-            +37529 343-33-33
-         </a>
-         <a
-            class="contacts__phone-link contacts-link"
-            href="tel:+70001234567"
-            >
-            <Icon  name="fa6-solid:mobile-screen-button" />
-            +37529 343-33-33
+            <Icon  name="my-icon:icon-a1" />
+            +37529 334-81-80
          </a>
       <a 
       class="contacts__mail-link contacts-link"
-      href="mailto:mail@gmail.by"
+      href="mailto:technomars@bk.ru"
       >
-      <Icon name="qlementine-icons:mail-16" />
-      mail@gmail-blabla.by
+      <Icon name="fluent-emoji-flat:e-mail" />
+      technomars@bk.ru
    </a>
          </div>
       </li>
@@ -132,7 +125,7 @@ const { isAccount, isContacts, visibleIsAccount, visibleIsContacts } = useVisibi
             font-size: toRem(24);
          }
          .iconify--oui {
-            margin-inline-start: toRem(16);
+            margin-inline-start: toRem(12);
             font-size: toRem(18);
          }
 
@@ -209,23 +202,18 @@ const { isAccount, isContacts, visibleIsAccount, visibleIsContacts } = useVisibi
       justify-content: center;
       align-items: center;
       row-gap: toRem(5);
+      padding: toRem(12);
       white-space: nowrap;
       position: absolute;
-      width: toRem(312);
-      height: toRem(152);
       top: toRem(56);
       right: 0;
       border-radius: toRem(4);
       background-color: var(--secondary-color);
 
       &__phone-link {
-         svg {
-            color: var(--deep-sky-blue);
+         .iconify--carbon {
+            color: var(--dark-color);
          }
-      .iconify--fa6-solid {
-         width: toRem(18);
-         color: var(--gold-color);
-      }
    }
 
       &__viber-link {
@@ -241,12 +229,13 @@ const { isAccount, isContacts, visibleIsAccount, visibleIsContacts } = useVisibi
    }
 }
 .contacts-link {
-   width: 90%;
-   display: flex;
+   width: toRem(236);
+   display: grid;
+   grid-template-columns: auto 1fr;
    align-items: center;
-   justify-content: center;
-   column-gap: toRem(6);
-   padding-inline: toRem(12);
+   justify-items: end;
+   column-gap: toRem(9);
+   padding-inline: toRem(9);
    padding-block: toRem(1);
    border: 2px solid currentColor;
    border-radius: toRem(4);
@@ -262,9 +251,6 @@ const { isAccount, isContacts, visibleIsAccount, visibleIsContacts } = useVisibi
          border-color:var(--gold-color);
          background-color: var(--danger-color);
          transition: background-color var(--transition-duration);
-         svg {
-            color: var(--light-color);
-         }
       }
 }
 
@@ -273,13 +259,13 @@ const { isAccount, isContacts, visibleIsAccount, visibleIsContacts } = useVisibi
       flex-direction: column;
       justify-content: center;
       row-gap: toRem(9);
+      white-space: nowrap;
       text-align: center;
       position: absolute;
-      width: toRem(240);
-      height: toRem(152);
       top: toRem(56);
       right: 0;
-      padding-block: toRem(4);
+      padding-inline: toRem(18);
+      padding-block: toRem(12);
       border-radius: toRem(4);
       color: var(--primary-color);
       background-color: var(--secondary-color);

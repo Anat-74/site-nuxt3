@@ -12,7 +12,7 @@ onMounted(() => {
    <div>
    <UButton 
    onclick="window.dialogContacts.showModal()" 
-   nameClass="hamburger"
+   name-class="hamburger"
    aria-label="Открыть модальное окно" 
    >
      <span></span>
@@ -27,7 +27,7 @@ onMounted(() => {
      <div class="dialog-contacts__items">
        <form method="dialog">
          <UButton 
-         nameClass="hamburger"
+         name-class="hamburger"
          type="submit" 
          aria-label="Закрыть модальное окно"
           />

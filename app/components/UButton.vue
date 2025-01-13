@@ -86,6 +86,10 @@ const clickOnButton = () => {
       height: 100%;
       border-radius: toRem(0) toRem(4) toRem(4) toRem(0);
       background-color: var(--danger-color);
+
+      svg {
+         font-size: toRem(20);
+      }
    }
 
    &_hamburger {

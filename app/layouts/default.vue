@@ -15,9 +15,14 @@ const { isAccount, isContacts } = useVisibilityProvider()
 <div :class="['header__bg', {header__bg_hidden: isAccount || isContacts}]">
    <div class="header__container-bottom">
    <NuxtLink to="/">
-   <Icon 
+      <NuxtImg 
    class="header__logo"
-   name="fluent-mdl2:s-v-n-logo"
+   src="/image/logo.png"
+   alt="logo"
+   format="webp"
+   loading="lazy"
+   widht="70"
+   height="70"
    />
 </NuxtLink>
 <BaseSearch class="header__search" />
@@ -53,9 +58,6 @@ const { isAccount, isContacts } = useVisibilityProvider()
       }
    }
 
-   &__color-mode {
-   }
-
 &__navigation {
    justify-self: end;
 }
@@ -64,12 +66,7 @@ const { isAccount, isContacts } = useVisibilityProvider()
    translate: 0 toRem(-14);
 }
 
-&__dialog-header {
-
-}
-
 &__bg {
-   padding-block: toRem(24);
    background-color: var(--secondary-color);
    transition: visibility 0s, opacity .7s;
 
@@ -87,12 +84,11 @@ const { isAccount, isContacts } = useVisibilityProvider()
 }
 
 &__logo {
-      font-size: toRem(50);
-      border-radius: 50%;
    }
 
    &__search {
-   transition: visibility 0s, opacity .6s;
+      justify-self: end;
+      width: 55%;
 
    @media (max-width:$tablet){
       width: 100%;
@@ -100,7 +96,7 @@ const { isAccount, isContacts } = useVisibilityProvider()
    }
 
    &__cart {
-      align-self: end;
+      translate: 0 toRem(5);
       margin-inline-end: toRem(9);
    }
 }

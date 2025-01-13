@@ -61,7 +61,7 @@ for="my-search"
 
    &__form {
       position: relative;
-      height: toRem(44);
+      height: toRem(36);
       display: flex;
       align-items: center;
 
