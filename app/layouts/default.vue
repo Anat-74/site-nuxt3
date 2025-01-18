@@ -1,4 +1,7 @@
 <script setup lang="ts">
+import { useUserStore } from '~/stores/user';
+const userStore = useUserStore()
+
 const { isAccount, isContacts } = useVisibilityProvider()
 </script>
 
@@ -14,15 +17,16 @@ const { isAccount, isContacts } = useVisibilityProvider()
 </div>
 <div :class="['header__bg', {header__bg_hidden: isAccount || isContacts}]">
    <div class="header__container-bottom">
-   <NuxtLink to="/">
+   <NuxtLink 
+   class="header__link-logo"
+   to="/">
       <NuxtImg 
    class="header__logo"
    src="/image/logo.png"
    alt="logo"
    format="webp"
-   loading="lazy"
-   widht="70"
-   height="70"
+   widht="68"
+   height="68"
    />
 </NuxtLink>
 <BaseSearch class="header__search" />
@@ -39,7 +43,9 @@ const { isAccount, isContacts } = useVisibilityProvider()
 
    <footer class="footer">
       <div class="footer__container">
-         footer
+         <Loading v-if="userStore.isLoading" />
+
+         <Footer v-if="!userStore.isLoading" />
    </div>
    </footer>
 </template>
@@ -80,15 +86,26 @@ const { isAccount, isContacts } = useVisibilityProvider()
    display: grid;
    grid-template-columns: auto 1fr auto;
    align-items: center;
-   column-gap: toRem(44);
+   @include adaptiveValue("column-gap", 44, 7);
 }
 
-&__logo {
+&__link-logo {
+   margin-inline-start: toRem(20);
+   padding-inline: toRem(2);
+   padding-block: toRem(6);
+   margin-block: toRem(5);
+   border-radius: 50%;
+   background-color: var(--light-color);
+
+   @media (max-width:$mobile){
+      width: toRem(59);
+      margin-inline-start: toRem(0);
    }
+}
 
    &__search {
       justify-self: end;
-      width: 55%;
+      width: 80%;
 
    @media (max-width:$tablet){
       width: 100%;

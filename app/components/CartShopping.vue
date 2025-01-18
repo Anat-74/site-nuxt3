@@ -32,14 +32,14 @@ class="cart-link"
       }
 
       &__price {
-         position: absolute;
          display: flex;
          justify-content: center;
          align-items: center;
-         top: toRem(-25);
+         padding-inline: toRem(4);
+         padding-block: toRem(1);
+         position: absolute;
+         top: toRem(-27);
          right: toRem(-7);
-         width: toRem(18);
-         height: toRem(19);
          font-weight: 500;
          border-radius: 50%;
          color: var(--light-color);

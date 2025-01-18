@@ -16,7 +16,6 @@ onMounted(() => {
    aria-label="Открыть модальное окно" 
    >
      <span></span>
-     <span class="visually-hidden">Open navigation menu</span>
    </UButton>
    <dialog 
    class="dialog-contacts"

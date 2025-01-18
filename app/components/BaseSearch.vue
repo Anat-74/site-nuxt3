@@ -7,7 +7,10 @@ const isSearching = ref(true)
 <div
 class="search"
 >
-<form class="search__form" role="search">
+<form 
+class="search__form" 
+role="search"
+>
 <label 
 class="visually-hidden"
 for="my-search"
@@ -24,8 +27,8 @@ for="my-search"
    v-if="isSearching"
    name="eos-icons:loading" />
    <UButton
-   icon="ph:magnifying-glass"
    name-class="search"
+   icon="ph:magnifying-glass"
    aria-label="Поиск"
    />
 </form>
@@ -42,12 +45,13 @@ for="my-search"
    src="/image/removebg-preview.png"
    alt="image"
    format="webp"
-   loading="lazy"
+   width="44"
+   heigh="44"
    />
    <span class="search__text">Testing</span>
    <span class="search__price">
+      <Icon name="my-icon:icon-by-regular" />
       98.99 
-      <small>б.р.</small>
    </span>
    </NuxtLink>
 </div>
@@ -61,13 +65,15 @@ for="my-search"
 
    &__form {
       position: relative;
-      height: toRem(36);
+      height: toRem(40);
       display: flex;
       align-items: center;
 
       svg {
       position: absolute;
-      right: toRem(55);
+      top: 50%;
+      right: toRem(44);
+      translate: 0 -50%;
       font-size: toRem(25);
       color: var(--border-color);
       }
@@ -76,17 +82,25 @@ for="my-search"
    &__input {
       width: 100%;
       height: 100%;
-      padding-inline: toRem(16);
+      padding-inline: toRem(22);
       border-radius: toRem(4) toRem(0) toRem(0) toRem(4);
       border: toRem(2) solid var(--danger-color);
       border-right: none;
+      font-size: toRem(18);
    }
 
    &__products {
    position: absolute;
+   top: toRem(60);
    width: 100%;
-   height: auto;
+   padding: toRem(4);
    border: toRem(4) solid var(--light-color);
+   border-radius: toRem(4);
+   border-top: none;
+
+   @media (max-width:$mobile){
+      top: toRem(56);
+   }
    }
 
    &__link {
@@ -103,6 +117,13 @@ for="my-search"
 }
 
 &__price {
+   font-weight: 500;
+
+   svg {
+      translate: toRem(2) 0;
+      font-size: toRem(12);
+      color: var(--gray-color);
+   }
    }
 }
 

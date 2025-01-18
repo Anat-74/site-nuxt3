@@ -39,6 +39,26 @@ const clickOnButton = () => {
 
 <style lang="scss" scoped>
 @use '@/assets/scss/base' as *;
+body:has(dialog[open]) {
+   .btn_hamburger {
+      span {
+         width: 0;
+      }
+      &::before,
+      &::after {
+         background-color: var( --dark-color);
+      }
+      &::before {
+         top: calc(50% - toRem(1));
+         transform: rotate(-45deg);
+      }
+      &::after {
+         bottom: calc(50% - toRem(1));
+         transform: rotate(45deg);
+      }
+   }
+ }
+
 .btn {
    padding-inline: toRem(12);
    padding-block: toRem(8);
@@ -73,7 +93,7 @@ const clickOnButton = () => {
    }
    &_preferred {
          svg  {
-            color: currentColor;
+            color: var(--primary-color);
          }
       }
       &_selected {
@@ -101,7 +121,7 @@ const clickOnButton = () => {
       right: toRem(15);
       width: toRem(26);
       height: toRem(18);
-      @include adaptiveValue("top", 29, 18);
+      @include adaptiveValue("top", 32, 18);
 
          span,
       &::before,
@@ -111,8 +131,8 @@ const clickOnButton = () => {
 			position: absolute;
 			width: 100%;
 			height: toRem(2);
-			background-color: var(--border-color);
-         transition: transform .4s .2s;
+			background-color: var(--primary-color);
+         transition: transform .4s .2s, height var(--transition-duration);
       }
       &::before {
 			top: 0;
@@ -124,6 +144,14 @@ const clickOnButton = () => {
          width: 70%;
 			top: calc(50% - toRem(1));
 		   }
+
+         @include hover {
+         span,
+         &::before,
+         &::after {
+            height: toRem(3);
+         }
+      }
       }
   }
 

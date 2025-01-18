@@ -55,14 +55,14 @@ const { isAccount, isContacts, visibleIsAccount, visibleIsContacts } = useVisibi
             class="contacts__phone-link contacts-link"
             href="tel:+375293348180"
             >
-            <Icon  name="my-icon:icon-a1" />
+            <Icon name="my-icon:icon-a1" color="red" />
             +37529 334-81-80
          </a>
       <a 
       class="contacts__mail-link contacts-link"
       href="mailto:technomars@bk.ru"
       >
-      <Icon name="fluent-emoji-flat:e-mail" />
+      <Icon name="octicon:mail-24" />
       technomars@bk.ru
    </a>
          </div>
@@ -224,7 +224,7 @@ const { isAccount, isContacts, visibleIsAccount, visibleIsContacts } = useVisibi
 
    &__mail-link {
       svg {
-         color: var(--danger-color);
+         color: var(--deep-sky-blue);
       }
    }
 }
