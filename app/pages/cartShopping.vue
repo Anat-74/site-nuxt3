@@ -1,9 +1,9 @@
-<script lang="ts" setup>
+<script setup lang="ts">
 useSeoMeta({
-   title: 'Главная',
-   ogTitle: 'Главная',
-   description: 'Главная страница сайта',
-   ogDescription: 'Главная страница сайта'
+   title: 'Корзина',
+   ogTitle: 'Корзина',
+   description: 'Страница корзины сайта',
+   ogDescription: 'Страница корзины сайта'
 })
 
 const products = [
@@ -18,36 +18,88 @@ const products = [
    { id: 9, title: "Title 9", description: "This is a description", url: "https://img.freepik.com/premium-photo/autumn-soup-with-croutons-herbs-clay-pots_222185-1687.jpg?ga=GA1.1.239409238.1713800473&semt=ais_hybrid", price: 56599 },
    { id: 10, title: "Title 10", description: "This is a description", url: "https://img.freepik.com/free-photo/pancake-shrovetide_1398-5120.jpg?ga=GA1.1.239409238.1713800473&semt=ais_hybrid", price: 86699 },
 ]
-
 </script>
 
 <template>
-      <section class="home">
-         <h1>{{$t('homeTitle')}}</h1>
-         <div class="home__columns">
-         <Product 
-         v-if="products"
-         v-for="product in products"
-         :key="product.id"
-         :id="product.id"
-         :title="product.title"
-         :description="product.description"
-         :url="product.url"
-         :price="product.price"
-         />
-      </div>
-      </section>
+   <section class="cart-page">
+      <div 
+      v-if="false"
+      class="cart-page__body"
+      >
+         <NuxtImg
+      class="cart-page__image" 
+      src="image/cart-empty-img.png"
+      alt="image"
+      format="webp"
+      width="444"
+      />
+      <span class="cart-page__text">Товаров пока нет(</span>
+
+      <NuxtLink
+      v-if="true"
+      to="/auth"
+      class="cart-page__link"
+      >Войти
+      </NuxtLink>
+   </div>
+   <div
+   v-else
+   class="cart-page__shopping"
+   >Корзина (0)
+</div>
+<p class="cart-page__welcome-deal">
+   Приветственная сделка только на 1 товар
+</p>
+   </section>
 </template>
 
 <style lang="scss" scoped>
 @use '@/assets/scss/base' as *;
-.home {
-   &__columns {
+.cart-page {
+   padding-block: toRem(32);
+
+   &__body {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(toRem(290), 1fr));
-      row-gap: toRem(12);
-      column-gap: toRem(18);
       justify-items: center;
+      align-items: center;
+      row-gap: toRem(4);
+   }
+
+   &__text {
+      font-family: $font-family2;
+      font-size: toRem(22);
+      letter-spacing: 1.5;
+      color: var(--danger-color);
+      margin-block-end: toRem(22);
+   }
+
+   &__link {
+      padding-inline: toRem(44);
+      padding-block: toRem(8);
+      border-radius: toRem(25);
+      color: var(--light-color);
+      font-weight: 500;
+      background-color: var(--danger-color);
+   }
+
+   &__shopping {
+      padding-inline: toRem(8);
+      padding-block: toRem(16);
+      margin-block-end: toRem(22);
+      border-radius: toRem(6);
+      font-weight: 600;
+      font-size: toRem(20);
+      background-color: var(--secondary-color);
+   }
+
+   &__welcome-deal {
+      padding-inline: toRem(8);
+      padding-block: toRem(16);
+      border-radius: toRem(6);
+      font-weight: 600;
+      font-size: toRem(18);
+      color: var(--danger-color);
+      background-color: var(--warning-hover);
    }
 }
 </style>

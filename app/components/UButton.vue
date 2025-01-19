@@ -88,7 +88,7 @@ body:has(dialog[open]) {
       }
       svg {
          font-size: toRem(18);
-         color: var(--forest-green);
+         color: var(--forest-green-color);
       }
    }
    &_preferred {
@@ -154,6 +154,11 @@ body:has(dialog[open]) {
       }
       }
   }
+
+  &_add-to-cart {
+   background-color: var(--warning-color);
+  }
+
 
   &_close {
    position: absolute;

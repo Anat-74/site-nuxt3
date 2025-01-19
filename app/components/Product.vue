@@ -75,13 +75,13 @@ const oldPriceComputed = computed(() => {
    background-color: var(--secondary-color);
 
    svg {
-      translate: toRem(3) 0;
+      translate: toRem(2) 0;
       font-size: toRem(12);
    }
 }
 
 &__price {
-   translate: toRem(-3) 0;
+   translate: toRem(-2) 0;
    font-weight: 500;
    color: var(--danger-color);
 }
@@ -108,7 +108,7 @@ const oldPriceComputed = computed(() => {
 }
 
 &__delivery {
-   grid-column: 1/2;
+grid-column: 1/2;
 font-weight: 600;
 color: var(--deep-sky-blue);
 }

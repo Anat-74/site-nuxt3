@@ -2,6 +2,9 @@
 @use './mixins' as m;
 @use './container' as c;
 
+$font-family: "Montserrat";
+$font-family2: "RubikBurned";
+
 body {
    background-color: var(--bg);
    color: var(--color);
@@ -93,9 +96,11 @@ input {
    width: toRem(54);
    padding-inline: toRem(4);
    padding-block: toRem(1);
-   border: 2px solid var(--danger-color);
+   border: toRem(2) solid var(--danger-color);
    border-radius: toEm(8, 18);
+   font-weight: 600;
    font-size: toRem(12);
+   color: var(--danger-color);
    outline: none;
    appearance: none;
    cursor: pointer;

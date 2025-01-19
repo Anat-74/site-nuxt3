@@ -31,11 +31,15 @@ const language = computed({
 </template>
 
 <style lang="scss" scoped>
-@use '@/assets/scss/base/functions' as *;
+@use '@/assets/scss/base' as *;
 .locale {
+   transition: transform var(--transition-duration);
+   @include hover {
+      transform: scale(1.1);
+   }
   &__select {
      width: toRem(41);
-     height: toRem(22);
+     height: toRem(24);
   }
 }
 

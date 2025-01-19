@@ -5,7 +5,7 @@
 <div>
 <NuxtLink
 class="cart-link"
-   to="/shoppingCart"
+   to="/cartShopping"
    >
    <span class="cart-link__price">0</span>
    <Icon
@@ -26,8 +26,8 @@ class="cart-link"
       svg {
          transition: color var(--transition-duration), transform var(--transition-duration);
          @include hover {
-            transform: scale(1.2);
-            color: var(--danger-color);
+            transform: scale(1.1);
+            color: var(--active-color);
          }
       }
 
