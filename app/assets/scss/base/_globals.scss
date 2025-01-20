@@ -29,6 +29,7 @@ h1 {
 
 h2 {
    @include m.adaptiveValue("font-size", 22, 18);
+   font-weight: 500;
 }
 
 h3 {
@@ -65,6 +66,12 @@ input {
    // &:active {
    //    background-color: var(--danger-color);
    // }
+}
+
+.icon-bel-ruble {
+   translate: toRem(1) toRem(1);
+   font-size: toRem(12);
+   color: currentColor;
 }
 
 //*select start======================================================================================================================

@@ -54,7 +54,6 @@ const addToCart = () => {
       alt="image"
       format="webp"
       width="544"
-      loading="lazy"
       />
       <div
       v-if="images[1] !==''"
@@ -86,7 +85,9 @@ const addToCart = () => {
          <Icon name="fluent:star-20-regular" />
       </div>
       <span class="item__price">
-         <Icon name="my-icon:icon-by-regular" />
+         <Icon
+         class="icon-bel-ruble" 
+         name="my-icon:icon-by-regular" />
          {{ priceComputed }}
       </span>
       <UButton

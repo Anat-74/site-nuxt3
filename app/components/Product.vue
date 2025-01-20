@@ -37,10 +37,16 @@ const oldPriceComputed = computed(() => {
    </NuxtLink>
          <div class="product__bg">
          <span class="product__price">
-            <Icon name="my-icon:icon-by-regular" />
+            <Icon
+            class="icon-bel-ruble"
+            name="my-icon:icon-by-regular"
+            />
             {{ priceComputed }}</span>
          <s class="product__old-price">
-            <Icon name="my-icon:icon-by-regular" />
+            <Icon 
+            class="icon-bel-ruble"
+            name="my-icon:icon-by-regular"
+            />
             {{ oldPriceComputed }}</s>
          <span class="product__discount">Скидка 5%</span>
          <p class="product__star">100+ продаж 
@@ -73,11 +79,6 @@ const oldPriceComputed = computed(() => {
    padding-block: toRem(8);
    border-radius: 0 0 toRem(6) toRem(6);
    background-color: var(--secondary-color);
-
-   svg {
-      translate: toRem(2) 0;
-      font-size: toRem(12);
-   }
 }
 
 &__price {
@@ -103,7 +104,6 @@ const oldPriceComputed = computed(() => {
 &__title {
    grid-column: 1/2;
    font-size: inherit;
-   font-weight: 500;
    margin-block-end: toRem(4);
 }
 

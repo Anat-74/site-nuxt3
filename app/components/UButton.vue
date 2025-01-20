@@ -76,6 +76,7 @@ body:has(dialog[open]) {
     }
 
     &_icon {
+      padding: 0;
       font-size: toRem(24);
       color: var(--light-color);
   }
@@ -104,6 +105,7 @@ body:has(dialog[open]) {
 
    &_search {
       height: 100%;
+      padding-inline: toRem(12);
       border-radius: toRem(0) toRem(4) toRem(4) toRem(0);
       background-color: var(--danger-color);
 
@@ -158,6 +160,18 @@ body:has(dialog[open]) {
   &_add-to-cart {
    background-color: var(--warning-color);
   }
+
+  &_remove-cart-item {
+   align-self: start;
+   justify-self: end;
+   color: var(--gray-color);
+   transition: color var(--transition-duration);
+
+   @include hover {
+      color: var(--danger-color);
+   }
+  }
+
 
 
   &_close {
