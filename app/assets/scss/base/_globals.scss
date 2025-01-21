@@ -34,6 +34,7 @@ h2 {
 
 h3 {
    @include m.adaptiveValue("font-size", 18, 16);
+   font-weight: 500;
 }
 
 a {

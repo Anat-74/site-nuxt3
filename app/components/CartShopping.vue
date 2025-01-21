@@ -9,7 +9,7 @@ class="cart-link"
    >
    <span class="cart-link__price">0</span>
    <Icon
-   name="ph:shopping-cart-thin"
+   name="carbon:shopping-cart"
    width="30"
    height="30"
    />
@@ -27,7 +27,7 @@ class="cart-link"
          transition: color var(--transition-duration), transform var(--transition-duration);
          @include hover {
             transform: scale(1.1);
-            color: var(--active-color);
+            color: var(--danger-color);
          }
       }
 
@@ -44,6 +44,11 @@ class="cart-link"
          border-radius: 50%;
          color: var(--light-color);
          background-color: var(--danger-color);
+         transition: transform var(--transition-duration);
+
+         @include hover {
+            transform: scale(1.2);
+         }
       }
    }
 

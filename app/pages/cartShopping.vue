@@ -6,6 +6,61 @@ useSeoMeta({
    ogDescription: 'Страница корзины сайта'
 })
 
+const userStore = useUserStore()
+
+interface ElType {
+  id: number;
+}
+
+let selectedArray = ref<ElType[]>([])
+
+onMounted(() => {
+   setTimeout(() => userStore.isLoading = false, 200)
+})
+
+const cards = ref([
+   '/image/payment/visa.png',
+   '/image/payment/mastercard.png',
+   '/image/payment/mir.png'
+])
+
+const totalPriceComputed = computed(() => {
+   let price = 0
+   userStore.cart.forEach(prod => {
+      price += prod.price
+   })
+   return price / 100
+})
+
+const selectedRadioFunc = (el: ElType): void => {
+   if (!selectedArray.value.length) {
+      selectedArray.value.push(el)
+      return
+   }
+   selectedArray.value.forEach((item, index) => {
+      if (el.id !== item.id) {
+         selectedArray.value.push(el)
+      } else {
+         selectedArray.value.splice(index, 1)
+      }
+   })
+}
+
+const goToCheckout = () => {
+   let ids: number[] = []
+   userStore.checkout = []
+
+   selectedArray.value.forEach(item => ids.push(item.id))
+
+   let res = userStore.cart.filter((item) => {
+      return ids.indexOf(item.id) != -1
+   })
+
+   res.forEach(item => userStore.checkout.push(toRaw(item)))
+
+   return navigateTo('/checkout')
+}
+
 const products = [
    { id: 1, title: "Title 1", description: "This is a description", url: "https://img.freepik.com/free-photo/top-view-circular-food-frame_23-2148725042.jpg?ga=GA1.1.239409238.1713800473&semt=ais_hybrid", price: 15899 },
    { id: 2, title: "Title 2", description: "This is a description", url: "https://img.freepik.com/free-photo/pancake-with-caviar-tea_1398-3625.jpg?ga=GA1.1.239409238.1713800473&semt=ais_hybrid", price: 8949 },
@@ -34,12 +89,14 @@ const products = [
       >Войти
       </NuxtLink>
    </div>
+
    <div 
    v-else
    class="cart-page__cart-items">
-   <span class="cart-page__basket">
+   <div>
+   <h2 class="cart-page__title">
       Корзина (0)
-</span>
+</h2>
 <p class="cart-page__descr">
    Приветственная сделка только на 1 товар
 </p>
@@ -55,6 +112,39 @@ const products = [
    :selectedArray="selectedArray"
    @selectedRadio-="selectedRadioFunc"
    />
+</div>
+</div>
+
+<div>
+<div class="cart-page__summary">
+   <span class="cart-page__headline">Краткое содержание</span>
+   <span class="cart-page__total">Итого
+      <Icon 
+      class="icon-bel-ruble"
+      name="my-icon:icon-by-regular" />
+      <b>{{ totalPriceComputed }}</b>
+   </span>
+   <UButton
+   name-class="checkout"
+   label="Проверить"
+   />
+</div>
+
+<div class="cart-page__payment-items">
+   <h3 class="cart-page__subtitle">Способы оплаты</h3>
+   <ul class="cart-page__card-list">
+      <li v-for="card in cards"
+      :key="card"
+      >
+         <NuxtImg
+            :src="card"
+            alt="image"
+            format="webp"
+            width="36"
+            />
+      </li>
+   </ul>
+</div>
 </div>
 </div>
    </section>
@@ -90,15 +180,16 @@ const products = [
    }
 
    &__cart-items {
-      width: 70%;
+      display: grid;
+      grid-template-columns: 1fr minmax(auto, toRem(344));
+      column-gap: toRem(22);
    }
 
-   &__basket {
-      display: block;
+   &__title {
       padding-inline: toRem(8);
       padding-block: toRem(16);
       margin-block-end: toRem(22);
-      border-radius: toRem(4);
+      border-radius: toRem(6);
       font-weight: 600;
       font-size: toRem(20);
       background-color: var(--secondary-color);
@@ -108,7 +199,7 @@ const products = [
       padding-inline: toRem(8);
       padding-block: toRem(16);
       margin-block-end: toRem(22);
-      border-radius: toRem(4);
+      border-radius: toRem(6);
       font-weight: 600;
       font-size: toRem(18);
       color: var(--danger-color);
@@ -117,8 +208,60 @@ const products = [
 
    &__cart-item-body {
       padding-block: toRem(12);
-      border-radius: toRem(4);
+      border-radius: toRem(6);
       background-color: var(--secondary-color);
    }
+
+   &__summary {
+      display: flex;
+      flex-direction: column;
+      row-gap: toRem(9);
+      padding-inline: toRem(16);
+      padding-block: toRem(12);
+      margin-block-end: toRem(16);
+      border-radius: toRem(6);
+      background-color: var(--secondary-color);
 }
+
+   &__headline {
+      font-size: toRem(18);
+      font-weight: 600;
+}
+
+   &__total {
+      display: grid;
+      grid-template-columns: 1fr repeat(2, auto);
+      align-items: center;
+      column-gap: toRem(4);
+      font-weight: 500;
+      margin-block-end: toRem(16);
+
+      svg {
+         font-size: toRem(14);
+      }
+
+      b {
+         font-size: toRem(20);
+      }
+   }
+
+&__payment-items {
+   padding-inline: toRem(16);
+   padding-block: toRem(12);
+   border-radius: toRem(6);
+   background-color: var(--secondary-color);
+}
+
+&__subtitle {
+   text-align: center;
+}
+
+&__card-list {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   column-gap: toRem(16);
+}
+}
+
 </style>

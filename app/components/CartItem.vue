@@ -2,12 +2,12 @@
 const userStore = useUserStore()
 
 interface PropsProduct {
-   id: number,
-   title: string,
-   description: string,
-   url: string,
+   id: number
+   title: string
+   description: string
+   url: string
    price: number
-   selectedArray?:string
+   selectedArray?: number[]
 }
 const props = defineProps<PropsProduct>()
 
@@ -44,7 +44,7 @@ watch(() => isSelected.value,
    format="webp"
    width="90"
    />
-   <h2 class="cart-item__title">{{ title }}</h2>
+   <h3 class="cart-item__title">{{ title }}</h3>
    <span class="cart-item__price">
       <Icon 
       class="icon-bel-ruble"

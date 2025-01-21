@@ -73,6 +73,7 @@ body:has(dialog[open]) {
   }
     span {
       display: flex;
+      justify-content: center;
     }
 
     &_icon {
@@ -170,6 +171,12 @@ body:has(dialog[open]) {
    @include hover {
       color: var(--danger-color);
    }
+  }
+
+  &_checkout {
+   font-weight: 600;
+   border-radius: toRem(25);
+   background-color: var(--danger-color);
   }
 
 

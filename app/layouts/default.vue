@@ -95,6 +95,11 @@ const { isAccount, isContacts } = useVisibilityProvider()
    margin-block: toRem(5);
    border-radius: 50%;
    background-color: var(--light-color);
+   transition: box-shadow var(--transition-duration);
+
+   @include hover {
+      box-shadow: toRem(4) 0 toRem(48) toRem(8) rgba(34, 60, 80, 0.3);
+   }
 
    @media (max-width:$mobile){
       width: toRem(59);
