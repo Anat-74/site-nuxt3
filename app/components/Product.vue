@@ -1,11 +1,5 @@
 <script setup lang="ts">
-interface PropsProduct {
-   id: number,
-   title: string,
-   description: string,
-   url: string,
-   price: number
-}
+import type { PropsProduct } from "../types/types";
 const props = defineProps<PropsProduct>()
 
 const priceComputed = computed(() => {
@@ -62,9 +56,6 @@ const oldPriceComputed = computed(() => {
 <style lang="scss" scoped>
 @use '@/assets/scss/base' as *;
 .product {
-
-&__link {
-}
 
 &__image {
    border-radius: toRem(6) toRem(6) 0 0;

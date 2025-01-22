@@ -1,14 +1,9 @@
 <script setup lang="ts">
+import type { PropsProduct } from "../types/types";
+const props = defineProps<PropsProduct>()
+
 const userStore = useUserStore()
 
-interface PropsProduct {
-   id: number
-   title: string
-   description: string
-   url: string
-   price: number
-}
-const props = defineProps<PropsProduct>()
 
 const emit = defineEmits(['selectedRadio'])
 
