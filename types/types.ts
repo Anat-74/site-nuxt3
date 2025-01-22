@@ -5,10 +5,10 @@ interface VisibilityState {
    visibleIsContacts: () => void
 }
 
-// interface PropsProduct {
-//    id: number,
-//    title: string,
-//    description: string,
-//    url: string,
-//    price: number
-// }
+interface PropsProduct {
+   id: number,
+   title: string,
+   description: string,
+   url: string,
+   price: number
+}

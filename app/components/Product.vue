@@ -110,7 +110,7 @@ const oldPriceComputed = computed(() => {
 &__delivery {
 grid-column: 1/2;
 font-weight: 600;
-color: var(--deep-sky-blue);
+color: var(--sky-blue-color);
 }
 }
 

@@ -24,12 +24,19 @@ const cards = ref([
    '/image/payment/mir.png'
 ])
 
+// const totalPriceComputed = computed(() => {
+//    let price = 0
+//    userStore.cart.forEach(prod => {
+//       price += prod.price
+//    })
+//    return price / 100
+// })
+
 const totalPriceComputed = computed(() => {
-   let price = 0
-   userStore.cart.forEach(prod => {
-      price += prod.price
-   })
-   return price / 100
+  const totalPrice = userStore.cart.reduce((acc, item) => {
+   return acc+=item.price
+   },0)
+   return totalPrice / 100
 })
 
 const selectedRadioFunc = (el: ElType): void => {
@@ -109,7 +116,6 @@ const products = [
    :description="product.description"
    :url="product.url"
    :price="product.price"
-   :selectedArray="selectedArray"
    @selectedRadio-="selectedRadioFunc"
    />
 </div>
@@ -125,8 +131,10 @@ const products = [
       <b>{{ totalPriceComputed }}</b>
    </span>
    <UButton
+   @click="goToCheckout"
    name-class="checkout"
    label="Проверить"
+   role="link"
    />
 </div>
 
@@ -254,6 +262,7 @@ const products = [
 
 &__subtitle {
    text-align: center;
+   margin-block-end: toRem(9);
 }
 
 &__card-list {

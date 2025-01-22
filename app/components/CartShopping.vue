@@ -5,7 +5,7 @@
 <div>
 <NuxtLink
 class="cart-link"
-   to="/cartShopping"
+   to="/cartshopping"
    >
    <span class="cart-link__price">0</span>
    <Icon

@@ -7,7 +7,6 @@ interface PropsProduct {
    description: string
    url: string
    price: number
-   selectedArray?: number[]
 }
 const props = defineProps<PropsProduct>()
 

@@ -159,7 +159,19 @@ body:has(dialog[open]) {
   }
 
   &_add-to-cart {
+   border-radius: toRem(8);
+   box-shadow: 0 toRem(5) toRem(1) rgba(0, 0, 0, 0.4);
+   transition: background-color var(--transition-duration);
    background-color: var(--warning-color);
+
+   &:active {
+      translate: 0 toRem(3);
+      box-shadow: 0 toRem(2) toRem(1) rgba(0, 0, 0, 0.4);
+   }
+
+   @include hover {
+      background-color: var(--warning-hover);
+   }
   }
 
   &_remove-cart-item {
@@ -177,6 +189,11 @@ body:has(dialog[open]) {
    font-weight: 600;
    border-radius: toRem(25);
    background-color: var(--danger-color);
+   transition: background-color var(--transition-duration);
+
+   @include hover {
+      background-color: var(--danger-hover);
+   }
   }
 
 
