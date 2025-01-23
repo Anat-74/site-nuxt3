@@ -129,7 +129,7 @@ const products = [
 }
 
 &__link-update-address {
-   display: flex;
+   display: inline-flex;
    align-items: center;
    column-gap: toRem(4);
    padding-block-end: toRem(7);
@@ -139,9 +139,9 @@ const products = [
 }
 
 &__subtitle {
-   display: inline-block;
+   display: block;
    padding-block-start: toRem(7);
-   border-bottom: 1px solid var(--border-color);
+   text-decoration: underline;
 }
 
 &__list {

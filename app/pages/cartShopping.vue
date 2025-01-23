@@ -132,7 +132,7 @@ const products = [
    </span>
    <UButton
    @click="goToCheckout"
-   name-class="checkout"
+   size="large"
    label="Проверить"
    role="link"
    />

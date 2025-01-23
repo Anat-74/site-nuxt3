@@ -4,7 +4,6 @@ const props = defineProps<PropsProduct>()
 
 const userStore = useUserStore()
 
-
 const emit = defineEmits(['selectedRadio'])
 
 let isSelected = ref(false)

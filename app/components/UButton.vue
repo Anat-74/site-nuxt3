@@ -5,6 +5,7 @@ interface Props{
    icon?: string
    label?: string
    size?: string
+   loading?: boolean
    theme?: string
 }
 const { size = 'normal' } = defineProps<Props>()
@@ -25,8 +26,9 @@ const clickOnButton = () => {
       :class="[
       'btn', `btn_${nameClass}`,
       { 'btn_icon': icon }, { 'btn_large': size === 'large' },
+      { 'btn_loading': loading },
       { 'btn_preferred': !colorMode.unknown && theme === colorMode.preference,
-        'btn_selected': !colorMode.unknown && theme === colorMode.value}
+      'btn_selected': !colorMode.unknown && theme === colorMode.value}
    ]"
       >
    <span v-if="icon">
@@ -106,12 +108,20 @@ body:has(dialog[open]) {
 
    &_search {
       height: 100%;
-      padding-inline: toRem(12);
+      border: toRem(2) solid var(--danger-color);
+      padding-inline: toRem(10);
       border-radius: toRem(0) toRem(4) toRem(4) toRem(0);
       background-color: var(--danger-color);
 
       svg {
          font-size: toRem(20);
+         transition: transform var(--transition-duration);
+      }
+
+      @include hover {
+         svg {
+            transform: scale(1.3);
+         }
       }
    }
 
@@ -185,7 +195,7 @@ body:has(dialog[open]) {
    }
   }
 
-  &_checkout {
+  &_large {
    font-weight: 600;
    border-radius: toRem(25);
    background-color: var(--danger-color);
@@ -227,9 +237,6 @@ body:has(dialog[open]) {
       @include hover {
          transform: scale(1.1);
       }
-  }
-
-  &_large {
   }
 }
 </style>
