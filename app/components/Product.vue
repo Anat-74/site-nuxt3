@@ -17,6 +17,7 @@ const oldPriceComputed = computed(() => {
    class="product"
    :id="`ProductComponents ${id}`"
    >
+   <h2 class="visually-hidden">Карточка товаров</h2>
    <NuxtLink 
    class="product__link"
    :to="`/item/${id}`">
@@ -47,14 +48,13 @@ const oldPriceComputed = computed(() => {
             <Icon name="famicons:star-outline" />
             4.7
          </p>
-         <h2 class="product__title">{{ title }}</h2>
+         <h3 class="product__title">{{ title }}</h3>
          <span class="product__delivery">Доставка</span>
       </div>
    </article>
 </template>
 
 <style lang="scss" scoped>
-@use '@/assets/scss/base' as *;
 .product {
 
 &__image {
@@ -94,7 +94,6 @@ const oldPriceComputed = computed(() => {
 
 &__title {
    grid-column: 1/2;
-   font-size: inherit;
    margin-block-end: toRem(4);
 }
 

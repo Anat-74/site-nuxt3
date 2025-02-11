@@ -113,7 +113,6 @@ const products = [
 </template>
 
 <style lang="scss" scoped>
-@use '@/assets/scss/base' as *;
 .checkout-page {
    padding-inline: toRem(16);
    padding-block: toRem(22);

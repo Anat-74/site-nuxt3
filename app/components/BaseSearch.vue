@@ -59,7 +59,6 @@ for="my-search"
 </template>
 
 <style lang="scss" scoped>
-@use '@/assets/scss/base' as *;
 .search {
    position: relative;
 

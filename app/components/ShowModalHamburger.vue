@@ -1,5 +1,13 @@
 <script setup lang="ts">
-const dialogElement = useTemplateRef<HTMLDialogElement | null>('dialog-contacts')
+const dialogElement = useTemplateRef<HTMLDialogElement>('dialog-contacts')
+
+const openDialog = () => {
+   dialogElement.value?.showModal()
+   }
+
+const closeDialog = () => {
+   dialogElement.value?.close()
+}
 
 onMounted(() => {
   if (dialogElement.value) {
@@ -11,7 +19,7 @@ onMounted(() => {
 <template>
    <div>
    <UButton 
-   onclick="window.dialogContacts.showModal()" 
+   @click="openDialog" 
    name-class="hamburger"
    aria-label="Открыть модальное окно" 
    >
@@ -24,20 +32,18 @@ onMounted(() => {
    aria-label="Контакты" 
    >
      <div class="dialog-contacts__items">
-       <form method="dialog">
          <UButton 
+         @click="closeDialog"
          name-class="hamburger"
          type="submit" 
          aria-label="Закрыть модальное окно"
           />
-       </form>
      </div>
    </dialog>
 </div>
  </template>
 
 <style lang="scss" scoped>
-@use '@/assets/scss/base' as *;
 .dialog-contacts {
   display: block;
   min-height: 100dvh;

@@ -10,7 +10,6 @@
 </template>
 
 <style lang="scss" scoped>
-@use '@/assets/scss/base' as *;
 .loading {
    height: 140px;
    background-color: var(--dark-color);

@@ -50,7 +50,6 @@ const { isAccount, isContacts } = useVisibilityProvider()
 </template>
 
 <style lang="scss" scoped>
-@use '@/assets/scss/base' as *;
 .header {
    &__container-top {
       display: grid;

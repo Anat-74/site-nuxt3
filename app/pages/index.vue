@@ -40,7 +40,6 @@ const products = [
 </template>
 
 <style lang="scss" scoped>
-@use '@/assets/scss/base' as *;
 .home {
    &__columns {
       display: grid;

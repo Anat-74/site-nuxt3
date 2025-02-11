@@ -27,7 +27,6 @@ function iconName(theme: string) {
  </template>
  
  <style lang="scss" scoped>
- @use '@/assets/scss/base' as *;
  .color-mode {
    display: flex;
    column-gap: toRem(4);

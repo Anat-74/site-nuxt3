@@ -74,6 +74,7 @@ const addToCart = () => {
       alt="image"
       format="webp"
       width="90"
+      loading="lazy"
       />
    </div>
    </div>
@@ -113,7 +114,6 @@ const addToCart = () => {
 </template>
 
 <style lang="scss" scoped>
-@use '@/assets/scss/base' as *;
 .item {
    padding-block: toRem(12);
    display: grid;

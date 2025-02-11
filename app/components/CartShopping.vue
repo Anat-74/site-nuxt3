@@ -15,8 +15,6 @@ class="cart-link"
 </template>
 
 <style lang="scss" scoped>
-@use '@/assets/scss/base' as *;
-
    .cart-link {
       position: relative;
 

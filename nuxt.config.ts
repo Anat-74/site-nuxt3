@@ -28,7 +28,6 @@ export default defineNuxtConfig({
         omitLineBreaks: false
       }
     },
-   // ssr: false,
    modules: [
    // '@nuxtjs/supabase',
       '@nuxt/image',
@@ -89,7 +88,33 @@ export default defineNuxtConfig({
       preference: 'system', // default value of $colorMode.preference
       fallback: 'light', // fallback value if not system preference found
     },
-    css: ['~/assets/scss/styles.scss'],
+   css: ['~/assets/scss/styles.scss'],
+   vite: {
+      css: {
+         preprocessorOptions: {
+           scss: {
+               additionalData: `
+             @use "@/assets/scss/base/_container.scss" as *;
+             @use "@/assets/scss/base/_fonts.scss" as *;
+             @use "@/assets/scss/base/_functions.scss" as *;
+             @use "@/assets/scss/base/_globals.scss" as *;
+             @use "@/assets/scss/base/_mixins.scss" as *;
+             @use "@/assets/scss/base/_normalize.scss" as *;
+             `,
+            }
+         },
+         preprocessorMaxWorkers: true,
+         devSourcemap: true,
+       },
+      build: {
+         cssCodeSplit: true,
+         cssMinify: true
+       },
+       optimizeDeps: {
+         include: ['sass']
+      },
+      assetsInclude: ['**/*.avif']
+   },
 
    runtimeConfig: {
       public: {
@@ -99,12 +124,13 @@ export default defineNuxtConfig({
 
    app: {
       head: {
+         title: 'TechnoMars',
          htmlAttrs: {
             lang: 'ru'
           },
-         script: [
-          { src: 'https://js.stripe.com/v3/', defer: true }
-        ]
+      //    script: [
+      //     { src: 'https://js.stripe.com/v3/', defer: true }
+      //   ]
       }
    }
 })

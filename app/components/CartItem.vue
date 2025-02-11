@@ -53,7 +53,6 @@ watch(() => isSelected.value,
 </template>
 
 <style lang="scss" scoped>
-@use '@/assets/scss/base' as *;
 .cart-item {
    padding-inline: toRem(9);
    padding-block: toRem(4);

@@ -159,7 +159,6 @@ const products = [
 </template>
 
 <style lang="scss" scoped>
-@use '@/assets/scss/base' as *;
 .cart-page {
    padding-block: toRem(32);
 

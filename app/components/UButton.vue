@@ -40,7 +40,6 @@ const clickOnButton = () => {
 </template>
 
 <style lang="scss" scoped>
-@use '@/assets/scss/base' as *;
 body:has(dialog[open]) {
    .btn_hamburger {
       span {
@@ -205,6 +204,26 @@ body:has(dialog[open]) {
       background-color: var(--danger-hover);
    }
   }
+
+  &_go-to-top {
+   position: fixed;
+   z-index: 999;
+   width: toRem(40);
+   height: toRem(40);
+   padding: toRem(4);
+   background-color: var(--primary-color);
+   background-color: var(--primary-opacity-color);
+   @include adaptiveValue("bottom", 80, 36);
+
+   @media (max-width:$mobile){
+      width: toRem(34);
+      height: toRem(34);
+   }
+
+   svg {
+      font-size: toRem(24);
+   }
+}
 
 
 

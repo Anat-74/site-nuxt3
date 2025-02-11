@@ -8,5 +8,5 @@ const props = defineProps<PropsProduct>()
 </template>
 
 <style lang="scss" scoped>
-@use "@/assets/scss/base" as *;
+
 </style>

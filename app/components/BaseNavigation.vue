@@ -101,7 +101,6 @@ const { isAccount, isContacts, visibleIsAccount, visibleIsContacts } = useVisibi
 </template>
 
 <style lang="scss" scoped>
-@use '@/assets/scss/base' as *;
    .nav {
       &__list {
          padding-inline-end: toRem(16);

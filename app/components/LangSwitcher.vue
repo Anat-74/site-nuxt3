@@ -30,7 +30,6 @@ const language = computed({
 </template>
 
 <style lang="scss" scoped>
-@use '@/assets/scss/base' as *;
 .locale {
    transition: transform var(--transition-duration);
    @include hover {

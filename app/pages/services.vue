@@ -12,7 +12,6 @@ useSeoMeta({
 </script>
 
 <style lang="scss" scoped>
-
 </style>
 <template>
       <section class="services">
